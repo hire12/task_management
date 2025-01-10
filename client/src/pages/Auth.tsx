@@ -25,6 +25,7 @@ const Auth = () => {
 
   return (
     <div>
+      <div className="auth_form">
       <h1>{isRegister ? "Register" : "Login"}</h1>
       <form onSubmit={handleSubmit}>
         {isRegister && (
@@ -50,8 +51,9 @@ const Auth = () => {
         <button type="submit">{isRegister ? "Register" : "Login"}</button>
       </form>
       <button onClick={() => setIsRegister(!isRegister)}>
-        {isRegister ? "Switch to Login" : "Switch to Register"}
+        {isRegister ? "Login" : "Register"}
       </button>
+      </div>
     </div>
   );
 };
