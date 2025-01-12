@@ -61,7 +61,13 @@ const TaskList = () => {
                         <span className={`task-item__priority task-item__priority--${task.priority.toLowerCase()}`}>
                           {task.priority}
                         </span>
-                        <span className={`task-item__status task-item__status--${task.status.toLowerCase()}`}>
+                        <span
+                          className={`task-item__status task-item__status--${
+                            task.status === "To Do"
+                              ? "todo"
+                              : task.status.toLowerCase().replace(" ", "-")
+                          }`}
+                        >
                           {task.status}
                         </span>
                       </div>
