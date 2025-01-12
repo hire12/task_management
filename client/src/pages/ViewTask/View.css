@@ -114,6 +114,14 @@
   background-color: #ff9e2f;
 }
 
+.task-item__delete {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.task-item__delete:hover {
+  background-color: #e53935;
+}
 /* Task content in normal view */
 .view-task-content {
   font-size: 16px;
@@ -141,6 +149,14 @@
   background-color: #ccc;
   color: #fff;
   cursor: pointer;
+}
+.task-item__delete {
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .view-task-close:hover {
