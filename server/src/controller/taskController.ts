@@ -73,6 +73,7 @@ export const deleteTask = async (req: Request, res: Response) => {
     });
     if (!deletedTask) {
       res.status(404).json({ message: "Task not found." });
+      return;
     }
 
     res.json({ message: "Task deleted successfully.", deletedTask });
