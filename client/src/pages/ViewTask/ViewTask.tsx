@@ -1,31 +1,58 @@
 import React, { useState } from "react";
 import "./View.css";
-import { updateTask } from "../../api";
+import { updateTask, deleteTask } from "../../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
   const [editedTask, setEditedTask] = useState({ ...task });
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [tasks, setTasks] = useState()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setEditedTask((prevTask) => ({ ...prevTask, [name]: value }));
   };
 
+
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
       const { data } = await updateTask(editedTask._id, editedTask);
-      console.log("Task updated successfully:", data);
+      toast.success("Task updated successfully!"); // Success toast
       setIsEditing(false);
     } catch (err) {
       console.error("Error updating task:", err);
-      alert("Failed to update task. Please try again.");
+      toast.error("Failed to update task. Please try again."); // Error toast
     } finally {
       setLoading(false);
     }
   };
+
+  const handleDelete = async (e: React.MouseEvent, taskId: string) => {
+    e.stopPropagation();
+
+    const confirmDelete = window.confirm("Are you sure you want to delete this task?");
+    if (confirmDelete) {
+      try {
+        const response = await deleteTask(taskId);
+        toast.success("Task deleted successfully!"); // Success toast
+        setTasks((prevTasks) => prevTasks.filter((task) => task._id !== taskId));
+        onClose();
+      } catch (err: any) {
+        console.error("Error deleting task:", err);
+        if (err.response?.status === 404) {
+          toast.warn("Task not found. It may have already been deleted."); // Warning toast
+        } else {
+          toast.error("Failed to delete task. Please try again."); // Error toast
+        }
+      }
+    }
+  };
+
 
   return (
     <div className="view-task-container">
@@ -46,6 +73,12 @@ const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
               <button onClick={() => setIsEditing(true)} className="view-task-edit">
                 Edit Task
               </button>
+              <button
+                 type="button"
+                 className="task-item__delete"
+                onClick={(e) => handleDelete(e, task._id)}>
+                  Delete
+                </button>
               <button className="view-task-close" onClick={onClose}>
                 Close
               </button>
@@ -119,6 +152,7 @@ const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
           </form>
         )}
       </dialog>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };
