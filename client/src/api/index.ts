@@ -27,6 +27,7 @@ export const logoutUser = () => API.post("/auth/logout");
 export const getTasks = () => API.get("/api/tasks");
 export const createTask = (data: Partial<ITask>) => API.post("/api/tasks", data);
 export const updateTask = (id: string, data: Partial<ITask>) => API.put(`/api/tasks/${id}`, data);
+// export const updateTask = (id: string, data: Partial<ITask>) => API.put(`/api/tasks/${id}`, data);
 export const deleteTask = (id: string) => API.delete(`/api/tasks/${id}`);
 export const getTaskById = (id: string) => API.get(`/api/tasks/${id}`);
 export const updateTaskStatus = (id: string) => API.get(`/api/tasks/${id}`);
