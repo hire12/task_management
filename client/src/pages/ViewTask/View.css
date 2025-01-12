@@ -1,74 +1,220 @@
-/* Container for the task view */
-.view-task-container {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
+General Styles
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9; /* Subtle background color */
+  color: #333; /* Default text color */
 }
 
+/* Backdrop */
 .view-task-backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
   z-index: 999;
 }
 
+/* Dialog */
 .view-task-dialog {
-  position: fixed;  /* Change this from relative to fixed */
-  top: 50%;         /* Position at 50% from the top of the screen */
-  left: 50%;        /* Position at 50% from the left of the screen */
-  transform: translate(-50%, -50%);  /* Move it back by half of its own width and height */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: #fff;
   border-radius: 8px;
-  padding: 20px;
-  max-width: 600px;
-  width: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  padding: 20px;
   animation: fadeIn 0.3s ease;
+  border: 1px solid #ddd;
 }
 
-/* Animation for fade-in */
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translate(-50%, -45%);
   }
   to {
     opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 
-/* Title styles */
+/* Title */
 .view-task-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 1.8em;
+  margin: 0 0 10px;
+  color: #4caf50; /* Calm green accent */
+  text-align: center;
 }
 
-/* Form inputs and selects */
+/* Description */
+.view-task-description,
+.view-task-priority,
+.view-task-status {
+  margin: 10px 0;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.view-task-priority strong,
+.view-task-status strong {
+  color: #333;
+}
+
+/* Buttons */
+.view-task-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.view-task-edit {
+  background: #007bff;
+  color: #fff;
+}
+
+.task-item__delete {
+  background: #f44336; /* Red for delete */
+  color: #fff;
+}
+
+.view-task-close {
+  background: #6c757d; /* Gray for close */
+  color: #fff;
+}
+
+.view-task-save {
+  background: #28a745; /* Green for save */
+  color: #fff;
+}
+
+.view-task-cancel {
+  background: #ffc107; /* Yellow for cancel */
+  color: #333;
+}
+
+/* Inputs & Selects */
 .view-task-input,
 .view-task-textarea,
 .view-task-select {
   width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 6px;
+  padding: 10px;
+  margin: 8px 0 16px;
   border: 1px solid #ddd;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #f8f9fa; /* Light background */
+  transition: border-color 0.2s;
 }
 
 .view-task-input:focus,
 .view-task-textarea:focus,
 .view-task-select:focus {
-  border-color: #0052cc;
+  border-color: #4caf50; /* Green border on focus */
   outline: none;
 }
 
-/* Buttons styling */
+/* Toastify Overrides */
+.Toastify__toast {
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.Toastify__toast--success {
+  background: #4caf50;
+}
+
+.Toastify__toast--error {
+  background: #f44336;
+}
+
+.Toastify__toast--warning {
+  background: #ffc107;
+}
+
+
+
+/* Container */
+.view-task-content {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Title */
+.view-task-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 10px;
+}
+
+/* Description */
+.view-task-description {
+  font-size: 1.1rem;
+  color: #34495e;
+  margin: 15px 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Priority and Status */
+.view-task-priority,
+.view-task-status {
+  font-size: 1rem;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+}
+
+.view-task-priority strong,
+.view-task-status strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.view-task-priority {
+  border-left-color: #f1c40f; /* Yellow for priority */
+}
+
+.view-task-status {
+  border-left-color: #3498db; /* Blue for status */
+}
+
+/* Actions (Buttons) */
 .view-task-actions {
   display: flex;
   justify-content: space-between;
@@ -76,101 +222,167 @@
   margin-top: 20px;
 }
 
-.view-task-save,
-.view-task-cancel,
-.view-task-edit {
+button {
+  flex: 1;
   padding: 12px 20px;
+  font-size: 1rem;
   border-radius: 6px;
   border: none;
-  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.view-task-save {
-  background-color: #4caf50;
-  color: #fff;
+button:hover {
+  opacity: 0.9;
 }
 
-.view-task-save:hover {
-  background-color: #45a049;
-}
-
-.view-task-cancel {
-  background-color: #f44336;
-  color: #fff;
-}
-
-.view-task-cancel:hover {
-  background-color: #e53935;
-}
-
+/* Specific Button Styles */
 .view-task-edit {
-  background-color: #ffaf3f;
-  color: #fff;
-}
-
-.view-task-edit:hover {
-  background-color: #ff9e2f;
+  background-color: #3498db; /* Blue */
+  color: white;
 }
 
 .task-item__delete {
-  background-color: #f44336;
-  color: #fff;
-}
-
-.task-item__delete:hover {
-  background-color: #e53935;
-}
-/* Task content in normal view */
-.view-task-content {
-  font-size: 16px;
-}
-
-.view-task-description {
-  margin-bottom: 10px;
-}
-
-.view-task-priority,
-.view-task-status {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.view-task-priority strong,
-.view-task-status strong {
-  font-weight: bold;
+  background-color: #e74c3c; /* Red */
+  color: white;
 }
 
 .view-task-close {
-  padding: 12px 20px;
-  border-radius: 6px;
-  border: none;
-  background-color: #ccc;
-  color: #fff;
-  cursor: pointer;
-}
-.task-item__delete {
-  padding: 12px 20px;
-  border-radius: 6px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.view-task-close:hover {
-  background-color: #999;
+  background-color: #7f8c8d; /* Gray */
+  color: white;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .view-task-dialog {
+  .view-task-content {
     padding: 15px;
   }
 
-  .view-task-actions {
-    flex-direction: column;
-    align-items: flex-start;
+  button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .view-task-title {
+    font-size: 1.5rem;
   }
 }
+
+
+
+
+
+
+
+
+/* Container */
+.view-task-content {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Title */
+.view-task-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2a628f; /* Soft navy blue */
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 3px solid #4caf50; /* Green underline */
+  padding-bottom: 10px;
+}
+
+/* Description */
+.view-task-description {
+  font-size: 1.1rem;
+  color: #4b6587; /* Cool muted blue */
+  margin: 15px 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Priority and Status */
+.view-task-priority,
+.view-task-status {
+  font-size: 1rem;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f9fc; /* Light blue-gray */
+  padding: 10px 15px;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50; /* Green */
+}
+
+.view-task-priority strong,
+.view-task-status strong {
+  color: #2a628f; /* Soft navy blue */
+  font-weight: 600;
+}
+
+.view-task-priority {
+  border-left-color: #f1c40f; /* Yellow for priority */
+}
+
+.view-task-status {
+  border-left-color: #27ae60; /* Green for status */
+}
+
+/* Actions (Buttons) */
+.view-task-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Specific Button Styles */
+.view-task-edit {
+  background-color: #3498db; /* Blue */
+}
+
+.task-item__delete {
+  background-color: #e74c3c; /* Red */
+}
+
+.view-task-close {
+  background-color: #7f8c8d; /* Gray */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .view-task-content {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .view-task-title {
+    font-size: 1.5rem;
+  }
+}
+
