@@ -10,5 +10,5 @@ export interface IUser {
     description: string;
     dueDate: string;
     priority: "Low" | "Medium" | "High";
-    status: "Incomplete" | "Complete";
+    status: "To Do" | "In Progress" | "Done";
   }
