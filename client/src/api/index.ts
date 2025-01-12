@@ -1,5 +1,21 @@
 import axios from "axios";
 
+export interface IUser {
+  id: string;
+  username: string;
+  email: string;
+}
+
+export interface ITask {
+  id: string;
+  title: string;
+  description: string;
+  dueDate: string;
+  priority: "Low" | "Medium" | "High";
+  status: "To Do" | "In Progress" | "Done";
+}
+
+
 const API = axios.create({
   baseURL: "http://localhost:3000", // Replace with your backend URL
 });
