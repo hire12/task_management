@@ -1,167 +1,160 @@
-/* .view-task-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+/* Container for the task view */
+.view-task-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  .view-task-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 999;
-  }
+.view-task-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
 
+.view-task-dialog {
+  position: fixed;  /* Change this from relative to fixed */
+  top: 50%;         /* Position at 50% from the top of the screen */
+  left: 50%;        /* Position at 50% from the left of the screen */
+  transform: translate(-50%, -50%);  /* Move it back by half of its own width and height */
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animation for fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Title styles */
+.view-task-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Form inputs and selects */
+.view-task-input,
+.view-task-textarea,
+.view-task-select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.view-task-input:focus,
+.view-task-textarea:focus,
+.view-task-select:focus {
+  border-color: #0052cc;
+  outline: none;
+}
+
+/* Buttons styling */
+.view-task-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.view-task-save,
+.view-task-cancel,
+.view-task-edit {
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-task-save {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.view-task-save:hover {
+  background-color: #45a049;
+}
+
+.view-task-cancel {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.view-task-cancel:hover {
+  background-color: #e53935;
+}
+
+.view-task-edit {
+  background-color: #ffaf3f;
+  color: #fff;
+}
+
+.view-task-edit:hover {
+  background-color: #ff9e2f;
+}
+
+/* Task content in normal view */
+.view-task-content {
+  font-size: 16px;
+}
+
+.view-task-description {
+  margin-bottom: 10px;
+}
+
+.view-task-priority,
+.view-task-status {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.view-task-priority strong,
+.view-task-status strong {
+  font-weight: bold;
+}
+
+.view-task-close {
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ccc;
+  color: #fff;
+  cursor: pointer;
+}
+
+.view-task-close:hover {
+  background-color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .view-task-dialog {
-    position: relative;
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    z-index: 1000;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  .view-task-title {
-    margin: 0 0 10px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .view-task-description {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-
-  .view-task-details {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-
-  .view-task-close {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  .view-task-close:hover {
-    background-color: #0056b3;
-  } */
-
-
-
-  .view-task-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .view-task-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 999;
-  }
-
-  .view-task-dialog {
-    position: relative;
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    z-index: 1000;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  .view-task-title {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .view-task-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .view-task-input,
-  .view-task-textarea,
-  .view-task-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-
-  .view-task-input:focus,
-  .view-task-textarea:focus,
-  .view-task-select:focus {
-    border-color: #007bff;
-    outline: none;
+    padding: 15px;
   }
 
   .view-task-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: flex-start;
   }
-
-  .view-task-save,
-  .view-task-close {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .view-task-save {
-    background-color: #007bff;
-    color: white;
-  }
-
-  .view-task-save:hover {
-    background-color: #0056b3;
-  }
-
-  .view-task-save:disabled {
-    background-color: #aaa;
-    cursor: not-allowed;
-  }
-
-  .view-task-close {
-    background-color: #f5f5f5;
-    color: #333;
-  }
-
-  .view-task-close:hover {
-    background-color: #ddd;
-  }
+}
