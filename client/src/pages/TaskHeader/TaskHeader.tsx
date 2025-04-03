@@ -31,7 +31,6 @@ const TaskListHeader = ({ fetchTasks }: { fetchTasks: () => void }) => {
             <button className="modal-close-btn" onClick={handleCloseForm}>
               &times;
             </button>
-            {/* Pass both fetchTasks and handleCloseForm to NewTask */}
             <NewTask fetchTasks={fetchTasks} onClose={handleCloseForm} />
           </div>
         </div>

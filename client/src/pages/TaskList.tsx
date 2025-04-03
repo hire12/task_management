@@ -4,6 +4,7 @@ import ViewTask from "./ViewTask/ViewTask";
 import TaskListHeader from "./TaskHeader/TaskHeader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ITask } from "../types";
 
 const TaskList = () => {
   const [tasks, setTasks] = useState<ITask[]>([]);

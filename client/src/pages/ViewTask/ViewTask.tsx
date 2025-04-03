@@ -3,13 +3,14 @@ import "./View.css";
 import { updateTask, deleteTask } from "../../api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ITask } from "../../types";
 
 
 const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
   const [editedTask, setEditedTask] = useState({ ...task });
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [tasks, setTasks] = useState()
+  const [tasks, setTasks] = useState<ITask[]>([])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -40,7 +41,7 @@ const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
       try {
         const response = await deleteTask(taskId);
         toast.success("Task deleted successfully!"); // Success toast
-        setTasks((prevTasks) => prevTasks.filter((task) => task._id !== taskId));
+        setTasks((prevTasks) => prevTasks?.filter((t) => t._id !== taskId) || []);
         onClose();
       } catch (err: any) {
         console.error("Error deleting task:", err);
