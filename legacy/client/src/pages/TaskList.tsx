@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTasks } from "../api";
 import ViewTask from "./ViewTask/ViewTask";
 import TaskListHeader from "./TaskHeader/TaskHeader";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ITask } from "../types";
 
@@ -52,7 +52,7 @@ const TaskList = () => {
                   tasks
                     .filter((task) => task.status === status)
                     .map((task, index) => (
-                      <li key={task.id || index} className="task-item" onClick={() => handleTaskClick(task)}>
+                      <li key={task._id || task.id || index} className="task-item" onClick={() => handleTaskClick(task)}>
                         <div className="task-item__content">
                           <h2 className="task-item__title">{task.title}</h2>
                           <p className="task-item__description">{task.description}</p>

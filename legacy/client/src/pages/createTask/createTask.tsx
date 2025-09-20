@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState, FormEvent } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createTask } from "../../api";
+import { ITask } from "../../types";
 
 interface NewTaskProps {
   onClose: () => void;
@@ -11,11 +12,11 @@ interface NewTaskProps {
 export default function NewTask({ fetchTasks, onClose }: NewTaskProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [priority, setPriority] = useState("Medium");
+  const [priority, setPriority] = useState<"Low" | "Medium" | "High">("Medium");
   const [dueDate, setDueDate] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!title || !description || !dueDate) {
@@ -23,7 +24,7 @@ export default function NewTask({ fetchTasks, onClose }: NewTaskProps) {
       return;
     }
 
-    const newTask = {
+    const newTask: Partial<ITask> = {
       title,
       description,
       priority,
@@ -33,7 +34,7 @@ export default function NewTask({ fetchTasks, onClose }: NewTaskProps) {
     setLoading(true);
 
     try {
-      const { data } = await createTask(newTask);
+      await createTask(newTask);
       toast.success("Task created successfully!");
 
       // Reset the form
@@ -84,7 +85,7 @@ export default function NewTask({ fetchTasks, onClose }: NewTaskProps) {
             id="priority"
             className="form-select"
             value={priority}
-            onChange={(e) => setPriority(e.target.value)}
+            onChange={(e) => setPriority(e.target.value as "Low" | "Medium" | "High")}
           >
             <option value="High">High</option>
             <option value="Medium">Medium</option>

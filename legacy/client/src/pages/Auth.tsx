@@ -18,8 +18,9 @@ const Auth = () => {
         // alert("Login successful!");
         localStorage.setItem("token", data.token);
       }
-    } catch (err) {
-      alert("Error: " + err.message);
+    } catch (err: any) {
+      const errorMessage = err.response?.data?.message || err.message || "An error occurred";
+      alert("Error: " + errorMessage);
     }
   };
 

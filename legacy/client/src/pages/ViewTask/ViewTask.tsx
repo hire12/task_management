@@ -1,28 +1,26 @@
-import React, { useState } from "react";
+import { useState, ChangeEvent, FormEvent, MouseEvent } from "react";
 import "./View.css";
 import { updateTask, deleteTask } from "../../api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ITask } from "../../types";
 
-
 const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
   const [editedTask, setEditedTask] = useState({ ...task });
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [tasks, setTasks] = useState<ITask[]>([])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setEditedTask((prevTask) => ({ ...prevTask, [name]: value }));
   };
 
-
-  const handleSave = async (e: React.FormEvent) => {
+  const handleSave = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await updateTask(editedTask._id, editedTask);
+      const taskId = editedTask._id || editedTask.id || "";
+      await updateTask(taskId, editedTask);
       toast.success("Task updated successfully!"); // Success toast
       setIsEditing(false);
     } catch (err) {
@@ -33,15 +31,14 @@ const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
     }
   };
 
-  const handleDelete = async (e: React.MouseEvent, taskId: string) => {
+  const handleDelete = async (e: MouseEvent, taskId: string) => {
     e.stopPropagation();
 
     const confirmDelete = window.confirm("Are you sure you want to delete this task?");
     if (confirmDelete) {
       try {
-        const response = await deleteTask(taskId);
+        await deleteTask(taskId);
         toast.success("Task deleted successfully!"); // Success toast
-        setTasks((prevTasks) => prevTasks?.filter((t) => t._id !== taskId) || []);
         onClose();
       } catch (err: any) {
         console.error("Error deleting task:", err);
@@ -53,7 +50,6 @@ const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
       }
     }
   };
-
 
   return (
     <div className="view-task-container">
@@ -77,7 +73,7 @@ const ViewTask = ({ task, onClose }: { task: ITask; onClose: () => void }) => {
               <button
                  type="button"
                  className="task-item__delete"
-                onClick={(e) => handleDelete(e, task._id)}>
+                onClick={(e) => handleDelete(e, task._id || task.id || "")}>
                   Delete
                 </button>
               <button className="view-task-close" onClick={onClose}>
