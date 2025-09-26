@@ -1,0 +1,121 @@
+@import "@fontsource/lexend/300.css";
+@import "@fontsource/lexend/400.css";
+@import "@fontsource/lexend/500.css";
+@import "@fontsource/lexend/600.css";
+@import "@fontsource/lexend/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #F7F6F3;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F0EEEA;
+  --color-surface-elevated: #FFFFFF;
+  --color-border: #E3E0D8;
+  --color-border-subtle: #ECEAE3;
+  --color-text-primary: #24221F;
+  --color-text-secondary: #6C6860;
+  --color-text-placeholder: #9C988F;
+  
+  --color-accent: #465A4B;
+  --color-accent-hover: #36463A;
+  --color-accent-subtle: #EBF0EC;
+
+  --color-success: #537C5D;
+  --color-warning: #B38645;
+  --color-danger: #A65248;
+  --color-purple: #74639B;
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-modal: 0 16px 36px rgba(0, 0, 0, 0.1);
+
+  --font-lexend: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Elevated, velvety Dark Mode with deep obsidian tones and subtle glass depth */
+.dark {
+  --color-bg: #0B0D11;
+  --color-surface: #131720;
+  --color-surface-muted: #1A202C;
+  --color-surface-elevated: #222A3A;
+  --color-border: #232B3B;
+  --color-border-subtle: #19202E;
+  --color-text-primary: #F4F6FB;
+  --color-text-secondary: #9BA6B8;
+  --color-text-placeholder: #576479;
+
+  --color-accent: #5EB182;
+  --color-accent-hover: #72C796;
+  --color-accent-subtle: #12281D;
+
+  --color-success: #67B984;
+  --color-warning: #E0AB57;
+  --color-danger: #E06B60;
+  --color-purple: #A792DB;
+
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.03);
+  --shadow-raised: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-modal: 0 24px 48px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-lexend);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle ambient background glow in dark mode */
+.dark body {
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(94, 177, 130, 0.06), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 80%, rgba(167, 146, 219, 0.04), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-placeholder);
+}
+
+/* Subtle selection highlight */
+::selection {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-text-primary);
+}
+
+/* Drag & Drop Visual Classes */
+.dragging-card {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+.drop-target-active {
+  border-color: var(--color-accent) !important;
+  background-color: var(--color-accent-subtle) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
