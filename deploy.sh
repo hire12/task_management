@@ -70,9 +70,6 @@ ENVFILE
 echo "🔄 Generating Prisma Client..."
 npx prisma generate --schema=./prisma/schema.prisma 2>/dev/null || true
 
-echo "🌱 Running database seed..."
-npx tsx prisma/seed.ts 2>/dev/null || true
-
 echo "🔄 Recycling LiteSpeed Passenger worker..."
 mkdir -p tmp && touch tmp/restart.txt
 pkill -f "lsnode:/home/pixelmgj/orbit.pixel-mind.com/" 2>/dev/null || true
