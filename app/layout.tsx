@@ -18,7 +18,22 @@ export default async function RootLayout({
   const allProjects = await getProjects(defaultWorkspace?.id);
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.getItem('theme') === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="antialiased">
         <Shell
           workspaceId={defaultWorkspace?.id || ""}
