@@ -8,16 +8,20 @@ import {
   Clock,
   Trash,
   DotsSixVertical,
+  ArrowRight,
 } from "@phosphor-icons/react";
 import { FullTask } from "@/lib/types";
 import { Badge } from "@/components/ui/Badge";
-import { toggleTaskStatus, deleteTask, toggleSubtask, addSubtask } from "@/app/actions/tasks";
+import { toggleTaskStatus, deleteTask, toggleSubtask, addSubtask, updateTask } from "@/app/actions/tasks";
 import { formatRelativeDate, cn } from "@/lib/utils";
+import { TaskStatus } from "@prisma/client";
 
 interface TaskCardProps {
   task: FullTask;
   showProjectName?: boolean;
   onDragStart?: (e: React.DragEvent<HTMLDivElement>, task: FullTask) => void;
+  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onStatusChange?: (taskId: string, newStatus: TaskStatus) => void;
   isDragging?: boolean;
 }
 
@@ -25,10 +29,13 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   task,
   showProjectName = false,
   onDragStart,
+  onDragEnd,
+  onStatusChange,
   isDragging = false,
 }) => {
   const [loading, setLoading] = useState(false);
   const [showSubtasks, setShowSubtasks] = useState(false);
+  const [showStatusPicker, setShowStatusPicker] = useState(false);
   const [newSubtaskTitle, setNewSubtaskTitle] = useState("");
   const isDone = task.status === "DONE";
 
@@ -41,6 +48,16 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       console.error(err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleQuickMove = async (e: React.MouseEvent, nextStatus: TaskStatus) => {
+    e.stopPropagation();
+    setShowStatusPicker(false);
+    if (onStatusChange) {
+      onStatusChange(task.id, nextStatus);
+    } else {
+      await updateTask(task.id, { status: nextStatus });
     }
   };
 
@@ -68,18 +85,54 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   const completedSubtasks = task.subtasks?.filter((s) => s.isCompleted).length || 0;
   const totalSubtasks = task.subtasks?.length || 0;
 
+  const nextStatuses: Record<TaskStatus, { status: TaskStatus; label: string }[]> = {
+    BACKLOG: [
+      { status: TaskStatus.TODO, label: "To Do" },
+      { status: TaskStatus.IN_PROGRESS, label: "In Progress" },
+    ],
+    TODO: [
+      { status: TaskStatus.IN_PROGRESS, label: "In Progress" },
+      { status: TaskStatus.DONE, label: "Done" },
+    ],
+    IN_PROGRESS: [
+      { status: TaskStatus.REVIEW, label: "Review" },
+      { status: TaskStatus.DONE, label: "Done" },
+      { status: TaskStatus.TODO, label: "To Do" },
+    ],
+    REVIEW: [
+      { status: TaskStatus.DONE, label: "Done" },
+      { status: TaskStatus.IN_PROGRESS, label: "In Progress" },
+    ],
+    DONE: [
+      { status: TaskStatus.TODO, label: "Re-open" },
+    ],
+  };
+
   return (
     <div
-      draggable={!!onDragStart}
-      onDragStart={(e) => onDragStart && onDragStart(e, task)}
+      draggable
+      onDragStart={(e) => {
+        e.dataTransfer.setData("text/plain", task.id);
+        e.dataTransfer.effectAllowed = "move";
+        if (typeof window !== "undefined") {
+          (window as any).__ORBIT_DRAGGED_TASK_ID = task.id;
+        }
+        onDragStart?.(e, task);
+      }}
+      onDragEnd={(e) => {
+        if (typeof window !== "undefined") {
+          delete (window as any).__ORBIT_DRAGGED_TASK_ID;
+        }
+        onDragEnd?.(e);
+      }}
       className={cn(
-        "group relative rounded-xl border border-border/80 bg-surface p-3.5 transition-all duration-200 hover:border-content-placeholder/40 hover:shadow-card cursor-grab active:cursor-grabbing select-none",
+        "group relative rounded-xl border border-border/80 bg-surface p-3.5 transition-all duration-200 hover:border-content-placeholder/50 hover:shadow-card cursor-grab active:cursor-grabbing select-none",
         isDone && "bg-surface-muted/30 opacity-70 border-border/40",
-        isDragging && "opacity-40 scale-[0.98] border-dashed border-accent"
+        isDragging && "opacity-30 scale-[0.97] border-dashed border-accent shadow-raised"
       )}
     >
       <div className="flex items-start gap-2.5">
-        {/* Drag Handle Indicator */}
+        {/* Drag Grip Handle */}
         <div className="mt-0.5 text-content-placeholder/40 group-hover:text-content-placeholder transition-colors shrink-0">
           <DotsSixVertical weight="bold" className="w-3.5 h-3.5" />
         </div>
@@ -109,14 +162,45 @@ export const TaskCard: React.FC<TaskCardProps> = ({
               {task.title}
             </h4>
 
-            <button
-              onClick={handleDelete}
-              title="Delete Task"
-              className="opacity-0 group-hover:opacity-100 text-content-placeholder hover:text-brandDanger transition-opacity p-0.5 cursor-pointer shrink-0"
-            >
-              <Trash weight="duotone" className="w-3.5 h-3.5" />
-            </button>
+            <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowStatusPicker(!showStatusPicker);
+                }}
+                title="Move Task Status"
+                className="text-content-placeholder hover:text-content-primary p-0.5 rounded hover:bg-surface-muted transition-colors cursor-pointer"
+              >
+                <ArrowRight weight="bold" className="w-3 h-3" />
+              </button>
+
+              <button
+                onClick={handleDelete}
+                title="Delete Task"
+                className="text-content-placeholder hover:text-brandDanger p-0.5 rounded hover:bg-surface-muted transition-colors cursor-pointer"
+              >
+                <Trash weight="duotone" className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
+
+          {/* Quick Move Status Popover */}
+          {showStatusPicker && (
+            <div className="mt-2 p-1.5 rounded-lg border border-border bg-surface-elevated shadow-modal flex items-center gap-1.5 flex-wrap z-10 animate-fade-in">
+              <span className="text-[10.5px] font-semibold text-content-placeholder uppercase px-1">
+                Move to:
+              </span>
+              {nextStatuses[task.status]?.map((item) => (
+                <button
+                  key={item.status}
+                  onClick={(e) => handleQuickMove(e, item.status)}
+                  className="px-2 py-0.5 rounded text-[11px] font-medium bg-surface text-content-primary border border-border/80 hover:bg-accent hover:text-white transition-colors cursor-pointer shadow-xs"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          )}
 
           {task.description && (
             <p className="text-[12.5px] text-content-secondary line-clamp-2 mt-1 leading-relaxed">

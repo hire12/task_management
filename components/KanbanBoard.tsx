@@ -33,9 +33,14 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
   ];
 
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>, task: FullTask) => {
+    setDraggedTaskId(task.id);
     e.dataTransfer.setData("text/plain", task.id);
     e.dataTransfer.effectAllowed = "move";
-    setDraggedTaskId(task.id);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedTaskId(null);
+    setDragOverColumn(null);
   };
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>, status: TaskStatus) => {
@@ -46,23 +51,16 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
     }
   };
 
-  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>, status: TaskStatus) => {
-    // Only clear if leaving the column itself
-    const rect = e.currentTarget.getBoundingClientRect();
-    if (
-      e.clientX < rect.left ||
-      e.clientX >= rect.right ||
-      e.clientY < rect.top ||
-      e.clientY >= rect.bottom
-    ) {
-      setDragOverColumn(null);
-    }
-  };
-
   const handleDrop = async (e: React.DragEvent<HTMLDivElement>, targetStatus: TaskStatus) => {
     e.preventDefault();
+    e.stopPropagation();
     setDragOverColumn(null);
-    const taskId = e.dataTransfer.getData("text/plain") || draggedTaskId;
+
+    const taskId =
+      e.dataTransfer.getData("text/plain") ||
+      (typeof window !== "undefined" && (window as any).__ORBIT_DRAGGED_TASK_ID) ||
+      draggedTaskId;
+
     setDraggedTaskId(null);
 
     if (!taskId) return;
@@ -70,16 +68,30 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
     const currentTask = tasks.find((t) => t.id === taskId);
     if (!currentTask || currentTask.status === targetStatus) return;
 
-    // Optimistic local state update
+    // 1. Optimistically update local state immediately
     setTasks((prev) =>
       prev.map((t) => (t.id === taskId ? { ...t, status: targetStatus } : t))
     );
 
+    // 2. Persist to server
     try {
       await updateTask(taskId, { status: targetStatus });
     } catch (err) {
       console.error("Failed to update task status:", err);
-      // Revert on failure
+      // Revert on error
+      setTasks(initialTasks);
+    }
+  };
+
+  const handleTaskStatusChange = async (taskId: string, newStatus: TaskStatus) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === taskId ? { ...t, status: newStatus } : t))
+    );
+
+    try {
+      await updateTask(taskId, { status: newStatus });
+    } catch (err) {
+      console.error("Failed to update task status:", err);
       setTasks(initialTasks);
     }
   };
@@ -95,15 +107,18 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
           <div
             key={col.status}
             onDragOver={(e) => handleDragOver(e, col.status)}
-            onDragLeave={(e) => handleDragLeave(e, col.status)}
+            onDragEnter={(e) => {
+              e.preventDefault();
+              setDragOverColumn(col.status);
+            }}
             onDrop={(e) => handleDrop(e, col.status)}
             className={cn(
-              "flex flex-col gap-2 rounded-xl border border-border/70 bg-surface-muted/30 p-3 min-h-[360px] transition-all duration-200",
-              isHovered && "border-accent bg-accent-subtle/30 ring-2 ring-accent/20 shadow-raised"
+              "flex flex-col gap-2.5 rounded-xl border border-border/80 bg-surface-muted/30 p-3.5 min-h-[380px] transition-all duration-200",
+              isHovered && "border-accent bg-accent-subtle/25 ring-2 ring-accent/30 shadow-raised"
             )}
           >
             {/* Column Header */}
-            <div className="flex items-center justify-between px-1.5 py-1">
+            <div className="flex items-center justify-between px-1 py-0.5">
               <div className="flex items-center gap-2">
                 <Icon weight="duotone" className={cn("w-4 h-4", col.colorClass)} />
                 <span className="text-[13.5px] font-semibold text-content-primary tracking-tight">
@@ -123,18 +138,26 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
               </button>
             </div>
 
-            {/* Drop Zone Placeholder Indicator */}
+            {/* Visual Drop Zone Indicator */}
             {isHovered && (
-              <div className="rounded-lg border border-dashed border-accent py-3 text-center text-[12px] font-medium text-accent bg-accent/5 animate-pulse">
-                Drop task here
+              <div
+                onDragOver={(e) => handleDragOver(e, col.status)}
+                onDrop={(e) => handleDrop(e, col.status)}
+                className="rounded-lg border-2 border-dashed border-accent py-3.5 text-center text-[12.5px] font-medium text-accent bg-accent/10 animate-fade-in"
+              >
+                Drop task in {col.title}
               </div>
             )}
 
-            {/* Task Cards List */}
-            <div className="flex flex-col gap-2.5 pt-1">
+            {/* Tasks List */}
+            <div
+              onDragOver={(e) => handleDragOver(e, col.status)}
+              onDrop={(e) => handleDrop(e, col.status)}
+              className="flex flex-col gap-2.5 flex-1 min-h-[200px]"
+            >
               {colTasks.length === 0 && !isHovered ? (
-                <div className="rounded-lg border border-dashed border-border/60 p-6 text-center text-[12.5px] text-content-placeholder">
-                  No tasks
+                <div className="rounded-lg border border-dashed border-border/60 p-6 text-center text-[12.5px] text-content-placeholder my-auto">
+                  No tasks in {col.title}
                 </div>
               ) : (
                 colTasks.map((task) => (
@@ -142,6 +165,8 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
                     key={task.id}
                     task={task}
                     onDragStart={handleDragStart}
+                    onDragEnd={handleDragEnd}
+                    onStatusChange={handleTaskStatusChange}
                     isDragging={draggedTaskId === task.id}
                   />
                 ))
