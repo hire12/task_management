@@ -8,7 +8,7 @@ export default async function TodayPage() {
 
   // 1. All tasks currently actively in flight (IN_PROGRESS or REVIEW)
   const inProgressTasks = tasks.filter(
-    (t) => (t.status === "IN_PROGRESS" || t.status === "REVIEW") && t.status !== "DONE"
+    (t) => t.status === "IN_PROGRESS" || t.status === "REVIEW"
   );
 
   // 2. High priority, urgent, or overdue tasks ready in queue (TODO / BACKLOG)
