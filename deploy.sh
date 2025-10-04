@@ -5,7 +5,7 @@ DOMAIN="orbit.pixel-mind.com"
 REMOTE_HOST="s686.lon1.mysecurecloudhost.com"
 REMOTE_USER="pixelmgj"
 REMOTE_DIR="/home/pixelmgj/${DOMAIN}"
-DB_NAME="pixelmgj_orbit"
+DB_NAME="pixelmgj_productivity"
 DB_PASS="EIRk]hhbgM.c&xUv"
 DB_PASS_ENCODED="EIRk%5DhhbgM.c%26xUv"
 
@@ -13,8 +13,9 @@ echo "=========================================="
 echo "🚀 Deploying Orbit OS to https://${DOMAIN}"
 echo "=========================================="
 
-# 1. Build Next.js locally
+# 1. Clean and build Next.js locally
 echo "📦 [1/4] Building Next.js application..."
+rm -rf .next
 npm run build
 
 SSH_OPTS="-o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o ConnectTimeout=15 -o StrictHostKeyChecking=no"
@@ -33,12 +34,15 @@ run_with_retry() {
   done
 }
 
-# 2. Upload files including node_modules
+# 2. Upload files
 echo "🌐 [2/4] Syncing application and dependencies to remote ${REMOTE_DIR}..."
 run_with_retry rsync -avz -e "ssh $SSH_OPTS" \
   --exclude '.git' \
   --exclude '.next/cache' \
   --exclude '*.log' \
+  --exclude 'legacy/**/node_modules' \
+  --exclude 'legacy/client/node_modules' \
+  --exclude 'legacy/server/node_modules' \
   ./ ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/
 
 # 3. Setup and start remote Node.js app
@@ -54,7 +58,7 @@ fi
 
 # Configure production .env
 cat << 'ENVFILE' > .env
-DATABASE_URL="postgresql://pixelmgj_pixelmgj:EIRk%5DhhbgM.c%26xUv@127.0.0.1:5432/pixelmgj_orbit"
+DATABASE_URL="postgresql://pixelmgj_pixelmgj:EIRk%5DhhbgM.c%26xUv@127.0.0.1:5432/pixelmgj_productivity"
 NEXT_PUBLIC_APP_URL="https://orbit.pixel-mind.com"
 NODE_ENV="production"
 PORT=3000
@@ -65,6 +69,9 @@ ENVFILE
 
 echo "🔄 Generating Prisma Client..."
 npx prisma generate --schema=./prisma/schema.prisma 2>/dev/null || true
+
+echo "🌱 Running database seed..."
+npx tsx prisma/seed.ts 2>/dev/null || true
 
 echo "🔄 Recycling LiteSpeed Passenger worker..."
 mkdir -p tmp && touch tmp/restart.txt
