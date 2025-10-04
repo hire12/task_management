@@ -1,167 +1,116 @@
-# Task Management System 📝
+# Orbit
 
-A modern, full-stack **Task Management System** built with TypeScript, React, Express, and MongoDB.  
-Manage your tasks efficiently: create, update, delete, and track all your tasks with ease.
+A modular, recursive workspace for active execution and future project pipelines.
 
----
-
-## 🚀 Tech Stack
-
-### Frontend
-
-- ⚛️ React 18
-- 📝 TypeScript
-- ⚡ Vite
-- 🌐 React Router DOM
-- 🔄 React Query
-- 📣 React Toastify
-- 🔧 ESLint
-- 🔌 @vitejs/plugin-react
-
-### Backend
-
-- 🟢 Node.js
-- 📦 Express.js
-- 📝 TypeScript
-- 🗄️ MongoDB (Mongoose)
-- 🔑 JWT Authentication
-- 🔒 Bcrypt.js (Password Hashing)
-- 🌐 CORS
-- 💡 dotenv
-- 🔄 nodemon
-- 🛠️ ts-node
+Orbit is built for developers and builders who juggle active work alongside an upcoming queue of projects and ideas. Instead of flattening your tasks into endless disconnected lists, Orbit organizes work hierarchically (master initiatives into sub-projects and actionable tasks) across distinct temporal horizons.
 
 ---
 
-## 💡 Features
+## Core Concepts
 
-### User Management
+### 1. Temporal Horizons
+Work does not all happen at once. Orbit segments your workload into four clear horizons:
+- **Active (Now)**: Projects and sub-systems currently under active development.
+- **Pipeline (Next)**: Scheduled initiatives ready for execution once active work wraps up.
+- **Incubator (Someday)**: Low-pressure backlog for ideas, technical spikes, and exploratory notes.
+- **Trophy Room (Shipped)**: Completed initiatives, milestone archives, and changelogs.
 
-- 🧑‍💻 **Register**: Create a new account  
-- 🔑 **Login**: Secure authentication with JWT  
-- 🚪 **Logout**: End user session  
+### 2. Recursive Hierarchy
+Real-world engineering projects break down into modules, services, and subsystems. Orbit allows infinite nesting:
+- Master Projects $\rightarrow$ Sub-Projects $\rightarrow$ Tasks $\rightarrow$ Checklist Steps.
+- Each sub-project maintains its own status, priorities, and deadlines while rolling up progress automatically to the parent initiative.
 
-### Task Management
+### 3. Automated Progress Rollup
+When subtasks and child tasks are marked done, the system recalculates progress percentages up the entire hierarchy tree in real time.
 
-- 🆕 **Create Task**: Add new tasks with title, description, due date, and priority  
-- 📋 **Get Tasks**: View all tasks for the logged-in user  
-- 🔍 **Get Task by ID**: View a specific task  
-- ✏️ **Update Task**: Edit task details  
-- 🗑️ **Delete Task**: Remove tasks  
+### 4. Daily Focus HUD
+A dedicated command deck (`/today`) that aggregates high-priority and in-progress tasks across all active projects so you can start each morning with clear priorities.
 
----
-
-## 📁 Project Structure
-
-```
-task-management/
-├── client/ # Frontend React application
-│ ├── src/
-│ │ ├── components/ # React components
-│ │ ├── pages/ # Pages (Dashboard, Tasks, etc.)
-│ │ ├── routes/ # React Router setup
-│ │ ├── services/ # Axios or API calls
-│ │ └── utils/ # Helper functions
-│ ├── public/ # Static assets
-│ └── package.json # Frontend dependencies & scripts
-│ # Scripts
-│ # dev: vite
-│ # build: tsc -b && vite build
-│ # lint: eslint .
-│ # preview: vite preview
-│ # Dependencies: react, react-dom, react-router-dom, react-query, react-toastify, @types/react-router-dom, @types/react-toastify
-│ # DevDependencies: typescript, eslint, @vitejs/plugin-react, @types/react, @types/react-dom, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals, typescript-eslint, vite
-│
-└── server/ # Backend Node.js application
-├── src/
-│ ├── controllers/ # User & Task controllers
-│ ├── models/ # Database models
-│ ├── routes/ # API routes
-│ ├── middleware/ # Custom middleware
-│ └── app.ts # Application entry point
-├── package.json # Backend dependencies & scripts
-│ # Scripts
-│ # dev: nodemon src/app.ts
-│ # Dependencies: express, mongoose, bcryptjs, cors, dotenv, jsonwebtoken, @types/bcryptjs, @types/cors, @types/jsonwebtoken
-│ # DevDependencies: typescript, ts-node, nodemon, @types/express, @types/node
-└── tsconfig.json # TypeScript configuration
-```
+### 5. D3.js Micro-Sparklines
+Inline SVG sparklines powered by D3.js render 14-day completion velocity and trendlines directly inside project cards without third-party chart bloat.
 
 ---
 
-## 🛠️ Installation
+## Design System
 
-1. Clone the repository:
+- **Typography**: Google Lexend for maximum readability on dense dashboards.
+- **Iconography**: Phosphor Icons in duotone style for visual depth.
+- **Color Philosophy**: A muted, low-contrast palette (soft slate dark mode and warm alabaster light mode) that avoids eye strain during long working sessions.
 
+---
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (React 19 App Router, Server Actions)
+- **Database**: PostgreSQL
+- **ORM**: Prisma Client & Migrate
+- **Styling**: Tailwind CSS
+- **Visualization**: D3.js (`d3-shape`, `d3-scale`)
+- **Type Safety**: TypeScript 5.7+
+
+---
+
+## Quick Start
+
+### Prerequisites
+- Node.js 18.18+ or 20+
+- PostgreSQL 14+ running locally or in the cloud
+
+### 1. Clone the repository
 ```bash
-git clone https://github.com/hire12/task_management.git
-cd task-management
+git clone git@github.com:hire12/task_management.git
+cd task_management
 ```
 
-## Install dependencies:
-
+### 2. Install dependencies
 ```bash
-# Server
-cd server
-npm install
-
-# Client
-cd ../client
 npm install
 ```
 
-## Create a .env file in the server folder:
-
-```ini
-DB_HOST=your_mongodb_host
-DB_USER=your_mongodb_user
-DB_PASSWORD=your_mongodb_password
-DB_NAME=your_database_name
-JWT_SECRET=your_jwt_secret
+### 3. Set up environment variables
+Create a `.env` file in the root directory:
+```env
+DATABASE_URL="postgresql://username:password@localhost:5432/task_os?schema=public"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
 ```
 
-## Start development servers:
-
+### 4. Run database migrations & seed sample data
 ```bash
-# Backend
-cd server
-npm run dev
+npx prisma db push
+npm run db:seed
+```
 
-# Frontend
-cd ../client
+### 5. Start the development server
+```bash
 npm run dev
 ```
 
-📦 Available Scripts
-Server
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-`npm run dev` - Start development server
+---
 
-`npm start` - Start production server
+## Available Scripts
 
-Client
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts the Next.js development server on port 3000 |
+| `npm run build` | Generates Prisma Client and builds the production bundle |
+| `npm run start` | Runs the production build |
+| `npm run db:push` | Pushes the Prisma schema state directly to PostgreSQL |
+| `npm run db:seed` | Populates the database with realistic sample projects and tasks |
+| `npm run db:studio` | Opens Prisma Studio web GUI to browse database records |
+| `npm run lint` | Runs ESLint type checks across the codebase |
 
-`npm run dev` - Start development server
+---
 
-`npm run build` - Build for production
+## Documentation
 
-`npm run preview` - Preview production build
+- [System Architecture](docs/ARCHITECTURE.md)
+- [Getting Started & Local Setup](docs/GETTING_STARTED.md)
+- [Contributing Guide](CONTRIBUTING.md)
 
-`npm run lint` - Run ESLint
+---
 
-🔒 Security Features
+## License
 
-JWT-based authentication
-
-Password hashing with bcrypt.js
-
-CORS protection
-
-Environment variable protection
-
-
-## 📜 License
-MIT © [Hiriyan] — Go build something epic!
-
-Made with ❤️ by [Hiriyan]
-🐦 [[Linkdein](https://www.linkedin.com/in/hiriyan-mohammed/)] · 💼 [[Portfolio](https://github.com/hire12)] · 📧 [[Email](hireemoh@gmail.com)]
+Distributed under the MIT License. See `LICENSE` for more information.
