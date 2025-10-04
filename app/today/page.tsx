@@ -6,19 +6,37 @@ import { Lightning, CheckCircle, WarningCircle, Clock } from "@phosphor-icons/re
 export default async function TodayPage() {
   const tasks = await getTodayTasks();
 
-  const urgentTasks = tasks.filter(
-    (t) => (t.priority === "HIGH" || t.priority === "URGENT") && t.status !== "DONE"
-  );
+  // 1. All tasks currently actively in flight (IN_PROGRESS or REVIEW)
   const inProgressTasks = tasks.filter(
-    (t) => t.status === "IN_PROGRESS" && t.priority !== "HIGH" && t.priority !== "URGENT"
+    (t) => (t.status === "IN_PROGRESS" || t.status === "REVIEW") && t.status !== "DONE"
   );
+
+  // 2. High priority, urgent, or overdue tasks ready in queue (TODO / BACKLOG)
+  const urgentTasks = tasks.filter(
+    (t) =>
+      t.status !== "DONE" &&
+      t.status !== "IN_PROGRESS" &&
+      t.status !== "REVIEW" &&
+      (t.priority === "HIGH" || t.priority === "URGENT" || (t.dueDate && new Date(t.dueDate) < new Date()))
+  );
+
+  // 3. Normal queued backlog tasks (TODO / BACKLOG with MEDIUM or LOW priority)
   const remainingTasks = tasks.filter(
-    (t) => t.status !== "DONE" && t.status !== "IN_PROGRESS" && t.priority !== "HIGH" && t.priority !== "URGENT"
+    (t) =>
+      t.status !== "DONE" &&
+      t.status !== "IN_PROGRESS" &&
+      t.status !== "REVIEW" &&
+      t.priority !== "HIGH" &&
+      t.priority !== "URGENT" &&
+      (!t.dueDate || new Date(t.dueDate) >= new Date())
   );
+
+  // 4. Completed tasks
   const completedTasks = tasks.filter((t) => t.status === "DONE");
 
   const total = tasks.length;
   const completed = completedTasks.length;
+  const activeCount = inProgressTasks.length;
   const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
 
   const sparklineData = [2, 3, 5, 4, 6, 8, 7, 10, 9, 12, 11, 14, 13, 15];
