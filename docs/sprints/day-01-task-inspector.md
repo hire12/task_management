@@ -44,3 +44,10 @@ Included attachments in project tasks query.
 
 ---
 
+### Milestone 7: feat(actions): add server actions to delete files and toggle kanban covers
+**Timestamp**: `13:04:42`
+
+deleteAttachment and toggleAttachmentCover server actions in app/actions/attachments.ts.
+
+---
+
