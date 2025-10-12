@@ -9,3 +9,10 @@ Tasks were basically blind text notes before this. Adding TaskAttachment with wi
 
 ---
 
+### Milestone 2: chore(db): sync prisma client with new image attachment superpowers
+**Timestamp**: `09:40:17`
+
+Ran prisma generate so the client types reflect the new attachments relation.
+
+---
+
