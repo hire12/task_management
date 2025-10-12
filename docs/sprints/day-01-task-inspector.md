@@ -86,3 +86,10 @@ Added paperclip badge with attachment count so you know at a glance which tasks 
 
 ---
 
+### Milestone 13: feat(ui): let Escape key and backdrop clicks dismiss the task modal like normal software
+**Timestamp**: `17:08:24`
+
+Added keyboard Escape listener and backdrop click handler.
+
+---
+
