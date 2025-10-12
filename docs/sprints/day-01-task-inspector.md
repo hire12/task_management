@@ -65,3 +65,10 @@ Users can click directly on the description to edit or write notes.
 
 ---
 
+### Milestone 10: feat(ui): embed image dropzone and screenshot gallery into task modal
+**Timestamp**: `15:06:33`
+
+Drag and drop zone right inside task modal with grid preview of attached images.
+
+---
+
