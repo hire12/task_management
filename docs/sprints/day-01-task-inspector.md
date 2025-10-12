@@ -58,3 +58,10 @@ Built modal overlay with full description reader, status pills, subtasks list, a
 
 ---
 
+### Milestone 9: feat(ui): add live inline editor for task specs and descriptions
+**Timestamp**: `14:25:16`
+
+Users can click directly on the description to edit or write notes.
+
+---
+
