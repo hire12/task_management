@@ -37,3 +37,10 @@ Updated FullTask interface with optional attachments array.
 
 ---
 
+### Milestone 6: feat(db): load attachments alongside tasks so images actually show up
+**Timestamp**: `12:23:25`
+
+Included attachments in project tasks query.
+
+---
+
