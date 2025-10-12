@@ -79,3 +79,10 @@ Clicking anywhere on a Kanban card opens the inspector, while drag-and-drop stil
 
 ---
 
+### Milestone 12: feat(ui): show tiny image paperclip counters on kanban cards
+**Timestamp**: `16:27:07`
+
+Added paperclip badge with attachment count so you know at a glance which tasks have mockups.
+
+---
+
