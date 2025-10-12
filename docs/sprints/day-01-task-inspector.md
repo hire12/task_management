@@ -51,3 +51,10 @@ deleteAttachment and toggleAttachmentCover server actions in app/actions/attachm
 
 ---
 
+### Milestone 8: feat(ui): build TaskDetailModal so we can finally read long descriptions
+**Timestamp**: `13:45:59`
+
+Built modal overlay with full description reader, status pills, subtasks list, and attachment gallery.
+
+---
+
