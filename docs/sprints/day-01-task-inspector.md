@@ -30,3 +30,10 @@ Sharp pipeline that resizes giant 4K screen snips and crushes them into snappy W
 
 ---
 
+### Milestone 5: feat(types): tell TypeScript tasks now have attachments so it stops whining
+**Timestamp**: `11:42:08`
+
+Updated FullTask interface with optional attachments array.
+
+---
+

@@ -9,12 +9,14 @@ import {
   ProjectStatus,
   TaskStatus,
   PriorityLevel,
+  TaskAttachment,
 } from "@prisma/client";
 
 export type {
   Project,
   Task,
   Subtask,
+  TaskAttachment,
   Workspace,
   ProjectDoc,
   ActivityLog,
@@ -33,6 +35,7 @@ export type FullProject = Project & {
   })[];
   tasks?: (Task & {
     subtasks?: Subtask[];
+    attachments?: TaskAttachment[];
   })[];
   docs?: ProjectDoc[];
   activityLogs?: ActivityLog[];
@@ -45,4 +48,5 @@ export type FullProject = Project & {
 export type FullTask = Task & {
   project?: Project;
   subtasks?: Subtask[];
+  attachments?: TaskAttachment[];
 };
