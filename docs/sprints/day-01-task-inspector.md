@@ -16,3 +16,10 @@ Ran prisma generate so the client types reflect the new attachments relation.
 
 ---
 
+### Milestone 3: feat(api): build file upload endpoint that actually rejects 50MB garbage
+**Timestamp**: `10:21:34`
+
+Added /api/upload route with size validation, type whitelisting (png, jpg, webp, svg), and disk saving into public/uploads.
+
+---
+
