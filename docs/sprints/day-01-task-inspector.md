@@ -93,3 +93,10 @@ Added keyboard Escape listener and backdrop click handler.
 
 ---
 
+### Milestone 14: chore: wrap up day 1 image attachments and task reading milestone
+**Timestamp**: `17:49:41`
+
+Day 1 complete with 14 commits! Tasks now have rich descriptions and image support.
+
+---
+
