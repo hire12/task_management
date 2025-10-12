@@ -23,3 +23,10 @@ Added /api/upload route with size validation, type whitelisting (png, jpg, webp,
 
 ---
 
+### Milestone 4: feat(lib): crush heavy screenshots into featherweight WebP before upload
+**Timestamp**: `11:02:51`
+
+Sharp pipeline that resizes giant 4K screen snips and crushes them into snappy WebP so boards don't crawl.
+
+---
+
