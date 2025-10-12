@@ -9,10 +9,14 @@ import {
   Trash,
   DotsSixVertical,
   ArrowRight,
+  Paperclip,
+  Star,
 } from "@phosphor-icons/react";
 import { FullTask } from "@/lib/types";
 import { Badge } from "@/components/ui/Badge";
+import { CardCover } from "@/components/CardCover";
 import { toggleTaskStatus, deleteTask, toggleSubtask, addSubtask, updateTask } from "@/app/actions/tasks";
+import { toggleTaskCover } from "@/app/actions/attachments";
 import { formatRelativeDate, cn } from "@/lib/utils";
 import { TaskStatus } from "@prisma/client";
 
@@ -22,6 +26,7 @@ interface TaskCardProps {
   onDragStart?: (e: React.DragEvent<HTMLDivElement>, task: FullTask) => void;
   onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
   onStatusChange?: (taskId: string, newStatus: TaskStatus) => void;
+  onClick?: (task: FullTask) => void;
   isDragging?: boolean;
 }
 
@@ -31,6 +36,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   onDragStart,
   onDragEnd,
   onStatusChange,
+  onClick,
   isDragging = false,
 }) => {
   const [loading, setLoading] = useState(false);
@@ -108,6 +114,8 @@ export const TaskCard: React.FC<TaskCardProps> = ({
     ],
   };
 
+  const coverAttachment = task.attachments?.find((a) => a.isCover);
+
   return (
     <div
       draggable
@@ -125,12 +133,23 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         }
         onDragEnd?.(e);
       }}
+      onClick={() => onClick?.(task)}
       className={cn(
-        "group relative rounded-xl border border-border/80 bg-surface p-3.5 transition-all duration-200 hover:border-content-placeholder/50 hover:shadow-card cursor-grab active:cursor-grabbing select-none",
+        "group relative rounded-xl border border-border/80 bg-surface p-3.5 transition-all duration-200 hover:border-content-placeholder/50 hover:shadow-card cursor-pointer select-none overflow-hidden",
         isDone && "bg-surface-muted/30 opacity-70 border-border/40",
         isDragging && "opacity-30 scale-[0.97] border-dashed border-accent shadow-raised"
       )}
     >
+      {/* Optional Card Cover Banner */}
+      {coverAttachment && (
+        <CardCover
+          url={coverAttachment.url}
+          alt={`Cover preview for task: ${task.title}`}
+          aspectRatio="wide"
+          className="-mx-3.5 -mt-3.5 mb-3 w-[calc(100%+28px)] rounded-t-[11px] border-b border-border/60"
+        />
+      )}
+
       <div className="flex items-start gap-2.5">
         {/* Drag Grip Handle */}
         <div className="mt-0.5 text-content-placeholder/40 group-hover:text-content-placeholder transition-colors shrink-0">
@@ -173,6 +192,25 @@ export const TaskCard: React.FC<TaskCardProps> = ({
               >
                 <ArrowRight weight="bold" className="w-3 h-3" />
               </button>
+
+              {task.attachments && task.attachments.length > 0 && (
+                <button
+                  onClick={async (e) => {
+                    e.stopPropagation();
+                    const targetAtt = coverAttachment || task.attachments![0];
+                    if (targetAtt) {
+                      await toggleTaskCover(targetAtt.id, task.id);
+                    }
+                  }}
+                  title={coverAttachment ? "Remove card cover" : "Set image as cover"}
+                  className={cn(
+                    "text-content-placeholder hover:text-brandWarning p-0.5 rounded hover:bg-surface-muted transition-colors cursor-pointer",
+                    coverAttachment && "text-brandWarning"
+                  )}
+                >
+                  <Star weight={coverAttachment ? "fill" : "duotone"} className="w-3.5 h-3.5" />
+                </button>
+              )}
 
               <button
                 onClick={handleDelete}
@@ -233,6 +271,13 @@ export const TaskCard: React.FC<TaskCardProps> = ({
               <span className="flex items-center gap-1">
                 <Clock weight="duotone" className="w-3 h-3" />
                 <span>{task.estimatedMinutes}m</span>
+              </span>
+            )}
+
+            {task.attachments && task.attachments.length > 0 && (
+              <span className="flex items-center gap-1 text-content-secondary" title={`${task.attachments.length} attachment(s)`}>
+                <Paperclip weight="bold" className="w-3 h-3 text-accent" />
+                <span>{task.attachments.length}</span>
               </span>
             )}
 

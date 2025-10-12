@@ -72,3 +72,10 @@ Drag and drop zone right inside task modal with grid preview of attached images.
 
 ---
 
+### Milestone 11: feat(ui): hook up card click to task modal without fighting drag-and-drop
+**Timestamp**: `15:47:50`
+
+Clicking anywhere on a Kanban card opens the inspector, while drag-and-drop still works smoothly.
+
+---
+
