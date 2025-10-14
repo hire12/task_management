@@ -16,3 +16,10 @@ Pasted blobs are run through compression before hitting the server.
 
 ---
 
+### Milestone 3: feat(ui): build ImageLightbox so you can actually inspect pixels without squinting
+**Timestamp**: `09:54:34`
+
+Full viewport backdrop blur overlay for zooming in on high-res screenshots.
+
+---
+
