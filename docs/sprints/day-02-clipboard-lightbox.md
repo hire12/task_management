@@ -37,3 +37,10 @@ Left and right arrow navigation across all task images.
 
 ---
 
+### Milestone 6: feat(lightbox): add quick download button to pull full-res screenshots locally
+**Timestamp**: `11:15:25`
+
+One click download trigger using original filename.
+
+---
+
