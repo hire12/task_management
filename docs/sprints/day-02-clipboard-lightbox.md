@@ -121,3 +121,10 @@ Copies direct public URL to clipboard with 2s checkmark state.
 
 ---
 
+### Milestone 18: feat(image): add dominant color placeholder while high-res images load
+**Timestamp**: `16:41:49`
+
+Extracts subtle placeholder background while full image streams.
+
+---
+
