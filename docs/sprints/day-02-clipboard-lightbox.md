@@ -128,3 +128,10 @@ Extracts subtle placeholder background while full image streams.
 
 ---
 
+### Milestone 19: feat(ui): optimistically remove deleted attachments from UI before server round-trip
+**Timestamp**: `17:08:06`
+
+Instant UI feedback when clicking trash icon on attachment thumbnail.
+
+---
+
