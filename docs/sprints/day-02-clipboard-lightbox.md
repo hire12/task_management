@@ -100,3 +100,10 @@ Fullscreen API integration to hide browser chrome for design reviews.
 
 ---
 
+### Milestone 15: fix(lightbox): restore body overflow when closing lightbox so the page doesn't freeze
+**Timestamp**: `15:20:58`
+
+Cleanup effect to reset document.body.style.overflow on unmount.
+
+---
+
