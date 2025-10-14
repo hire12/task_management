@@ -107,3 +107,10 @@ Cleanup effect to reset document.body.style.overflow on unmount.
 
 ---
 
+### Milestone 16: feat(a11y): trap keyboard focus inside lightbox so tab doesn't wander off into the void
+**Timestamp**: `15:47:15`
+
+Accessibility focus trap on modal dialog.
+
+---
+
