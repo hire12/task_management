@@ -58,3 +58,10 @@ Extracted Dropzone.tsx with animated border pulse and file size limit indicators
 
 ---
 
+### Milestone 9: feat(dropzone): yell politely at users when they drop pdfs or mp4s into image zones
+**Timestamp**: `12:37:16`
+
+Toast alert rejection when unsupported mime types are dropped.
+
+---
+
