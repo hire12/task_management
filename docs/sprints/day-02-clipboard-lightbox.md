@@ -30,3 +30,10 @@ Added 50% to 300% zoom with mouse wheel and zoom buttons.
 
 ---
 
+### Milestone 5: feat(lightbox): let arrow keys cycle through task screenshots like a real gallery
+**Timestamp**: `10:48:08`
+
+Left and right arrow navigation across all task images.
+
+---
+
