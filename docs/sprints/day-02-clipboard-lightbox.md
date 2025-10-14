@@ -51,3 +51,10 @@ Thumbnail click triggers lightbox state with selected image index.
 
 ---
 
+### Milestone 8: feat(ui): extract dedicated Dropzone component with velvety drag-over glow
+**Timestamp**: `12:10:59`
+
+Extracted Dropzone.tsx with animated border pulse and file size limit indicators.
+
+---
+
