@@ -44,3 +44,10 @@ One click download trigger using original filename.
 
 ---
 
+### Milestone 7: feat(ui): wire thumbnail clicks to open lightbox instead of opening random new tabs
+**Timestamp**: `11:42:42`
+
+Thumbnail click triggers lightbox state with selected image index.
+
+---
+
