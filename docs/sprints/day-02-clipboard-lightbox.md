@@ -135,3 +135,10 @@ Instant UI feedback when clicking trash icon on attachment thumbnail.
 
 ---
 
+### Milestone 20: refactor(modal): clean up attachment state handlers so code isn't a spaghetti plate
+**Timestamp**: `17:35:23`
+
+Consolidated upload, delete, and cover state handlers into useAttachments hook.
+
+---
+
