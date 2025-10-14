@@ -72,3 +72,10 @@ Promise.all batch upload with concurrent upload progress tracking.
 
 ---
 
+### Milestone 11: feat(ui): add slick loading skeleton so uploads don't look frozen
+**Timestamp**: `13:31:50`
+
+Shimmer skeleton placeholder on image grid while upload is processing.
+
+---
+
