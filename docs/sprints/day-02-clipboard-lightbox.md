@@ -79,3 +79,10 @@ Shimmer skeleton placeholder on image grid while upload is processing.
 
 ---
 
+### Milestone 12: feat(ui): show pixel dimensions and formatted file size on image thumbnail hover
+**Timestamp**: `13:58:07`
+
+Hover overlay showing 1920x1080 and 240 KB metadata badges.
+
+---
+
