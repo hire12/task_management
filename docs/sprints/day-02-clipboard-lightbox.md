@@ -65,3 +65,10 @@ Toast alert rejection when unsupported mime types are dropped.
 
 ---
 
+### Milestone 10: feat(dropzone): allow batch dropping multiple screenshots at once
+**Timestamp**: `13:04:33`
+
+Promise.all batch upload with concurrent upload progress tracking.
+
+---
+
