@@ -114,3 +114,10 @@ Accessibility focus trap on modal dialog.
 
 ---
 
+### Milestone 17: feat(ui): add quick copy image link button for sharing screenshots in Slack/Discord
+**Timestamp**: `16:14:32`
+
+Copies direct public URL to clipboard with 2s checkmark state.
+
+---
+
