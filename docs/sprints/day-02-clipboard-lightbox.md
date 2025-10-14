@@ -86,3 +86,10 @@ Hover overlay showing 1920x1080 and 240 KB metadata badges.
 
 ---
 
+### Milestone 13: feat(clipboard): add subtle Cmd+V paste hint banner in task inspector
+**Timestamp**: `14:25:24`
+
+Hint text letting users know they can paste screenshots directly.
+
+---
+
