@@ -93,3 +93,10 @@ Hint text letting users know they can paste screenshots directly.
 
 ---
 
+### Milestone 14: feat(ui): add fullscreen toggle button to expand lightbox over entire viewport
+**Timestamp**: `14:52:41`
+
+Fullscreen API integration to hide browser chrome for design reviews.
+
+---
+
