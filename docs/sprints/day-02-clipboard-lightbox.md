@@ -9,3 +9,10 @@ Added window paste event listener so copying a screen snip and hitting Cmd+V ins
 
 ---
 
+### Milestone 2: feat(clipboard): route clipboard images through compressor before upload
+**Timestamp**: `09:27:17`
+
+Pasted blobs are run through compression before hitting the server.
+
+---
+
