@@ -114,3 +114,10 @@ Auto-compacts hero banner on scroll to maximize Kanban board viewport.
 
 ---
 
+### Milestone 17: feat(ui): show banner upload progress percentage bar
+**Timestamp**: `13:36:32`
+
+Upload progress bar in banner header during file upload.
+
+---
+
