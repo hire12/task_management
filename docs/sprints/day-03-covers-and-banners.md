@@ -170,3 +170,10 @@ Badge showing 1080p indicator in task detail inspector.
 
 ---
 
+### Milestone 25: feat(ui): auto-generate card cover when first image is uploaded
+**Timestamp**: `15:54:48`
+
+If task has no cover, first image upload automatically sets isCover=true.
+
+---
+
