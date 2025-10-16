@@ -128,3 +128,10 @@ Trash button to revert custom banner to default mesh.
 
 ---
 
+### Milestone 19: feat(ui): add quick preview tooltip on card cover hover
+**Timestamp**: `14:10:06`
+
+Mini thumbnail zoom tooltip on hover.
+
+---
+
