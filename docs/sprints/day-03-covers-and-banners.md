@@ -205,3 +205,10 @@ Subtle border-accent/20 highlight in dark mode.
 
 ---
 
+### Milestone 30: refactor(card): extract CardCover into standalone reusable component
+**Timestamp**: `17:20:13`
+
+Clean separation of card cover rendering logic.
+
+---
+
