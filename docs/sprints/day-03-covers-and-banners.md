@@ -156,3 +156,10 @@ Rounded-t-xl on card cover container matching card border radius.
 
 ---
 
+### Milestone 23: feat(ui): prefetch next card cover on board hover
+**Timestamp**: `15:20:14`
+
+Hover prefetch for buttery smooth modal transitions.
+
+---
+
