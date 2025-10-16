@@ -9,3 +9,10 @@ Added optional bannerUrl string to Project model in schema.
 
 ---
 
+### Milestone 2: feat(ui): build ProjectBanner component with gradient overlay and upload trigger
+**Timestamp**: `09:17:17`
+
+Hero banner displayed at the top of ProjectView with camera icon to update cover image.
+
+---
+
