@@ -107,3 +107,10 @@ Hides cover button on zip and pdf files.
 
 ---
 
+### Milestone 16: feat(ui): add full width banner collapse toggle on scroll
+**Timestamp**: `13:19:15`
+
+Auto-compacts hero banner on scroll to maximize Kanban board viewport.
+
+---
+
