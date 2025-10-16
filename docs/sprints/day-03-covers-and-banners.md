@@ -121,3 +121,10 @@ Upload progress bar in banner header during file upload.
 
 ---
 
+### Milestone 18: feat(ui): allow resetting project banner back to default gradient
+**Timestamp**: `13:53:49`
+
+Trash button to revert custom banner to default mesh.
+
+---
+
