@@ -79,3 +79,10 @@ SVG mesh gradient generator when bannerUrl is null.
 
 ---
 
+### Milestone 12: feat(image): add smart crop focal point detection for card covers
+**Timestamp**: `12:10:07`
+
+Centers faces and high-contrast regions automatically in thumbnail crops.
+
+---
+
