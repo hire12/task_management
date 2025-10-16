@@ -7,6 +7,7 @@ import { FullProject } from "@/lib/types";
 import { Badge } from "@/components/ui/Badge";
 import { D3Sparkline } from "@/components/D3Sparkline";
 import { ProgressRing } from "@/components/ProgressRing";
+import { CardCover } from "@/components/CardCover";
 import { formatDate, generateSparklineData } from "@/lib/utils";
 
 interface ProjectCardProps {
@@ -38,8 +39,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <Link
       href={`/projects/${project.id}`}
-      className="group block rounded-xl border border-border bg-surface p-4 shadow-card hover:shadow-raised hover:border-content-placeholder/40 transition-all duration-200"
+      className="group block rounded-xl border border-border bg-surface p-4 shadow-card hover:shadow-raised hover:border-content-placeholder/40 transition-all duration-200 overflow-hidden"
     >
+      {/* Project Banner Cover */}
+      {project.bannerUrl && (
+        <CardCover
+          url={project.bannerUrl}
+          alt={project.title}
+          aspectRatio="banner"
+          className="-mx-4 -mt-4 mb-3 w-[calc(100%+32px)] border-b border-border/60"
+        />
+      )}
+
       <div className="flex flex-col gap-3">
         {/* Top bar: Horizon / Status / Priority */}
         <div className="flex items-center justify-between gap-2">

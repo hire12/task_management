@@ -30,3 +30,10 @@ Built CardCover.tsx to display full-width image cover at the top of task cards o
 
 ---
 
+### Milestone 5: feat(ui): toggle isCover flag on task attachments from detail modal
+**Timestamp**: `10:09:08`
+
+Added 1-click 'Set as cover' button on image thumbnails.
+
+---
+
