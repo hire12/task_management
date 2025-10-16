@@ -23,3 +23,10 @@ Server actions to update project bannerUrl in database.
 
 ---
 
+### Milestone 4: feat(ui): render card cover on Kanban board cards
+**Timestamp**: `09:51:51`
+
+Built CardCover.tsx to display full-width image cover at the top of task cards on the board.
+
+---
+
