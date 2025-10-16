@@ -86,3 +86,10 @@ Centers faces and high-contrast regions automatically in thumbnail crops.
 
 ---
 
+### Milestone 13: feat(ui): optimize banner image loading with priority flag on hero
+**Timestamp**: `12:27:24`
+
+Next.js Image priority=true on above-the-fold project banner.
+
+---
+
