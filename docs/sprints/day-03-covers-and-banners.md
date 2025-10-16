@@ -219,3 +219,10 @@ Ensured database and UI state remain synchronized on rapid clicks.
 
 ---
 
+### Milestone 32: style(covers): harmonize card cover padding with task title margins
+**Timestamp**: `17:55:47`
+
+Pixel-perfect 12px margin beneath cover image.
+
+---
+
