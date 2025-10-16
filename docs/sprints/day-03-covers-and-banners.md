@@ -177,3 +177,10 @@ If task has no cover, first image upload automatically sets isCover=true.
 
 ---
 
+### Milestone 26: feat(ui): support drag re-ordering of multiple attachments in gallery
+**Timestamp**: `16:11:05`
+
+Drag handle to organize screenshots in preferred order.
+
+---
+
