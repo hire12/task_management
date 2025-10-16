@@ -65,3 +65,10 @@ Glassmorphic upload button with subtle hover elevation.
 
 ---
 
+### Milestone 10: feat(ui): support animated GIF preview covers for demo clips
+**Timestamp**: `11:35:33`
+
+Allows gif attachments to play smoothly when hovered.
+
+---
+
