@@ -58,3 +58,10 @@ Quick action to dismiss cover image back to minimalist text card.
 
 ---
 
+### Milestone 9: feat(ui): style banner upload button with frosted glass backdrop blur
+**Timestamp**: `11:18:16`
+
+Glassmorphic upload button with subtle hover elevation.
+
+---
+
