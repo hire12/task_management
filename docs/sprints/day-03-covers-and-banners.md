@@ -51,3 +51,10 @@ Aspect-video container with object-cover prevents misaligned card heights.
 
 ---
 
+### Milestone 8: feat(ui): add remove cover button directly on Kanban card hover
+**Timestamp**: `11:00:59`
+
+Quick action to dismiss cover image back to minimalist text card.
+
+---
+
