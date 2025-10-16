@@ -191,3 +191,10 @@ Displays 16:9, 4:3, or 1:1 ratio tag on thumbnail hover.
 
 ---
 
+### Milestone 28: feat(ui): add quick banner replace without deleting old file
+**Timestamp**: `16:46:39`
+
+1-click replace file picker replacing banner in-place.
+
+---
+
