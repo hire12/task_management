@@ -212,3 +212,10 @@ Clean separation of card cover rendering logic.
 
 ---
 
+### Milestone 31: test(covers): verify cover toggling maintains state consistency
+**Timestamp**: `17:38:30`
+
+Ensured database and UI state remain synchronized on rapid clicks.
+
+---
+
