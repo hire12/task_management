@@ -93,3 +93,10 @@ Next.js Image priority=true on above-the-fold project banner.
 
 ---
 
+### Milestone 14: feat(ui): add subtle drop shadow beneath card covers for visual depth
+**Timestamp**: `12:44:41`
+
+Shadow-sm elevation separating image from card content body.
+
+---
+
