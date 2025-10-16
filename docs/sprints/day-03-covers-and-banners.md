@@ -135,3 +135,10 @@ Mini thumbnail zoom tooltip on hover.
 
 ---
 
+### Milestone 20: feat(ui): render small project avatar icon overlapping banner
+**Timestamp**: `14:28:23`
+
+Project icon floating over lower left edge of banner.
+
+---
+
