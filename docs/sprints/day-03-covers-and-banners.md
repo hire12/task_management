@@ -44,3 +44,10 @@ Server action unsets previous cover before setting the new one.
 
 ---
 
+### Milestone 7: feat(ui): lock card cover aspect ratio to 16:9 for clean column alignment
+**Timestamp**: `10:43:42`
+
+Aspect-video container with object-cover prevents misaligned card heights.
+
+---
+
