@@ -72,3 +72,10 @@ Allows gif attachments to play smoothly when hovered.
 
 ---
 
+### Milestone 11: feat(ui): fallback to clean geometric pattern when project has no banner
+**Timestamp**: `11:52:50`
+
+SVG mesh gradient generator when bannerUrl is null.
+
+---
+
