@@ -100,3 +100,10 @@ Shadow-sm elevation separating image from card content body.
 
 ---
 
+### Milestone 15: feat(ui): hide card cover toggle on non-image attachments
+**Timestamp**: `13:01:58`
+
+Hides cover button on zip and pdf files.
+
+---
+
