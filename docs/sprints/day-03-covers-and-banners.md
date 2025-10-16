@@ -142,3 +142,10 @@ Project icon floating over lower left edge of banner.
 
 ---
 
+### Milestone 21: feat(ui): support custom hex color tint over project banner
+**Timestamp**: `14:45:40`
+
+Overlay tint picker to match project brand color.
+
+---
+
