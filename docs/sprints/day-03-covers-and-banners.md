@@ -163,3 +163,10 @@ Hover prefetch for buttery smooth modal transitions.
 
 ---
 
+### Milestone 24: feat(ui): add cover image badge indicating file resolution
+**Timestamp**: `15:37:31`
+
+Badge showing 1080p indicator in task detail inspector.
+
+---
+
