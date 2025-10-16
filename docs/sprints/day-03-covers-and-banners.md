@@ -184,3 +184,10 @@ Drag handle to organize screenshots in preferred order.
 
 ---
 
+### Milestone 27: feat(ui): show image dimensions ratio badge on thumbnail
+**Timestamp**: `16:29:22`
+
+Displays 16:9, 4:3, or 1:1 ratio tag on thumbnail hover.
+
+---
+
