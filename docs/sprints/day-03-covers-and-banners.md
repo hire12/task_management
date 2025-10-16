@@ -37,3 +37,10 @@ Added 1-click 'Set as cover' button on image thumbnails.
 
 ---
 
+### Milestone 6: feat(ui): ensure only one attachment per task can be marked as cover
+**Timestamp**: `10:26:25`
+
+Server action unsets previous cover before setting the new one.
+
+---
+
