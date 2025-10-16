@@ -16,3 +16,10 @@ Hero banner displayed at the top of ProjectView with camera icon to update cover
 
 ---
 
+### Milestone 3: feat(actions): add setProjectBanner and removeProjectBanner server actions
+**Timestamp**: `09:34:34`
+
+Server actions to update project bannerUrl in database.
+
+---
+

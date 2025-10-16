@@ -40,7 +40,7 @@ export async function getProjects(workspaceId?: string, horizon?: TemporalHorizo
         },
       },
       tasks: {
-        include: { subtasks: true },
+        include: { subtasks: true, attachments: true },
         orderBy: { orderIndex: "asc" },
       },
       _count: {
@@ -70,7 +70,7 @@ export async function getProjectById(id: string) {
         orderBy: { createdAt: "asc" },
       },
       tasks: {
-        include: { subtasks: true },
+        include: { subtasks: true, attachments: true },
         orderBy: [{ orderIndex: "asc" }, { createdAt: "desc" }],
       },
       docs: {
@@ -164,6 +164,28 @@ export async function updateProject(
   if (project.parentId) revalidatePath(`/projects/${project.parentId}`);
   revalidatePath("/");
   revalidatePath("/today");
+  return project;
+}
+
+export async function setProjectBanner(projectId: string, bannerUrl: string) {
+  const project = await db.project.update({
+    where: { id: projectId },
+    data: { bannerUrl },
+  });
+
+  revalidatePath(`/projects/${projectId}`);
+  revalidatePath("/");
+  return project;
+}
+
+export async function removeProjectBanner(projectId: string) {
+  const project = await db.project.update({
+    where: { id: projectId },
+    data: { bannerUrl: null },
+  });
+
+  revalidatePath(`/projects/${projectId}`);
+  revalidatePath("/");
   return project;
 }
 
