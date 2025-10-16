@@ -198,3 +198,10 @@ Displays 16:9, 4:3, or 1:1 ratio tag on thumbnail hover.
 
 ---
 
+### Milestone 29: feat(ui): style dark mode card cover borders with subtle neon glow
+**Timestamp**: `17:03:56`
+
+Subtle border-accent/20 highlight in dark mode.
+
+---
+
