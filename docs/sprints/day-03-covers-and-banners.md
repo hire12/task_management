@@ -149,3 +149,10 @@ Overlay tint picker to match project brand color.
 
 ---
 
+### Milestone 22: feat(ui): add border radius smoothing to top corners of cover cards
+**Timestamp**: `15:02:57`
+
+Rounded-t-xl on card cover container matching card border radius.
+
+---
+
