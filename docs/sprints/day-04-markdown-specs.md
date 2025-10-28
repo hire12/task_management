@@ -9,3 +9,10 @@ Created components/MarkdownRenderer.tsx supporting headers, lists, code, and bol
 
 ---
 
+### Milestone 2: feat(markdown): support interactive task checklists (- [ ] and - [x])
+**Timestamp**: `09:31:17`
+
+Renders clickable checkboxes inside markdown description that update task spec.
+
+---
+
