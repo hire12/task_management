@@ -65,3 +65,10 @@ Split view showing raw markdown on left and rendered spec on right.
 
 ---
 
+### Milestone 10: feat(markdown): support markdown tables with crisp zebra striping
+**Timestamp**: `13:45:33`
+
+Clean table rendering with header bottom border and alternating row tints.
+
+---
+
