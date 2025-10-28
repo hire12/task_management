@@ -93,3 +93,10 @@ Strict tag whitelist preventing malicious scripts from executing in specs.
 
 ---
 
+### Milestone 14: feat(markdown): support strikethrough (~~text~~) formatting
+**Timestamp**: `15:51:41`
+
+Del tags rendered with line-through text styling.
+
+---
+
