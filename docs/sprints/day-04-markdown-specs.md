@@ -16,3 +16,10 @@ Renders clickable checkboxes inside markdown description that update task spec.
 
 ---
 
+### Milestone 3: feat(markdown): add syntax highlighted code block cards with 1-click copy
+**Timestamp**: `10:03:34`
+
+Pre/code blocks styled with dark slate background and clipboard copy button.
+
+---
+
