@@ -72,3 +72,10 @@ Clean table rendering with header bottom border and alternating row tints.
 
 ---
 
+### Milestone 11: feat(markdown): add keyboard shortcuts Cmd+B and Cmd+I in description editor
+**Timestamp**: `14:16:50`
+
+Markdown formatting hotkeys for bold and italic text selections.
+
+---
+
