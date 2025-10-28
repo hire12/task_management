@@ -79,3 +79,10 @@ Markdown formatting hotkeys for bold and italic text selections.
 
 ---
 
+### Milestone 12: feat(markdown): add horizontal divider line (---) rendering
+**Timestamp**: `14:48:07`
+
+Divider styling with subtle border-t border-border.
+
+---
+
