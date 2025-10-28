@@ -23,3 +23,10 @@ Pre/code blocks styled with dark slate background and clipboard copy button.
 
 ---
 
+### Milestone 4: feat(markdown): render blockquotes with stylish accent left border
+**Timestamp**: `10:35:51`
+
+Border-l-2 border-accent with subtle italics for quote callouts.
+
+---
+
