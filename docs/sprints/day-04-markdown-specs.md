@@ -37,3 +37,10 @@ Inline code rendered in monospace font with bg-surface-raised and border.
 
 ---
 
+### Milestone 6: feat(markdown): render inline markdown images with lightbox click handler
+**Timestamp**: `11:38:25`
+
+Images inside markdown descriptions can be clicked to open full lightbox.
+
+---
+
