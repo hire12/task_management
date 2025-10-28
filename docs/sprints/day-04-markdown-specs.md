@@ -107,3 +107,10 @@ RegEx URL detection converting plain links into styled clickable anchors.
 
 ---
 
+### Milestone 16: feat(a11y): ensure markdown headings maintain correct landmark order
+**Timestamp**: `16:55:15`
+
+H1 to H4 headings rendered with correct semantic hierarchy for screen readers.
+
+---
+
