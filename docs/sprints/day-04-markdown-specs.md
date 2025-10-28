@@ -30,3 +30,10 @@ Border-l-2 border-accent with subtle italics for quote callouts.
 
 ---
 
+### Milestone 5: feat(markdown): format inline `code snippets` with rounded badge styling
+**Timestamp**: `11:06:08`
+
+Inline code rendered in monospace font with bg-surface-raised and border.
+
+---
+
