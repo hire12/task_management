@@ -51,3 +51,10 @@ Safe link rendering opening in new tab without leaking referrer headers.
 
 ---
 
+### Milestone 8: feat(markdown): style ordered and unordered lists with custom bullet counters
+**Timestamp**: `12:41:59`
+
+Indented lists with custom accent bullets and numbered step tags.
+
+---
+
