@@ -58,3 +58,10 @@ Indented lists with custom accent bullets and numbered step tags.
 
 ---
 
+### Milestone 9: feat(markdown): add live side-by-side preview mode in task description editor
+**Timestamp**: `13:13:16`
+
+Split view showing raw markdown on left and rendered spec on right.
+
+---
+
