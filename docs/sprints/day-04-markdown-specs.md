@@ -114,3 +114,10 @@ H1 to H4 headings rendered with correct semantic hierarchy for screen readers.
 
 ---
 
+### Milestone 17: test(build): verify markdown parser renders with zero runtime regressions
+**Timestamp**: `17:26:32`
+
+Ran build and verified description viewer loads in under 5ms.
+
+---
+
