@@ -44,3 +44,10 @@ Images inside markdown descriptions can be clicked to open full lightbox.
 
 ---
 
+### Milestone 7: feat(markdown): parse external markdown links with rel=noreferrer target=_blank
+**Timestamp**: `12:10:42`
+
+Safe link rendering opening in new tab without leaking referrer headers.
+
+---
+
