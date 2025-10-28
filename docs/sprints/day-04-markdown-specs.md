@@ -100,3 +100,10 @@ Del tags rendered with line-through text styling.
 
 ---
 
+### Milestone 15: feat(markdown): auto-link raw URLs into clickable anchors
+**Timestamp**: `16:23:58`
+
+RegEx URL detection converting plain links into styled clickable anchors.
+
+---
+
