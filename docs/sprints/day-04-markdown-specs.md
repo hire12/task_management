@@ -86,3 +86,10 @@ Divider styling with subtle border-t border-border.
 
 ---
 
+### Milestone 13: feat(markdown): sanitize html in markdown to prevent XSS script injection
+**Timestamp**: `15:20:24`
+
+Strict tag whitelist preventing malicious scripts from executing in specs.
+
+---
+
