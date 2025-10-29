@@ -149,3 +149,10 @@ Toggle button to hide resolved issues to keep canvas clean.
 
 ---
 
+### Milestone 22: feat(ui): add keyboard shortcut Delete/Backspace to remove selected pin
+**Timestamp**: `16:23:57`
+
+Quick hotkey to delete active pin without clicking trash icon.
+
+---
+
