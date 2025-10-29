@@ -37,3 +37,10 @@ Modal popover when clicking a pin to enter bug description and severity.
 
 ---
 
+### Milestone 6: feat(actions): create saveAttachmentAnnotations server action
+**Timestamp**: `10:45:25`
+
+Persists annotation pin array into TaskAttachment.annotations in PostgreSQL.
+
+---
+
