@@ -44,3 +44,10 @@ Persists annotation pin array into TaskAttachment.annotations in PostgreSQL.
 
 ---
 
+### Milestone 7: feat(ui): allow deleting individual annotation pins
+**Timestamp**: `11:06:42`
+
+Trash button on pin popover with instant canvas removal.
+
+---
+
