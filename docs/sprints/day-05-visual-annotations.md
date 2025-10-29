@@ -23,3 +23,10 @@ Created ImageAnnotator.tsx with relative percentage coordinate calculation (x%, 
 
 ---
 
+### Milestone 4: feat(ui): render numbered bug pin badges directly over screenshot preview
+**Timestamp**: `10:03:51`
+
+Vibrant circular badges with pin number and hover tooltip.
+
+---
+
