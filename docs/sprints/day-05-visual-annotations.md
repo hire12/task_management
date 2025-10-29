@@ -114,3 +114,10 @@ Safe bulk clear trigger with confirmation prompt.
 
 ---
 
+### Milestone 17: feat(ui): export annotated screenshot with pins drawn directly onto canvas
+**Timestamp**: `14:37:32`
+
+Canvas drawImage and export to downloadable annotated PNG.
+
+---
+
