@@ -156,3 +156,10 @@ Quick hotkey to delete active pin without clicking trash icon.
 
 ---
 
+### Milestone 23: feat(ui): auto-focus comment input field when new pin is dropped
+**Timestamp**: `16:44:14`
+
+Focuses textarea immediately so user can start typing bug report.
+
+---
+
