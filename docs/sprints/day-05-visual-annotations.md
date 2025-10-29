@@ -93,3 +93,10 @@ Badge displaying '3 issues' on thumbnail if attachment has annotations.
 
 ---
 
+### Milestone 14: feat(ui): keyboard shortcut Escape to exit annotation mode
+**Timestamp**: `13:34:41`
+
+Pressing Escape closes annotator and returns to task detail view.
+
+---
+
