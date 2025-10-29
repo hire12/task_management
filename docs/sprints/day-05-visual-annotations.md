@@ -177,3 +177,10 @@ Clean list items with border-border and bg-surface-raised.
 
 ---
 
+### Milestone 26: test(annotator): verify relative coordinates maintain accuracy across screen sizes
+**Timestamp**: `17:47:05`
+
+Verified pin coordinates scale accurately on mobile and 4K displays.
+
+---
+
