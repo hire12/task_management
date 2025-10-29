@@ -107,3 +107,10 @@ Zoom support while dropping pins on microscopic UI elements.
 
 ---
 
+### Milestone 16: feat(ui): add clear all annotations confirmation dialog
+**Timestamp**: `14:16:15`
+
+Safe bulk clear trigger with confirmation prompt.
+
+---
+
