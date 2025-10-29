@@ -170,3 +170,10 @@ Clean list items with border-border and bg-surface-raised.
 
 ---
 
+### Milestone 25: refactor(annotator): debounce annotation save requests to server
+**Timestamp**: `17:26:48`
+
+300ms debounce preventing excessive database writes during rapid pin placement.
+
+---
+
