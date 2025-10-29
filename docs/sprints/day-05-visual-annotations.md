@@ -9,3 +9,10 @@ Schema migration adding Json? field to store pin coordinates and commentary note
 
 ---
 
+### Milestone 2: chore(db): push annotations field to postgres and sync client
+**Timestamp**: `09:21:17`
+
+Pushed schema changes to database without data loss.
+
+---
+
