@@ -121,3 +121,10 @@ Canvas drawImage and export to downloadable annotated PNG.
 
 ---
 
+### Milestone 18: feat(ui): add pulse ripple animation on newly placed bug pins
+**Timestamp**: `14:58:49`
+
+Gentle CSS ripple ping animation drawing attention to new pins.
+
+---
+
