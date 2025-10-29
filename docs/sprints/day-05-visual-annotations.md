@@ -128,3 +128,10 @@ Gentle CSS ripple ping animation drawing attention to new pins.
 
 ---
 
+### Milestone 19: feat(ui): show pin creator name and timestamp in note tooltip
+**Timestamp**: `15:20:06`
+
+Displays author and created time on pin inspection.
+
+---
+
