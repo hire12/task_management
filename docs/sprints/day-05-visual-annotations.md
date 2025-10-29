@@ -86,3 +86,10 @@ Pen icon button on thumbnail card to launch annotator studio.
 
 ---
 
+### Milestone 13: feat(ui): show pin count badge on image thumbnails in task inspector
+**Timestamp**: `13:13:24`
+
+Badge displaying '3 issues' on thumbnail if attachment has annotations.
+
+---
+
