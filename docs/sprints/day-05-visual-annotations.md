@@ -163,3 +163,10 @@ Focuses textarea immediately so user can start typing bug report.
 
 ---
 
+### Milestone 24: feat(ui): style annotation pin list with dark mode elevation
+**Timestamp**: `17:05:31`
+
+Clean list items with border-border and bg-surface-raised.
+
+---
+
