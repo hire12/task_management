@@ -16,3 +16,10 @@ Pushed schema changes to database without data loss.
 
 ---
 
+### Milestone 3: feat(ui): build ImageAnnotator component with click-to-pin canvas
+**Timestamp**: `09:42:34`
+
+Created ImageAnnotator.tsx with relative percentage coordinate calculation (x%, y%).
+
+---
+
