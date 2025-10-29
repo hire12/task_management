@@ -135,3 +135,10 @@ Displays author and created time on pin inspection.
 
 ---
 
+### Milestone 20: feat(ui): prevent pin drops outside the image boundary
+**Timestamp**: `15:41:23`
+
+Clamps coordinates strictly between 0% and 100%.
+
+---
+
