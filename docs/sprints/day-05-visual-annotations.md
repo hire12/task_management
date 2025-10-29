@@ -30,3 +30,10 @@ Vibrant circular badges with pin number and hover tooltip.
 
 ---
 
+### Milestone 5: feat(ui): add commentary text input for each annotation pin
+**Timestamp**: `10:24:08`
+
+Modal popover when clicking a pin to enter bug description and severity.
+
+---
+
