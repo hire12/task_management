@@ -58,3 +58,10 @@ Mouse drag events to reposition pins with real-time percentage updates.
 
 ---
 
+### Milestone 9: feat(ui): add color-coded severity levels to annotation pins
+**Timestamp**: `11:48:16`
+
+Red for critical bugs, orange for warnings, blue for design feedback.
+
+---
+
