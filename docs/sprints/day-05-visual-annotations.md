@@ -79,3 +79,10 @@ Strikethrough and checkmark on resolved issue pins.
 
 ---
 
+### Milestone 12: feat(ui): wire 'Annotate' button on image gallery thumbnails
+**Timestamp**: `12:52:07`
+
+Pen icon button on thumbnail card to launch annotator studio.
+
+---
+
