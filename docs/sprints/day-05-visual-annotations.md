@@ -100,3 +100,10 @@ Pressing Escape closes annotator and returns to task detail view.
 
 ---
 
+### Milestone 15: feat(ui): add pan and zoom within annotation canvas for tight UI details
+**Timestamp**: `13:55:58`
+
+Zoom support while dropping pins on microscopic UI elements.
+
+---
+
