@@ -72,3 +72,10 @@ Collapsible list of all active pins with author notes and resolution toggles.
 
 ---
 
+### Milestone 11: feat(ui): add 1-click 'Mark as Resolved' for individual pins
+**Timestamp**: `12:31:50`
+
+Strikethrough and checkmark on resolved issue pins.
+
+---
+
