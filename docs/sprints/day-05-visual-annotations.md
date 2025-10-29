@@ -65,3 +65,10 @@ Red for critical bugs, orange for warnings, blue for design feedback.
 
 ---
 
+### Milestone 10: feat(ui): render annotations summary drawer beneath screenshot
+**Timestamp**: `12:10:33`
+
+Collapsible list of all active pins with author notes and resolution toggles.
+
+---
+
