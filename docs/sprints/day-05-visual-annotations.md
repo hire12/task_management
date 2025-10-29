@@ -51,3 +51,10 @@ Trash button on pin popover with instant canvas removal.
 
 ---
 
+### Milestone 8: feat(ui): support dragging existing pins to adjust position
+**Timestamp**: `11:27:59`
+
+Mouse drag events to reposition pins with real-time percentage updates.
+
+---
+
