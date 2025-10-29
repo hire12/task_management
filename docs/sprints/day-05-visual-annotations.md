@@ -142,3 +142,10 @@ Clamps coordinates strictly between 0% and 100%.
 
 ---
 
+### Milestone 21: feat(ui): add filter to toggle resolved vs unresolved pins
+**Timestamp**: `16:02:40`
+
+Toggle button to hide resolved issues to keep canvas clean.
+
+---
+
