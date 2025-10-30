@@ -149,3 +149,10 @@ Tactile 3D keycap look with border-b-2 and subtle shadow.
 
 ---
 
+### Milestone 22: feat(shortcuts): add hotkey 1 to 5 to quickly set task priority
+**Timestamp**: `13:45:57`
+
+Pressing 1 sets Low, 2 sets Medium, 3 sets High, 4 sets Urgent.
+
+---
+
