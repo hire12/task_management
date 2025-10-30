@@ -93,3 +93,10 @@ Instantly marks selected task DONE or moves back to TODO.
 
 ---
 
+### Milestone 14: feat(vim): add hotkey E to open edit inspector on selected task
+**Timestamp**: `11:56:41`
+
+Enter or E opens TaskDetailModal for the currently focused card.
+
+---
+
