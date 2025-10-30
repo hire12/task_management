@@ -135,3 +135,10 @@ Changing task priority pushes rollback command to undo history.
 
 ---
 
+### Milestone 20: feat(vim): add hotkey Escape to blur inputs and close active modals
+**Timestamp**: `13:17:23`
+
+Universal Escape key handling across all UI layers.
+
+---
+
