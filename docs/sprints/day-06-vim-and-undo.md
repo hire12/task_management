@@ -79,3 +79,10 @@ Categorized into Navigation, Board, Task Actions, and Editing.
 
 ---
 
+### Milestone 12: feat(vim): add hotkey J and K to navigate between tasks in column
+**Timestamp**: `11:29:07`
+
+Vim arrow keys to select next and previous task card on board.
+
+---
+
