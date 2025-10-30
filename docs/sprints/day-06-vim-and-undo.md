@@ -51,3 +51,10 @@ G then T jumps to Today HUD, G then P jumps to Projects, G then B jumps to Board
 
 ---
 
+### Milestone 8: feat(vim): add hotkey C to summon new task modal from anywhere
+**Timestamp**: `10:35:59`
+
+Pressing C outside form inputs opens quick task creation modal.
+
+---
+
