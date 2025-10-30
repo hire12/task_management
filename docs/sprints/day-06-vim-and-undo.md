@@ -9,3 +9,10 @@ Built lib/undoStack.ts with push, pop, undo, redo, and state subscriptions.
 
 ---
 
+### Milestone 2: feat(undo): record task status changes into undo stack
+**Timestamp**: `09:13:17`
+
+Dragging a task between columns registers an inverse status update action.
+
+---
+
