@@ -219,3 +219,10 @@ Toggles hero banner between expanded and minimalist view.
 
 ---
 
+### Milestone 32: feat(undo): clear redo stack when a new operation is initiated
+**Timestamp**: `16:00:47`
+
+Standard undo/redo branch truncation semantics.
+
+---
+
