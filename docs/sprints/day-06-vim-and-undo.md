@@ -163,3 +163,10 @@ Quick menu popover to assign task without using mouse.
 
 ---
 
+### Milestone 24: feat(shortcuts): add hotkey D to set task due date
+**Timestamp**: `14:12:31`
+
+Opens date picker popover on selected task card.
+
+---
+
