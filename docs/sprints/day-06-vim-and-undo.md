@@ -170,3 +170,10 @@ Opens date picker popover on selected task card.
 
 ---
 
+### Milestone 25: feat(shortcuts): add hotkey Backspace to delete selected task with confirm
+**Timestamp**: `14:25:48`
+
+Prompts quick confirmation or toast with undo option.
+
+---
+
