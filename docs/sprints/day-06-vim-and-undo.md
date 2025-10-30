@@ -254,3 +254,10 @@ Allows users to remap hotkeys to suit personal preferences.
 
 ---
 
+### Milestone 37: feat(ui): highlight search matches on board when filtering with /
+**Timestamp**: `17:08:12`
+
+Real-time query text highlighting on card titles.
+
+---
+
