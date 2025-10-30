@@ -121,3 +121,10 @@ Circular buffer trimming oldest actions beyond 50 entries.
 
 ---
 
+### Milestone 18: feat(undo): support undoing subtask checklist toggles
+**Timestamp**: `12:50:49`
+
+Toggling checklist items records inverse state in undo stack.
+
+---
+
