@@ -198,3 +198,10 @@ Tab and Shift+Tab jump keyboard focus across board columns.
 
 ---
 
+### Milestone 29: feat(shortcuts): add hotkey N to create new column on board
+**Timestamp**: `15:20:56`
+
+Hotkeys for column management on active project boards.
+
+---
+
