@@ -72,3 +72,10 @@ Pressing question mark summons interactive modal displaying all hotkeys.
 
 ---
 
+### Milestone 11: feat(ui): build KeyboardShortcutsHelp modal with categorized shortcut cards
+**Timestamp**: `11:15:50`
+
+Categorized into Navigation, Board, Task Actions, and Editing.
+
+---
+
