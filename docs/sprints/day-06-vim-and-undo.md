@@ -247,3 +247,10 @@ Triggers router.refresh() to pull latest server state.
 
 ---
 
+### Milestone 36: feat(shortcuts): support customizable shortcut keybindings in settings
+**Timestamp**: `16:55:55`
+
+Allows users to remap hotkeys to suit personal preferences.
+
+---
+
