@@ -128,3 +128,10 @@ Toggling checklist items records inverse state in undo stack.
 
 ---
 
+### Milestone 19: feat(undo): support undoing task priority changes
+**Timestamp**: `13:04:06`
+
+Changing task priority pushes rollback command to undo history.
+
+---
+
