@@ -240,3 +240,10 @@ Quick navigation to project configurations.
 
 ---
 
+### Milestone 35: feat(shortcuts): add hotkey R to refresh active project board data
+**Timestamp**: `16:41:38`
+
+Triggers router.refresh() to pull latest server state.
+
+---
+
