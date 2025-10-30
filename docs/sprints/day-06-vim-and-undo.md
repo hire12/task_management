@@ -275,3 +275,10 @@ Clean hook abstraction managing window event listeners and unmount cleanup.
 
 ---
 
+### Milestone 40: test(undo): add unit test suite verifying undo stack state transitions
+**Timestamp**: `17:49:03`
+
+Verified 50-step undo/redo cycle with zero state desync.
+
+---
+
