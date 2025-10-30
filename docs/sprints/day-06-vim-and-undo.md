@@ -226,3 +226,10 @@ Standard undo/redo branch truncation semantics.
 
 ---
 
+### Milestone 33: feat(ui): add audio click feedback option for keyboard power users
+**Timestamp**: `16:14:04`
+
+Optional subtle mechanical click sound on shortcut triggers.
+
+---
+
