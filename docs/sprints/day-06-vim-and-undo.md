@@ -16,3 +16,10 @@ Dragging a task between columns registers an inverse status update action.
 
 ---
 
+### Milestone 3: feat(undo): record task deletions into undo stack for instant recovery
+**Timestamp**: `09:27:34`
+
+Deleting a task pushes recovery snapshot allowing immediate Cmd+Z restore.
+
+---
+
