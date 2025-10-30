@@ -37,3 +37,10 @@ Redo support traversing forward in action history.
 
 ---
 
+### Milestone 6: feat(ui): add floating undo toast notification with 5s countdown timer
+**Timestamp**: `10:07:25`
+
+Toast pill at bottom-right showing 'Task deleted · Undo (Cmd+Z)' with progress bar.
+
+---
+
