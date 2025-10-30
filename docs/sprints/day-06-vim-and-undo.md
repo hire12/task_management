@@ -44,3 +44,10 @@ Toast pill at bottom-right showing 'Task deleted · Undo (Cmd+Z)' with progress 
 
 ---
 
+### Milestone 7: feat(vim): add vim two-key chords for lightning navigation
+**Timestamp**: `10:21:42`
+
+G then T jumps to Today HUD, G then P jumps to Projects, G then B jumps to Board.
+
+---
+
