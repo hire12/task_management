@@ -233,3 +233,10 @@ Optional subtle mechanical click sound on shortcut triggers.
 
 ---
 
+### Milestone 34: feat(shortcuts): add hotkey S to open project settings modal
+**Timestamp**: `16:27:21`
+
+Quick navigation to project configurations.
+
+---
+
