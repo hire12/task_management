@@ -184,3 +184,10 @@ Vibrant 2px outline-accent ring indicating active keyboard focus.
 
 ---
 
+### Milestone 27: feat(shortcuts): add hotkey Space to preview task attachments in quick lightbox
+**Timestamp**: `14:52:22`
+
+Spacebar opens first attachment in lightbox preview.
+
+---
+
