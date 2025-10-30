@@ -30,3 +30,10 @@ Global keydown listener calling undoManager.undo() when focused outside inputs.
 
 ---
 
+### Milestone 5: feat(shortcuts): add Cmd+Shift+Z / Ctrl+Y keyboard listener for redo
+**Timestamp**: `09:54:08`
+
+Redo support traversing forward in action history.
+
+---
+
