@@ -261,3 +261,10 @@ Real-time query text highlighting on card titles.
 
 ---
 
+### Milestone 38: feat(shortcuts): add hotkey Cmd+Enter to submit task creation form
+**Timestamp**: `17:22:29`
+
+Standard developer form submission chord.
+
+---
+
