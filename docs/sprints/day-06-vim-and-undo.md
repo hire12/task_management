@@ -100,3 +100,10 @@ Enter or E opens TaskDetailModal for the currently focused card.
 
 ---
 
+### Milestone 15: feat(shortcuts): disable hotkeys automatically when typing inside inputs or textareas
+**Timestamp**: `12:10:58`
+
+Checks document.activeElement tag to prevent triggering shortcuts while typing.
+
+---
+
