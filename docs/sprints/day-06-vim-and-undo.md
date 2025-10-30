@@ -156,3 +156,10 @@ Pressing 1 sets Low, 2 sets Medium, 3 sets High, 4 sets Urgent.
 
 ---
 
+### Milestone 23: feat(shortcuts): add hotkey M to open assignee menu on active task
+**Timestamp**: `13:58:14`
+
+Quick menu popover to assign task without using mouse.
+
+---
+
