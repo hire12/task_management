@@ -86,3 +86,10 @@ Vim arrow keys to select next and previous task card on board.
 
 ---
 
+### Milestone 13: feat(vim): add hotkey X to toggle complete on selected task
+**Timestamp**: `11:42:24`
+
+Instantly marks selected task DONE or moves back to TODO.
+
+---
+
