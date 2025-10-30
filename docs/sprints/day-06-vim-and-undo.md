@@ -282,3 +282,10 @@ Verified 50-step undo/redo cycle with zero state desync.
 
 ---
 
+### Milestone 41: style(shortcuts): polish cheat sheet modal animations and typography
+**Timestamp**: `18:02:20`
+
+Smooth scale-in entrance animation with blur backdrop.
+
+---
+
