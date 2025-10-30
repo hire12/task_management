@@ -268,3 +268,10 @@ Standard developer form submission chord.
 
 ---
 
+### Milestone 39: refactor(shortcuts): extract useKeyboardShortcuts hook into standalone module
+**Timestamp**: `17:35:46`
+
+Clean hook abstraction managing window event listeners and unmount cleanup.
+
+---
+
