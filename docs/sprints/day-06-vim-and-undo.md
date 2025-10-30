@@ -23,3 +23,10 @@ Deleting a task pushes recovery snapshot allowing immediate Cmd+Z restore.
 
 ---
 
+### Milestone 4: feat(shortcuts): add global Cmd+Z / Ctrl+Z keyboard listener for undo
+**Timestamp**: `09:40:51`
+
+Global keydown listener calling undoManager.undo() when focused outside inputs.
+
+---
+
