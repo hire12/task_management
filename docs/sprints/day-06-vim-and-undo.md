@@ -191,3 +191,10 @@ Spacebar opens first attachment in lightbox preview.
 
 ---
 
+### Milestone 28: feat(shortcuts): add hotkey Tab to cycle between Kanban columns
+**Timestamp**: `15:06:39`
+
+Tab and Shift+Tab jump keyboard focus across board columns.
+
+---
+
