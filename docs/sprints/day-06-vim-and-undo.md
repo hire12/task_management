@@ -142,3 +142,10 @@ Universal Escape key handling across all UI layers.
 
 ---
 
+### Milestone 21: feat(ui): style Kbd keyboard shortcut chips with tactile keycap border
+**Timestamp**: `13:31:40`
+
+Tactile 3D keycap look with border-b-2 and subtle shadow.
+
+---
+
