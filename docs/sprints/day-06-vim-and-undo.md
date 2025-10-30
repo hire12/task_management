@@ -114,3 +114,10 @@ Visual hint pills showing shortcut keys in sidebar and menus.
 
 ---
 
+### Milestone 17: feat(undo): cap undo stack size at 50 operations to prevent memory leaks
+**Timestamp**: `12:37:32`
+
+Circular buffer trimming oldest actions beyond 50 entries.
+
+---
+
