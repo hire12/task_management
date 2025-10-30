@@ -212,3 +212,10 @@ Pressing F toggles task search and filter bar visibility.
 
 ---
 
+### Milestone 31: feat(shortcuts): add hotkey P to toggle project banner collapse
+**Timestamp**: `15:47:30`
+
+Toggles hero banner between expanded and minimalist view.
+
+---
+
