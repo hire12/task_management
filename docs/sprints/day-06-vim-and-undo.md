@@ -65,3 +65,10 @@ Pressing slash focuses the global task and project search bar.
 
 ---
 
+### Milestone 10: feat(vim): add hotkey ? to open keyboard shortcuts help cheat sheet
+**Timestamp**: `11:02:33`
+
+Pressing question mark summons interactive modal displaying all hotkeys.
+
+---
+
