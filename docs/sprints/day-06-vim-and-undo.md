@@ -205,3 +205,10 @@ Hotkeys for column management on active project boards.
 
 ---
 
+### Milestone 30: feat(shortcuts): add hotkey F to open filter toolbar
+**Timestamp**: `15:33:13`
+
+Pressing F toggles task search and filter bar visibility.
+
+---
+
