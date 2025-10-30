@@ -177,3 +177,10 @@ Prompts quick confirmation or toast with undo option.
 
 ---
 
+### Milestone 26: feat(ui): add visual focus ring around currently keyboard-selected card
+**Timestamp**: `14:39:05`
+
+Vibrant 2px outline-accent ring indicating active keyboard focus.
+
+---
+
