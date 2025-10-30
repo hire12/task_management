@@ -107,3 +107,10 @@ Checks document.activeElement tag to prevent triggering shortcuts while typing.
 
 ---
 
+### Milestone 16: feat(ui): render keyboard shortcut badges (Kbd) across navigation items
+**Timestamp**: `12:23:15`
+
+Visual hint pills showing shortcut keys in sidebar and menus.
+
+---
+
