@@ -58,3 +58,10 @@ Pressing C outside form inputs opens quick task creation modal.
 
 ---
 
+### Milestone 9: feat(vim): add hotkey / to focus search palette
+**Timestamp**: `10:48:16`
+
+Pressing slash focuses the global task and project search bar.
+
+---
+
