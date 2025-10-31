@@ -9,3 +9,10 @@ Created components/SprintBurndown.tsx calculating ideal burn vs actual burn curv
 
 ---
 
+### Milestone 2: feat(burndown): calculate project velocity and projected completion date
+**Timestamp**: `09:15:17`
+
+Linear regression trajectory forecasting exact delivery date based on completion rate.
+
+---
+
