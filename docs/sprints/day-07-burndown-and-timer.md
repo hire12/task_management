@@ -198,3 +198,10 @@ Stage-level duration analytics showing where bottlenecks occur.
 
 ---
 
+### Milestone 29: feat(burndown): calculate burnup curve option for agile release trains
+**Timestamp**: `16:23:56`
+
+Toggle to view cumulative completed scope over time.
+
+---
+
