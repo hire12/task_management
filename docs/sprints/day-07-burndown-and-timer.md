@@ -114,3 +114,10 @@ Velocity bar chart comparing past 4 sprint performances.
 
 ---
 
+### Milestone 17: feat(timer): show total accumulated project hours in project header
+**Timestamp**: `13:13:32`
+
+Aggregates all task durations into project-level total billable hours.
+
+---
+
