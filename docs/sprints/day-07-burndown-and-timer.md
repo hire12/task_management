@@ -72,3 +72,10 @@ Built-in Pomodoro cycles with work and break intervals.
 
 ---
 
+### Milestone 11: feat(timer): display running timer badge on active Kanban task card
+**Timestamp**: `11:38:50`
+
+Pulsing amber dot and live ticking timer on card header.
+
+---
+
