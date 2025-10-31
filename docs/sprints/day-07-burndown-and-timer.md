@@ -191,3 +191,10 @@ Exports clean vector SVG for sprint review slides.
 
 ---
 
+### Milestone 28: feat(timer): track time spent per task stage (TODO vs IN_PROGRESS vs REVIEW)
+**Timestamp**: `16:07:39`
+
+Stage-level duration analytics showing where bottlenecks occur.
+
+---
+
