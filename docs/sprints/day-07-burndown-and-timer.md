@@ -107,3 +107,10 @@ Smart duration formatter formatting seconds into clean display badges.
 
 ---
 
+### Milestone 16: feat(burndown): calculate team completion velocity per sprint week
+**Timestamp**: `12:57:15`
+
+Velocity bar chart comparing past 4 sprint performances.
+
+---
+
