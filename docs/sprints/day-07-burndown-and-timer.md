@@ -156,3 +156,10 @@ Linear gradient fill highlighting burned work volume.
 
 ---
 
+### Milestone 23: feat(timer): show idle timer detection warning after 15 minutes of inactivity
+**Timestamp**: `14:48:14`
+
+Gentle popover asking user if they are still working on the task.
+
+---
+
