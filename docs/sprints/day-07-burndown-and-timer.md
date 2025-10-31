@@ -163,3 +163,10 @@ Gentle popover asking user if they are still working on the task.
 
 ---
 
+### Milestone 24: feat(burndown): support sprint milestone target markers on timeline
+**Timestamp**: `15:04:31`
+
+Flag markers showing major release milestones on burndown x-axis.
+
+---
+
