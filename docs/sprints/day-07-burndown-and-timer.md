@@ -184,3 +184,10 @@ One-click buttons to extend active timer session.
 
 ---
 
+### Milestone 27: feat(burndown): add download burndown chart as SVG button
+**Timestamp**: `15:51:22`
+
+Exports clean vector SVG for sprint review slides.
+
+---
+
