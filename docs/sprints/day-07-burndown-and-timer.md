@@ -212,3 +212,10 @@ Displays flame icon with consecutive completed focus sessions.
 
 ---
 
+### Milestone 31: feat(timer): support billable vs non-billable time tags
+**Timestamp**: `16:55:30`
+
+Checkbox marking hours as billable for client reporting.
+
+---
+
