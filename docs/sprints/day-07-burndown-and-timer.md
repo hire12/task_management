@@ -65,3 +65,10 @@ Updates task duration seconds directly into database.
 
 ---
 
+### Milestone 10: feat(timer): add 25-minute Pomodoro focus mode with chime alert
+**Timestamp**: `11:22:33`
+
+Built-in Pomodoro cycles with work and break intervals.
+
+---
+
