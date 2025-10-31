@@ -100,3 +100,10 @@ Quick input to log 1h 30m without running live stopwatch.
 
 ---
 
+### Milestone 15: feat(timer): format logged duration into human readable 2h 45m badges
+**Timestamp**: `12:41:58`
+
+Smart duration formatter formatting seconds into clean display badges.
+
+---
+
