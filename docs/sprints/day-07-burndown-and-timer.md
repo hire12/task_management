@@ -233,3 +233,10 @@ High accuracy time tracking without setInterval drift.
 
 ---
 
+### Milestone 34: test(burndown): verify velocity calculation handles zero-task projects gracefully
+**Timestamp**: `17:42:21`
+
+Defensive fallback preventing divide-by-zero on empty boards.
+
+---
+
