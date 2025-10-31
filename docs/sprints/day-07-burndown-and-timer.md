@@ -51,3 +51,10 @@ Visual upward spikes in burndown curve highlighting scope expansion.
 
 ---
 
+### Milestone 8: feat(timer): build live TaskTimer stopwatch and Pomodoro component
+**Timestamp**: `10:50:59`
+
+Created components/TaskTimer.tsx with play, pause, reset, and interval tracking.
+
+---
+
