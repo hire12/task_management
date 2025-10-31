@@ -128,3 +128,10 @@ Synthesized web audio ding alerting user to take a 5-minute break.
 
 ---
 
+### Milestone 19: feat(burndown): style burndown chart container with dark glass elevation
+**Timestamp**: `13:45:06`
+
+Backdrop-blur card styling matching Orbit design system.
+
+---
+
