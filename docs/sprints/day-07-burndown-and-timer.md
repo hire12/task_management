@@ -37,3 +37,10 @@ Crisp stroke-dasharray styling for target velocity guideline.
 
 ---
 
+### Milestone 6: feat(burndown): add sprint date range picker to customize burndown scope
+**Timestamp**: `10:19:25`
+
+Date filters allowing inspection of specific sprint cycles.
+
+---
+
