@@ -226,3 +226,10 @@ SVG viewBox auto-scaling smoothly across narrow screens.
 
 ---
 
+### Milestone 33: refactor(timer): extract useTaskTimer hook with high precision requestAnimationFrame
+**Timestamp**: `17:26:04`
+
+High accuracy time tracking without setInterval drift.
+
+---
+
