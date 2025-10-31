@@ -219,3 +219,10 @@ Checkbox marking hours as billable for client reporting.
 
 ---
 
+### Milestone 32: feat(burndown): ensure chart renders responsively on tablet and mobile viewports
+**Timestamp**: `17:10:47`
+
+SVG viewBox auto-scaling smoothly across narrow screens.
+
+---
+
