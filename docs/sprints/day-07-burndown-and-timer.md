@@ -16,3 +16,10 @@ Linear regression trajectory forecasting exact delivery date based on completion
 
 ---
 
+### Milestone 3: feat(burndown): render interactive SVG tooltips on burndown data points
+**Timestamp**: `09:31:34`
+
+Hover tooltips showing date, remaining story points, and tasks closed.
+
+---
+
