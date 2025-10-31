@@ -135,3 +135,10 @@ Backdrop-blur card styling matching Orbit design system.
 
 ---
 
+### Milestone 20: feat(timer): add keyboard shortcut Alt+T to toggle stopwatch on active task
+**Timestamp**: `14:00:23`
+
+Quick hotkey to start or pause timer.
+
+---
+
