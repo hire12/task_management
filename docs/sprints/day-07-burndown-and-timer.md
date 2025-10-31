@@ -23,3 +23,10 @@ Hover tooltips showing date, remaining story points, and tasks closed.
 
 ---
 
+### Milestone 4: feat(burndown): support toggling between task count and story point metrics
+**Timestamp**: `09:47:51`
+
+Dropdown switch between raw task counts and estimated point burn.
+
+---
+
