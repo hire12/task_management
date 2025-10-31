@@ -177,3 +177,10 @@ Bar chart showing how hours were divided across projects today.
 
 ---
 
+### Milestone 26: feat(timer): add quick +15m and +30m time bump buttons
+**Timestamp**: `15:35:05`
+
+One-click buttons to extend active timer session.
+
+---
+
