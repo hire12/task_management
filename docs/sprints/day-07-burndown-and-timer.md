@@ -86,3 +86,10 @@ Starting a new timer automatically pauses any previously running task timer.
 
 ---
 
+### Milestone 13: feat(timer): persist running timer state in localStorage across page reloads
+**Timestamp**: `12:10:24`
+
+Keeps ticking seamlessly if user navigates away or refreshes.
+
+---
+
