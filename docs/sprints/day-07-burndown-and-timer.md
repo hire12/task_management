@@ -79,3 +79,10 @@ Pulsing amber dot and live ticking timer on card header.
 
 ---
 
+### Milestone 12: feat(timer): allow only one running timer at a time across workspace
+**Timestamp**: `11:54:07`
+
+Starting a new timer automatically pauses any previously running task timer.
+
+---
+
