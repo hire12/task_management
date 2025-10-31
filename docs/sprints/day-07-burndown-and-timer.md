@@ -142,3 +142,10 @@ Quick hotkey to start or pause timer.
 
 ---
 
+### Milestone 21: feat(timer): export project time sheet log to CSV
+**Timestamp**: `14:16:40`
+
+Allows downloading employee/freelancer time report for invoicing.
+
+---
+
