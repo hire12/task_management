@@ -240,3 +240,10 @@ Defensive fallback preventing divide-by-zero on empty boards.
 
 ---
 
+### Milestone 35: style(timer): polish play/pause icon transitions and glowing border
+**Timestamp**: `17:58:38`
+
+Vibrant accent border pulse when stopwatch is active.
+
+---
+
