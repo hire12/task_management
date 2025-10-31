@@ -58,3 +58,10 @@ Created components/TaskTimer.tsx with play, pause, reset, and interval tracking.
 
 ---
 
+### Milestone 9: feat(timer): persist logged time into database on task completion
+**Timestamp**: `11:06:16`
+
+Updates task duration seconds directly into database.
+
+---
+
