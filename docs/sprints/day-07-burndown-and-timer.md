@@ -205,3 +205,10 @@ Toggle to view cumulative completed scope over time.
 
 ---
 
+### Milestone 30: feat(timer): add Pomodoro streak counter to gamify deep work sessions
+**Timestamp**: `16:39:13`
+
+Displays flame icon with consecutive completed focus sessions.
+
+---
+
