@@ -93,3 +93,10 @@ Keeps ticking seamlessly if user navigates away or refreshes.
 
 ---
 
+### Milestone 14: feat(timer): add manual time entry input for retroactive hour logging
+**Timestamp**: `12:25:41`
+
+Quick input to log 1h 30m without running live stopwatch.
+
+---
+
