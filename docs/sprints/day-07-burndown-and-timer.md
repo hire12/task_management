@@ -121,3 +121,10 @@ Aggregates all task durations into project-level total billable hours.
 
 ---
 
+### Milestone 18: feat(timer): add audio chime notification on Pomodoro session complete
+**Timestamp**: `13:29:49`
+
+Synthesized web audio ding alerting user to take a 5-minute break.
+
+---
+
