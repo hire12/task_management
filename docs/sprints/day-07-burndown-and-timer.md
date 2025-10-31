@@ -44,3 +44,10 @@ Date filters allowing inspection of specific sprint cycles.
 
 ---
 
+### Milestone 7: feat(burndown): display scope creep warnings when tasks are added mid-sprint
+**Timestamp**: `10:35:42`
+
+Visual upward spikes in burndown curve highlighting scope expansion.
+
+---
+
