@@ -30,3 +30,10 @@ Dropdown switch between raw task counts and estimated point burn.
 
 ---
 
+### Milestone 5: feat(burndown): style ideal trajectory line with dashed slate stroke
+**Timestamp**: `10:03:08`
+
+Crisp stroke-dasharray styling for target velocity guideline.
+
+---
+
