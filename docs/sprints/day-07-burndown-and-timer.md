@@ -170,3 +170,10 @@ Flag markers showing major release milestones on burndown x-axis.
 
 ---
 
+### Milestone 25: feat(timer): display daily time breakdown chart in Today HUD
+**Timestamp**: `15:20:48`
+
+Bar chart showing how hours were divided across projects today.
+
+---
+
