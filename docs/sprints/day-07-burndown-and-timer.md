@@ -149,3 +149,10 @@ Allows downloading employee/freelancer time report for invoicing.
 
 ---
 
+### Milestone 22: feat(burndown): add SVG area gradient beneath actual burndown curve
+**Timestamp**: `14:32:57`
+
+Linear gradient fill highlighting burned work volume.
+
+---
+
