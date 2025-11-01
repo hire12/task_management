@@ -114,3 +114,10 @@ Generates mermaid flowchart markdown syntax for project documentation.
 
 ---
 
+### Milestone 17: refactor(dependencies): optimize blocker lookup query with indexed foreign keys
+**Timestamp**: `17:00:32`
+
+Single query lookup retrieving all relations without N+1 overhead.
+
+---
+
