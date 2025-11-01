@@ -72,3 +72,10 @@ Array mapping of multiple prerequisite dependencies.
 
 ---
 
+### Milestone 11: feat(dependencies): allow removing dependency links with 1 click
+**Timestamp**: `14:00:50`
+
+Dismiss button on dependency pills in task detail modal.
+
+---
+
