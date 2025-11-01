@@ -65,3 +65,10 @@ Generates activity log entry unblocking downstream tasks.
 
 ---
 
+### Milestone 10: feat(dependencies): support multiple upstream blockers per task
+**Timestamp**: `13:30:33`
+
+Array mapping of multiple prerequisite dependencies.
+
+---
+
