@@ -86,3 +86,10 @@ Subtle curved connector lines between related cards on board.
 
 ---
 
+### Milestone 13: feat(dependencies): filter board to view only critical path blocked tasks
+**Timestamp**: `15:00:24`
+
+Quick filter toggle showing only tasks on the critical blocking path.
+
+---
+
