@@ -107,3 +107,10 @@ Table listing all active blockers and their current progress status.
 
 ---
 
+### Milestone 16: feat(dependencies): export dependency graph to Mermaid diagram markdown
+**Timestamp**: `16:30:15`
+
+Generates mermaid flowchart markdown syntax for project documentation.
+
+---
+
