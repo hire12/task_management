@@ -23,3 +23,10 @@ Modal alert warning that prerequisite tasks are still IN_PROGRESS.
 
 ---
 
+### Milestone 4: feat(dependencies): render downstream dependents that are waiting for this task
+**Timestamp**: `10:30:51`
+
+List showing which team members and tasks will be unblocked upon completion.
+
+---
+
