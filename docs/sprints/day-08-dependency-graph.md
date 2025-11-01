@@ -58,3 +58,10 @@ Visual indicator on board showing blocked status at a glance.
 
 ---
 
+### Milestone 9: feat(dependencies): auto-notify assignees when their blocker task moves to DONE
+**Timestamp**: `13:00:16`
+
+Generates activity log entry unblocking downstream tasks.
+
+---
+
