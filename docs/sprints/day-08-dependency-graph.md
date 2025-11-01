@@ -16,3 +16,10 @@ Red alert banner on task inspector when dependent tasks are unfinished.
 
 ---
 
+### Milestone 3: feat(dependencies): prevent moving blocked task to DONE without warning confirmation
+**Timestamp**: `10:00:34`
+
+Modal alert warning that prerequisite tasks are still IN_PROGRESS.
+
+---
+
