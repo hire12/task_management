@@ -51,3 +51,10 @@ Validates that Task A blocking Task B cannot also be blocked by Task B.
 
 ---
 
+### Milestone 8: feat(dependencies): show tiny chain link icon on Kanban cards that have dependencies
+**Timestamp**: `12:30:59`
+
+Visual indicator on board showing blocked status at a glance.
+
+---
+
