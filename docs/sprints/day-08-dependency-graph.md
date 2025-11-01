@@ -9,3 +9,10 @@ Created components/DependencyTree.tsx analyzing upstream blockers and downstream
 
 ---
 
+### Milestone 2: feat(dependencies): identify prerequisite blockers and display warning badge
+**Timestamp**: `09:30:17`
+
+Red alert banner on task inspector when dependent tasks are unfinished.
+
+---
+
