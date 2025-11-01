@@ -37,3 +37,10 @@ Quick search palette to select prerequisite task dependencies.
 
 ---
 
+### Milestone 6: feat(dependencies): display chained dependency depth counter (e.g. 2 levels deep)
+**Timestamp**: `11:30:25`
+
+Depth badge showing dependency chain complexity.
+
+---
+
