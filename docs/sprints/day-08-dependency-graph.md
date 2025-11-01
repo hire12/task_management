@@ -79,3 +79,10 @@ Dismiss button on dependency pills in task detail modal.
 
 ---
 
+### Milestone 12: feat(dependencies): render visual SVG connection line between dependent cards
+**Timestamp**: `14:30:07`
+
+Subtle curved connector lines between related cards on board.
+
+---
+
