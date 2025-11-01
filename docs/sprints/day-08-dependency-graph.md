@@ -121,3 +121,10 @@ Single query lookup retrieving all relations without N+1 overhead.
 
 ---
 
+### Milestone 18: test(dependencies): add unit tests for circular dependency cycle detector
+**Timestamp**: `17:30:49`
+
+Verified directed graph cycle detection handles complex loops accurately.
+
+---
+
