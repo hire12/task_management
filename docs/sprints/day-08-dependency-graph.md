@@ -100,3 +100,10 @@ Amber warning when blocker due date is after the dependent task due date.
 
 ---
 
+### Milestone 15: feat(dependencies): add dependency audit report in project settings
+**Timestamp**: `16:00:58`
+
+Table listing all active blockers and their current progress status.
+
+---
+
