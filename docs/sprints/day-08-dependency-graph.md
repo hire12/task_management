@@ -93,3 +93,10 @@ Quick filter toggle showing only tasks on the critical blocking path.
 
 ---
 
+### Milestone 14: feat(dependencies): color-code dependencies by urgency and due date proximity
+**Timestamp**: `15:30:41`
+
+Amber warning when blocker due date is after the dependent task due date.
+
+---
+
