@@ -30,3 +30,10 @@ List showing which team members and tasks will be unblocked upon completion.
 
 ---
 
+### Milestone 5: feat(dependencies): add 1-click 'Link Blocker' search dropdown in task inspector
+**Timestamp**: `11:00:08`
+
+Quick search palette to select prerequisite task dependencies.
+
+---
+
