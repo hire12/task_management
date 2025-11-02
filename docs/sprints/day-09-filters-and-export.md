@@ -30,3 +30,10 @@ Stage selector filtering cards across columns.
 
 ---
 
+### Milestone 5: feat(filters): add active filter count badge and 1-click Clear All button
+**Timestamp**: `10:31:08`
+
+Badge showing '3 filters active' with reset button.
+
+---
+
