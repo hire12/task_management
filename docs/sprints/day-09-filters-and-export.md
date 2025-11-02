@@ -9,3 +9,10 @@ Created components/TaskFilters.tsx supporting search, priority, status, and tag 
 
 ---
 
+### Milestone 2: feat(filters): add 'Has Screenshots' filter chip to show visual tasks
+**Timestamp**: `09:22:17`
+
+1-click toggle to isolate tasks containing image attachments.
+
+---
+
