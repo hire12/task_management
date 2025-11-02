@@ -156,3 +156,10 @@ Exclude filters to hide completed tasks and declutter board.
 
 ---
 
+### Milestone 23: refactor(filters): memoize filtered task list to eliminate unnecessary re-renders
+**Timestamp**: `17:21:14`
+
+useMemo optimization keeping board 60fps during live typing.
+
+---
+
