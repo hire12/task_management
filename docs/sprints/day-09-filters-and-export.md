@@ -23,3 +23,10 @@ Quick select filter narrowing board cards by urgency.
 
 ---
 
+### Milestone 4: feat(filters): add stage filter selector (Backlog, Todo, In Progress, Review, Done)
+**Timestamp**: `10:08:51`
+
+Stage selector filtering cards across columns.
+
+---
+
