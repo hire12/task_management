@@ -86,3 +86,10 @@ Date filter isolating urgent deadline tasks.
 
 ---
 
+### Milestone 13: feat(filters): animate card entrance and exit when filters change
+**Timestamp**: `13:33:24`
+
+Smooth fade and scale transitions when filter results update.
+
+---
+
