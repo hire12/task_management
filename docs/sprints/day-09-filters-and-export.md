@@ -16,3 +16,10 @@ Created components/TaskFilters.tsx supporting search, priority, status, and tag 
 
 ---
 
+### Milestone 3: feat(filters): add priority dropdown selector (Urgent, High, Medium, Low)
+**Timestamp**: `09:45:34`
+
+Quick select filter narrowing board cards by urgency.
+
+---
+
