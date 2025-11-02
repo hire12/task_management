@@ -72,3 +72,10 @@ Rich metadata export for external reporting in Excel / Google Sheets.
 
 ---
 
+### Milestone 11: feat(filters): add assignee filter dropdown to inspect individual workloads
+**Timestamp**: `12:48:50`
+
+Filter tasks assigned to specific team members.
+
+---
+
