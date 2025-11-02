@@ -93,3 +93,10 @@ Smooth fade and scale transitions when filter results update.
 
 ---
 
+### Milestone 14: feat(export): add export dropdown menu in project header toolbar
+**Timestamp**: `13:56:41`
+
+Dropdown menu with options for CSV, JSON, and Print formats.
+
+---
+
