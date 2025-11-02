@@ -79,3 +79,10 @@ Filter tasks assigned to specific team members.
 
 ---
 
+### Milestone 12: feat(filters): add due date range filter (Overdue, Due Today, This Week)
+**Timestamp**: `13:10:07`
+
+Date filter isolating urgent deadline tasks.
+
+---
+
