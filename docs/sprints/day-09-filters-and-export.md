@@ -163,3 +163,10 @@ useMemo optimization keeping board 60fps during live typing.
 
 ---
 
+### Milestone 24: test(export): verify CSV generator handles quotes and commas in task titles
+**Timestamp**: `17:44:31`
+
+RFC 4180 compliance testing for CSV export escaping.
+
+---
+
