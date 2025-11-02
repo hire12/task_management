@@ -107,3 +107,10 @@ Bold text highlights matching search terms inside task cards.
 
 ---
 
+### Milestone 16: feat(filters): show empty state banner when no tasks match active filters
+**Timestamp**: `14:42:15`
+
+Encouraging empty state with 'Reset filters' button.
+
+---
+
