@@ -37,3 +37,10 @@ Badge showing '3 filters active' with reset button.
 
 ---
 
+### Milestone 6: feat(export): create 1-click CSV task data exporter in lib/exportTasks.ts
+**Timestamp**: `10:54:25`
+
+Built exportTasksToCSV formatting title, priority, status, dates, and hours.
+
+---
+
