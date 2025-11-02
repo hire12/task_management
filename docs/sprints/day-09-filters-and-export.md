@@ -128,3 +128,10 @@ Prepends single quote to cells starting with = + - @ to protect spreadsheet apps
 
 ---
 
+### Milestone 19: feat(filters): add keyboard shortcut Cmd+F to instantly focus filter toolbar
+**Timestamp**: `15:50:06`
+
+Quick hotkey to jump to filter search.
+
+---
+
