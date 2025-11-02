@@ -65,3 +65,10 @@ Filter state reflected in URL for bookmarkable and shareable views.
 
 ---
 
+### Milestone 10: feat(export): include attachment count and cover flag in CSV export columns
+**Timestamp**: `12:25:33`
+
+Rich metadata export for external reporting in Excel / Google Sheets.
+
+---
+
