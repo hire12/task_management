@@ -100,3 +100,10 @@ Dropdown menu with options for CSV, JSON, and Print formats.
 
 ---
 
+### Milestone 15: feat(filters): highlight matched query characters in task card titles
+**Timestamp**: `14:19:58`
+
+Bold text highlights matching search terms inside task cards.
+
+---
+
