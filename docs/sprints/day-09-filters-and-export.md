@@ -114,3 +114,10 @@ Encouraging empty state with 'Reset filters' button.
 
 ---
 
+### Milestone 17: feat(filters): save custom filter presets (e.g. 'My Urgent Bugs')
+**Timestamp**: `15:04:32`
+
+Allows saving recurring filter combinations for 1-click recall.
+
+---
+
