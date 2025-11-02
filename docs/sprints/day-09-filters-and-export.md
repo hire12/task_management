@@ -121,3 +121,10 @@ Allows saving recurring filter combinations for 1-click recall.
 
 ---
 
+### Milestone 18: feat(export): sanitize CSV cells against formula injection attacks
+**Timestamp**: `15:27:49`
+
+Prepends single quote to cells starting with = + - @ to protect spreadsheet apps.
+
+---
+
