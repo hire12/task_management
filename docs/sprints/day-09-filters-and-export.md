@@ -58,3 +58,10 @@ Filter state reflected in URL for bookmarkable and shareable views.
 
 ---
 
+### Milestone 9: feat(filters): debounced instant search bar with clear button
+**Timestamp**: `12:02:16`
+
+150ms debounce on task search query input.
+
+---
+
