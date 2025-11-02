@@ -135,3 +135,10 @@ Quick hotkey to jump to filter search.
 
 ---
 
+### Milestone 20: feat(filters): add tag multiselect filter with colored pill badges
+**Timestamp**: `16:13:23`
+
+Filters tasks by project tags and labels.
+
+---
+
