@@ -149,3 +149,10 @@ e.g. orbit-tasks-2025-11-02.csv.
 
 ---
 
+### Milestone 22: feat(filters): support inverse filtering (e.g. exclude Done tasks)
+**Timestamp**: `16:58:57`
+
+Exclude filters to hide completed tasks and declutter board.
+
+---
+
