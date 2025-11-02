@@ -44,3 +44,10 @@ Built exportTasksToCSV formatting title, priority, status, dates, and hours.
 
 ---
 
+### Milestone 7: feat(export): create full JSON workspace snapshot exporter
+**Timestamp**: `11:16:42`
+
+Built exportTasksToJSON dumping complete task hierarchy with subtasks.
+
+---
+
