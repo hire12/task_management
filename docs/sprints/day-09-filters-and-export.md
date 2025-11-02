@@ -142,3 +142,10 @@ Filters tasks by project tags and labels.
 
 ---
 
+### Milestone 21: feat(export): format export filename with project slug and current date
+**Timestamp**: `16:36:40`
+
+e.g. orbit-tasks-2025-11-02.csv.
+
+---
+
