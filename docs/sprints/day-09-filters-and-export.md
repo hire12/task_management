@@ -51,3 +51,10 @@ Built exportTasksToJSON dumping complete task hierarchy with subtasks.
 
 ---
 
+### Milestone 8: feat(filters): persist filter preferences in URL search params
+**Timestamp**: `11:39:59`
+
+Filter state reflected in URL for bookmarkable and shareable views.
+
+---
+
