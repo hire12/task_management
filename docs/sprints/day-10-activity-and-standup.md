@@ -142,3 +142,10 @@ Illustration and prompt encouraging team to start sprint.
 
 ---
 
+### Milestone 21: feat(standup): allow selecting date range for weekly summary standups
+**Timestamp**: `15:07:40`
+
+Weekly report mode summarizing entire week's progress.
+
+---
+
