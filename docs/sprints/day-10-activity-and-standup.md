@@ -156,3 +156,10 @@ Loads previous days events smoothly as user scrolls.
 
 ---
 
+### Milestone 23: feat(standup): add quick share via email mailto: link
+**Timestamp**: `15:44:14`
+
+Pre-fills recipient, subject, and body in default email client.
+
+---
+
