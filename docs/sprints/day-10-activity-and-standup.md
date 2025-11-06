@@ -72,3 +72,10 @@ User avatars with initial fallback beside each logged event.
 
 ---
 
+### Milestone 11: feat(standup): add tone selector (Casual, Professional, Technical)
+**Timestamp**: `12:03:50`
+
+Formats standup bullet points according to team communication style.
+
+---
+
