@@ -65,3 +65,10 @@ Granular checklist accomplishments included in daily summary.
 
 ---
 
+### Milestone 10: feat(activity): add avatar icons for team members in activity stream
+**Timestamp**: `11:45:33`
+
+User avatars with initial fallback beside each logged event.
+
+---
+
