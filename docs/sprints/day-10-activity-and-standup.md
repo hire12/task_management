@@ -198,3 +198,10 @@ Group tasks into categories using single reduce pass.
 
 ---
 
+### Milestone 29: test(standup): verify standup generator handles projects with zero completed tasks
+**Timestamp**: `17:34:56`
+
+Graceful fallback when no tasks have been closed today.
+
+---
+
