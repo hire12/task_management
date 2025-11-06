@@ -58,3 +58,10 @@ Dropdown filter switching between current project and all projects.
 
 ---
 
+### Milestone 9: feat(standup): include completed subtasks in standup Done section
+**Timestamp**: `11:27:16`
+
+Granular checklist accomplishments included in daily summary.
+
+---
+
