@@ -9,3 +9,10 @@ Created components/StandupGenerator.tsx compiling Done, Doing, and Blockers.
 
 ---
 
+### Milestone 2: feat(standup): format standup report in GitHub Flavored Markdown
+**Timestamp**: `09:18:17`
+
+Clean markdown headings with bullet points ready for team updates.
+
+---
+
