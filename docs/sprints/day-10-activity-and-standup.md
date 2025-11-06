@@ -135,3 +135,10 @@ Rich emoji styling for Slack and Discord integrations.
 
 ---
 
+### Milestone 20: feat(activity): add empty state when no activity recorded today
+**Timestamp**: `14:49:23`
+
+Illustration and prompt encouraging team to start sprint.
+
+---
+
