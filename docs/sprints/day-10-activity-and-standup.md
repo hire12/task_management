@@ -30,3 +30,10 @@ Created components/ActivityStream.tsx listing workspace actions with relative da
 
 ---
 
+### Milestone 5: feat(activity): display task completion and creation events in activity feed
+**Timestamp**: `10:13:08`
+
+Icons for task created, status updated, attachment added, and completed.
+
+---
+
