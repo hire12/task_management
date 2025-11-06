@@ -114,3 +114,10 @@ Visual thumbnail previews inside activity feed items.
 
 ---
 
+### Milestone 17: feat(standup): include total hours logged today in standup footer
+**Timestamp**: `13:54:32`
+
+Summary of time tracked across active tasks.
+
+---
+
