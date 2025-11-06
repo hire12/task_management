@@ -184,3 +184,10 @@ Exportable audit trail for management reporting.
 
 ---
 
+### Milestone 27: feat(standup): add preview toggle between raw markdown and rendered html
+**Timestamp**: `16:58:22`
+
+Tabs to preview how standup looks when posted.
+
+---
+
