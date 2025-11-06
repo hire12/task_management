@@ -191,3 +191,10 @@ Tabs to preview how standup looks when posted.
 
 ---
 
+### Milestone 28: refactor(standup): optimize standup task grouping logic
+**Timestamp**: `17:16:39`
+
+Group tasks into categories using single reduce pass.
+
+---
+
