@@ -44,3 +44,10 @@ Smart relative date helper in lib/utils.ts.
 
 ---
 
+### Milestone 7: feat(standup): allow editing generated standup text before copying
+**Timestamp**: `10:50:42`
+
+Interactive textarea to add custom notes or personal blockers.
+
+---
+
