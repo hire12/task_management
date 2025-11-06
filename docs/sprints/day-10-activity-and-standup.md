@@ -205,3 +205,10 @@ Graceful fallback when no tasks have been closed today.
 
 ---
 
+### Milestone 30: style(activity): polish timeline connector line and dot pulses
+**Timestamp**: `17:53:13`
+
+Vertical connecting line with pulsing indicator dots.
+
+---
+
