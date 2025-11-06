@@ -51,3 +51,10 @@ Interactive textarea to add custom notes or personal blockers.
 
 ---
 
+### Milestone 8: feat(activity): filter activity feed by project or view workspace wide
+**Timestamp**: `11:08:59`
+
+Dropdown filter switching between current project and all projects.
+
+---
+
