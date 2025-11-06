@@ -86,3 +86,10 @@ Clicking an event opens the corresponding task modal.
 
 ---
 
+### Milestone 13: feat(standup): persist customized standup drafts in localStorage
+**Timestamp**: `12:40:24`
+
+Draft auto-save preventing loss of typed notes on page navigation.
+
+---
+
