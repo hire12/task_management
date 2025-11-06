@@ -23,3 +23,10 @@ Instant clipboard copy with green checkmark feedback.
 
 ---
 
+### Milestone 4: feat(activity): build ActivityStream chronological audit timeline component
+**Timestamp**: `09:55:51`
+
+Created components/ActivityStream.tsx listing workspace actions with relative dates.
+
+---
+
