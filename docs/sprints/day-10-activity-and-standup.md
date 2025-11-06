@@ -93,3 +93,10 @@ Draft auto-save preventing loss of typed notes on page navigation.
 
 ---
 
+### Milestone 14: feat(activity): add live auto-refresh to activity feed every 30 seconds
+**Timestamp**: `12:59:41`
+
+Background polling keeping audit trail fresh.
+
+---
+
