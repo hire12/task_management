@@ -170,3 +170,10 @@ Priority accent badges on high-severity logged actions.
 
 ---
 
+### Milestone 25: feat(standup): detect blockers automatically from urgent unfinished tasks
+**Timestamp**: `16:21:48`
+
+Auto-populates Blockers section with high-priority incomplete dependencies.
+
+---
+
