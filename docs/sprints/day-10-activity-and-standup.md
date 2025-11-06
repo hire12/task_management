@@ -149,3 +149,10 @@ Weekly report mode summarizing entire week's progress.
 
 ---
 
+### Milestone 22: feat(activity): add infinite scroll pagination for older activity records
+**Timestamp**: `15:26:57`
+
+Loads previous days events smoothly as user scrolls.
+
+---
+
