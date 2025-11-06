@@ -37,3 +37,10 @@ Icons for task created, status updated, attachment added, and completed.
 
 ---
 
+### Milestone 6: feat(activity): add relative timestamp formatting (e.g. 5m ago, 2h ago)
+**Timestamp**: `10:31:25`
+
+Smart relative date helper in lib/utils.ts.
+
+---
+
