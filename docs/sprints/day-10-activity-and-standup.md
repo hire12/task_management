@@ -121,3 +121,10 @@ Summary of time tracked across active tasks.
 
 ---
 
+### Milestone 18: feat(activity): style activity stream container with sleek modern glassmorphism
+**Timestamp**: `14:12:49`
+
+Clean border and background matching Orbit OS aesthetic.
+
+---
+
