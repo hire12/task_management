@@ -79,3 +79,10 @@ Formats standup bullet points according to team communication style.
 
 ---
 
+### Milestone 12: feat(activity): link activity stream items directly to task detail inspector
+**Timestamp**: `12:22:07`
+
+Clicking an event opens the corresponding task modal.
+
+---
+
