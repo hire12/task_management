@@ -177,3 +177,10 @@ Auto-populates Blockers section with high-priority incomplete dependencies.
 
 ---
 
+### Milestone 26: feat(activity): export activity audit log to CSV for compliance reviews
+**Timestamp**: `16:39:05`
+
+Exportable audit trail for management reporting.
+
+---
+
