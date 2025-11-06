@@ -163,3 +163,10 @@ Pre-fills recipient, subject, and body in default email client.
 
 ---
 
+### Milestone 24: feat(activity): highlight critical urgent task events in red accent
+**Timestamp**: `16:02:31`
+
+Priority accent badges on high-severity logged actions.
+
+---
+
