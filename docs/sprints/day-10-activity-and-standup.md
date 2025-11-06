@@ -100,3 +100,10 @@ Background polling keeping audit trail fresh.
 
 ---
 
+### Milestone 15: feat(standup): add keyboard shortcut G+S to summon standup generator
+**Timestamp**: `13:17:58`
+
+Quick hotkey for daily morning standup routine.
+
+---
+
