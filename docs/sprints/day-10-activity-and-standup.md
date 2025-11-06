@@ -107,3 +107,10 @@ Quick hotkey for daily morning standup routine.
 
 ---
 
+### Milestone 16: feat(activity): display attachment upload events with mini thumbnail previews
+**Timestamp**: `13:35:15`
+
+Visual thumbnail previews inside activity feed items.
+
+---
+
