@@ -268,3 +268,10 @@ Prefetches active project tasks into local cache on launch.
 
 ---
 
+### Milestone 39: feat(offline): add sync queue inspect modal for developers
+**Timestamp**: `16:50:46`
+
+Developer modal to view raw JSON payloads pending in queue.
+
+---
+
