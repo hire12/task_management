@@ -282,3 +282,10 @@ Automatic last-write-wins resolution for non-destructive updates.
 
 ---
 
+### Milestone 41: feat(offline): sanitize cached data against local storage quota limits
+**Timestamp**: `17:15:20`
+
+Prunes oldest cached project snapshots when reaching 4.5MB threshold.
+
+---
+
