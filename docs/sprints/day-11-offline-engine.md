@@ -23,3 +23,10 @@ Green 'Online' or amber 'Offline (Queue: 3)' badge in top bar.
 
 ---
 
+### Milestone 4: feat(offline): auto-flush queued mutations when network connection resumes
+**Timestamp**: `09:37:51`
+
+Window online event listener draining queue and synchronizing with server.
+
+---
+
