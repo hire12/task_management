@@ -9,3 +9,10 @@ Built client-side mutation queue and IndexedDB / localStorage cache manager.
 
 ---
 
+### Milestone 2: feat(offline): intercept task status updates when browser is offline
+**Timestamp**: `09:12:17`
+
+Enqueues status mutation into offline queue with unique operation ID.
+
+---
+
