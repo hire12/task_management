@@ -79,3 +79,10 @@ Allows user to force sync without waiting for auto-reconnect.
 
 ---
 
+### Milestone 12: feat(offline): detect flaky connections with lightweight ping heartbeat
+**Timestamp**: `11:16:07`
+
+Background HTTP HEAD ping verifying real internet connectivity.
+
+---
+
