@@ -58,3 +58,10 @@ Toast notification displaying 'Syncing 4 pending changes...' with spinner.
 
 ---
 
+### Milestone 9: feat(offline): cache task image thumbnails as base64 data URLs for offline viewing
+**Timestamp**: `10:39:16`
+
+Screenshots remain visible even with WiFi disconnected.
+
+---
+
