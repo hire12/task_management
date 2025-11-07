@@ -163,3 +163,10 @@ Modular pipeline for create, update, delete, and attachment sync.
 
 ---
 
+### Milestone 24: style(offline): polish offline toast animations and pulse glows
+**Timestamp**: `13:45:31`
+
+Amber glowing pulse animation when operating in offline mode.
+
+---
+
