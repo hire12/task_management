@@ -212,3 +212,10 @@ Priority updates queued and synced smoothly.
 
 ---
 
+### Milestone 31: feat(offline): support offline due date modifications
+**Timestamp**: `15:11:30`
+
+Due date picker updates local cache immediately.
+
+---
+
