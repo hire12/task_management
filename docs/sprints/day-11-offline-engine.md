@@ -114,3 +114,10 @@ Restores previous state and displays error toast if mutation fails.
 
 ---
 
+### Milestone 17: feat(offline): support offline task title and description inline edits
+**Timestamp**: `12:18:32`
+
+Edits saved locally and synced seamlessly on reconnection.
+
+---
+
