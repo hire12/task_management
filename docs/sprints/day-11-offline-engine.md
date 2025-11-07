@@ -296,3 +296,10 @@ Allows developers to test airplane mode behavior with 1 click.
 
 ---
 
+### Milestone 43: feat(offline): log sync latency telemetry to activity stream
+**Timestamp**: `17:40:54`
+
+Records 'Synced 5 items in 142ms' in debug activity stream.
+
+---
+
