@@ -37,3 +37,10 @@ Provides instant sub-millisecond initial paint from local cache.
 
 ---
 
+### Milestone 6: feat(offline): support creating new tasks while completely offline
+**Timestamp**: `10:01:25`
+
+Generates client UUIDs and queues creation for next server sync.
+
+---
+
