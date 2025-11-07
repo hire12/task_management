@@ -86,3 +86,10 @@ Background HTTP HEAD ping verifying real internet connectivity.
 
 ---
 
+### Milestone 13: feat(offline): persist offline queue across browser tab reloads and restarts
+**Timestamp**: `11:28:24`
+
+Serialized queue in localStorage survives page refreshes.
+
+---
+
