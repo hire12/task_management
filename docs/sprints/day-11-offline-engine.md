@@ -310,3 +310,10 @@ Quick hotkey to check offline sync health.
 
 ---
 
+### Milestone 45: refactor(offline): clean up storage listeners on component unmount
+**Timestamp**: `18:05:28`
+
+Prevents memory leaks from storage event listeners.
+
+---
+
