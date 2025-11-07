@@ -275,3 +275,10 @@ Developer modal to view raw JSON payloads pending in queue.
 
 ---
 
+### Milestone 40: feat(offline): handle server 409 conflict responses gracefully
+**Timestamp**: `17:03:03`
+
+Automatic last-write-wins resolution for non-destructive updates.
+
+---
+
