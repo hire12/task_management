@@ -128,3 +128,10 @@ BroadcastChannel API syncs state across multiple open tabs.
 
 ---
 
+### Milestone 19: feat(offline): show conflict resolution modal if server has newer edit
+**Timestamp**: `12:43:06`
+
+Alerts user if task was modified on another device while offline.
+
+---
+
