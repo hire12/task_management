@@ -184,3 +184,10 @@ Subtle audio cue when coming back online.
 
 ---
 
+### Milestone 27: test(build): run production build verification for offline-first architecture
+**Timestamp**: `14:22:22`
+
+Verified Next.js build passes with zero hydration errors.
+
+---
+
