@@ -177,3 +177,10 @@ Saves bandwidth by requesting compressed WebP on cellular data.
 
 ---
 
+### Milestone 26: feat(offline): add connection status change sound effects
+**Timestamp**: `14:09:05`
+
+Subtle audio cue when coming back online.
+
+---
+
