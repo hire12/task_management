@@ -65,3 +65,10 @@ Screenshots remain visible even with WiFi disconnected.
 
 ---
 
+### Milestone 10: feat(offline): support offline subtask checklist toggling
+**Timestamp**: `10:51:33`
+
+Subtask completions queued locally and merged on reconnect.
+
+---
+
