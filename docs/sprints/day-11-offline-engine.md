@@ -240,3 +240,10 @@ JSON compression before sending batch sync payload.
 
 ---
 
+### Milestone 35: feat(offline): support background sync using Service Worker API
+**Timestamp**: `16:01:38`
+
+Service Worker background sync registers sync event on network restore.
+
+---
+
