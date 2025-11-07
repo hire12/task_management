@@ -100,3 +100,10 @@ Alerts user that heavy image uploads require active internet connection.
 
 ---
 
+### Milestone 15: feat(offline): add optimistic UI updates for instant perceived performance
+**Timestamp**: `11:53:58`
+
+UI updates immediately without waiting for server response round-trip.
+
+---
+
