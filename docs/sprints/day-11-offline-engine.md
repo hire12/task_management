@@ -247,3 +247,10 @@ Service Worker background sync registers sync event on network restore.
 
 ---
 
+### Milestone 36: feat(offline): add offline indicator watermark in bottom corner
+**Timestamp**: `16:13:55`
+
+Minimalist status watermark letting user know changes are queued locally.
+
+---
+
