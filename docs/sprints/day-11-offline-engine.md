@@ -289,3 +289,10 @@ Prunes oldest cached project snapshots when reaching 4.5MB threshold.
 
 ---
 
+### Milestone 42: feat(offline): add simulated offline mode toggle in settings for testing
+**Timestamp**: `17:28:37`
+
+Allows developers to test airplane mode behavior with 1 click.
+
+---
+
