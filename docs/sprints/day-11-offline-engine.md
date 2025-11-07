@@ -16,3 +16,10 @@ Enqueues status mutation into offline queue with unique operation ID.
 
 ---
 
+### Milestone 3: feat(offline): render connection status pill in application header
+**Timestamp**: `09:24:34`
+
+Green 'Online' or amber 'Offline (Queue: 3)' badge in top bar.
+
+---
+
