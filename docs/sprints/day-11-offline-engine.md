@@ -107,3 +107,10 @@ UI updates immediately without waiting for server response round-trip.
 
 ---
 
+### Milestone 16: feat(offline): rollback optimistic updates if server returns validation error
+**Timestamp**: `12:05:15`
+
+Restores previous state and displays error toast if mutation fails.
+
+---
+
