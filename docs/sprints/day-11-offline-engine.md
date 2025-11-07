@@ -44,3 +44,10 @@ Generates client UUIDs and queues creation for next server sync.
 
 ---
 
+### Milestone 7: feat(offline): add retry mechanism with exponential backoff for failed syncs
+**Timestamp**: `10:14:42`
+
+Retries failed requests up to 5 times with jittered backoff.
+
+---
+
