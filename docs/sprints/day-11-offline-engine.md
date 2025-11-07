@@ -156,3 +156,10 @@ Displays '1.2 MB of 5 MB local cache used' in settings.
 
 ---
 
+### Milestone 23: refactor(offline): extract sync handlers into modular pipeline stages
+**Timestamp**: `13:32:14`
+
+Modular pipeline for create, update, delete, and attachment sync.
+
+---
+
