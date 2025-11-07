@@ -51,3 +51,10 @@ Retries failed requests up to 5 times with jittered backoff.
 
 ---
 
+### Milestone 8: feat(offline): show sync progress toast with itemized task checklist
+**Timestamp**: `10:26:59`
+
+Toast notification displaying 'Syncing 4 pending changes...' with spinner.
+
+---
+
