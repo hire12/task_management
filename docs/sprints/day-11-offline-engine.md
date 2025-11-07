@@ -93,3 +93,10 @@ Serialized queue in localStorage survives page refreshes.
 
 ---
 
+### Milestone 14: feat(offline): display offline warning banner on photo upload dropzones
+**Timestamp**: `11:41:41`
+
+Alerts user that heavy image uploads require active internet connection.
+
+---
+
