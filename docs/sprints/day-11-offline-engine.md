@@ -30,3 +30,10 @@ Window online event listener draining queue and synchronizing with server.
 
 ---
 
+### Milestone 5: feat(offline): cache full project and task data in localStorage
+**Timestamp**: `09:49:08`
+
+Provides instant sub-millisecond initial paint from local cache.
+
+---
+
