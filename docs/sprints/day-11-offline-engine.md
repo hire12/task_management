@@ -254,3 +254,10 @@ Minimalist status watermark letting user know changes are queued locally.
 
 ---
 
+### Milestone 37: feat(offline): cache search index locally for instant offline search
+**Timestamp**: `16:26:12`
+
+MiniSearch index cached in IndexedDB for full-text offline search.
+
+---
+
