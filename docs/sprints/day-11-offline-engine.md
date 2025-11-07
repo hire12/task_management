@@ -219,3 +219,10 @@ Due date picker updates local cache immediately.
 
 ---
 
+### Milestone 32: feat(offline): support offline task deletion with tombstone persistence
+**Timestamp**: `15:24:47`
+
+Deleted IDs stored in tombstone set to sync server deletes.
+
+---
+
