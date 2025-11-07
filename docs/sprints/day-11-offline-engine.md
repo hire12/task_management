@@ -170,3 +170,10 @@ Amber glowing pulse animation when operating in offline mode.
 
 ---
 
+### Milestone 25: feat(offline): auto-downgrade image quality when on slow 2G/3G connections
+**Timestamp**: `13:57:48`
+
+Saves bandwidth by requesting compressed WebP on cellular data.
+
+---
+
