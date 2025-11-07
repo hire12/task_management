@@ -226,3 +226,10 @@ Deleted IDs stored in tombstone set to sync server deletes.
 
 ---
 
+### Milestone 33: feat(offline): add clear offline cache button in troubleshooting settings
+**Timestamp**: `15:36:04`
+
+Allows power users to reset local storage if desynced.
+
+---
+
