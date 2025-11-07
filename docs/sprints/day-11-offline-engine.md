@@ -142,3 +142,10 @@ Tombstone markers ensure deleted tasks are removed on server.
 
 ---
 
+### Milestone 21: feat(offline): cache project banner and card covers for instant render
+**Timestamp**: `13:07:40`
+
+Zero image flash when navigating between cached projects.
+
+---
+
