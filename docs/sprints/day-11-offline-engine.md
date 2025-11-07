@@ -198,3 +198,10 @@ Day 11 complete with 46 commits! The app now works completely offline on airplan
 
 ---
 
+### Milestone 29: feat(offline): add queue length badge on workspace logo
+**Timestamp**: `14:46:56`
+
+Badge showing count of unsynced items directly on workspace icon.
+
+---
+
