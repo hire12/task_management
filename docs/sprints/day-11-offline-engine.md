@@ -72,3 +72,10 @@ Subtask completions queued locally and merged on reconnect.
 
 ---
 
+### Milestone 11: feat(offline): add manual 'Sync Now' trigger button in settings
+**Timestamp**: `11:03:50`
+
+Allows user to force sync without waiting for auto-reconnect.
+
+---
+
