@@ -149,3 +149,10 @@ Zero image flash when navigating between cached projects.
 
 ---
 
+### Milestone 22: feat(offline): add storage usage telemetry gauge in workspace settings
+**Timestamp**: `13:20:57`
+
+Displays '1.2 MB of 5 MB local cache used' in settings.
+
+---
+
