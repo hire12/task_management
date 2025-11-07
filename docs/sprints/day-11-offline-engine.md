@@ -303,3 +303,10 @@ Records 'Synced 5 items in 142ms' in debug activity stream.
 
 ---
 
+### Milestone 44: feat(offline): add offline keyboard shortcut Alt+O to view sync status
+**Timestamp**: `17:52:11`
+
+Quick hotkey to check offline sync health.
+
+---
+
