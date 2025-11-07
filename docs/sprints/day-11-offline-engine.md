@@ -135,3 +135,10 @@ Alerts user if task was modified on another device while offline.
 
 ---
 
+### Milestone 20: feat(offline): retain deleted task markers to propagate deletions on sync
+**Timestamp**: `12:55:23`
+
+Tombstone markers ensure deleted tasks are removed on server.
+
+---
+
