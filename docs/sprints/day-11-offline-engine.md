@@ -121,3 +121,10 @@ Edits saved locally and synced seamlessly on reconnection.
 
 ---
 
+### Milestone 18: feat(offline): add broadcast channel to coordinate tabs during sync
+**Timestamp**: `12:30:49`
+
+BroadcastChannel API syncs state across multiple open tabs.
+
+---
+
