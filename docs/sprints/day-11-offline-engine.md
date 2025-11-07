@@ -233,3 +233,10 @@ Allows power users to reset local storage if desynced.
 
 ---
 
+### Milestone 34: feat(offline): compress queued payloads to minimize data transfer
+**Timestamp**: `15:48:21`
+
+JSON compression before sending batch sync payload.
+
+---
+
