@@ -205,3 +205,10 @@ Badge showing count of unsynced items directly on workspace icon.
 
 ---
 
+### Milestone 30: feat(offline): support offline priority changes
+**Timestamp**: `14:59:13`
+
+Priority updates queued and synced smoothly.
+
+---
+
