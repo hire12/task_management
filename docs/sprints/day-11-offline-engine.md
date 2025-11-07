@@ -261,3 +261,10 @@ MiniSearch index cached in IndexedDB for full-text offline search.
 
 ---
 
+### Milestone 38: feat(offline): pre-warm cache on application boot
+**Timestamp**: `16:38:29`
+
+Prefetches active project tasks into local cache on launch.
+
+---
+
