@@ -247,3 +247,10 @@ Clean compilation in Next.js 15, zero type issues, all routes dynamic and static
 
 ---
 
+### Milestone 36: docs: update documentation and architecture notes for Orbit OS 2.0
+**Timestamp**: `17:31:55`
+
+Updated project notes, sprint architecture, and feature index.
+
+---
+
