@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Plus, CheckCircle, Clock, Eye, ListChecks } from "@phosphor-icons/react";
 import { FullTask } from "@/lib/types";
 import { TaskCard } from "@/components/TaskCard";
+import { TaskDetailModal } from "@/components/TaskDetailModal";
 import { updateTask } from "@/app/actions/tasks";
 import { TaskStatus } from "@prisma/client";
 import { cn } from "@/lib/utils";
@@ -20,6 +21,7 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
   const [tasks, setTasks] = useState<FullTask[]>(initialTasks);
   const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null);
   const [dragOverColumn, setDragOverColumn] = useState<TaskStatus | null>(null);
+  const [selectedTask, setSelectedTask] = useState<FullTask | null>(null);
 
   useEffect(() => {
     setTasks(initialTasks);
@@ -167,6 +169,7 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
                     onDragStart={handleDragStart}
                     onDragEnd={handleDragEnd}
                     onStatusChange={handleTaskStatusChange}
+                    onClick={(t) => setSelectedTask(t)}
                     isDragging={draggedTaskId === task.id}
                   />
                 ))
@@ -175,6 +178,18 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
           </div>
         );
       })}
+
+      <TaskDetailModal
+        task={selectedTask}
+        isOpen={!!selectedTask}
+        onClose={() => setSelectedTask(null)}
+        onTaskUpdated={(updatedTask) => {
+          setTasks((prev) =>
+            prev.map((t) => (t.id === updatedTask.id ? updatedTask : t))
+          );
+          setSelectedTask(updatedTask);
+        }}
+      />
     </div>
   );
 };

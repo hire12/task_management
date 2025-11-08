@@ -1,0 +1,178 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TemporalHorizon {
+  ACTIVE
+  FUTURE
+  IDEA
+  SHIPPED
+}
+
+enum ProjectStatus {
+  DRAFT
+  QUEUED
+  IN_PROGRESS
+  ON_HOLD
+  DONE
+  ARCHIVED
+}
+
+enum TaskStatus {
+  BACKLOG
+  TODO
+  IN_PROGRESS
+  REVIEW
+  DONE
+}
+
+enum PriorityLevel {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+model Workspace {
+  id        String    @id @default(uuid())
+  name      String
+  slug      String    @unique
+  icon      String    @default("Planet")
+  color     String    @default("#4F6B58")
+  projects  Project[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Project {
+  id              String          @id @default(uuid())
+  workspaceId     String
+  workspace       Workspace       @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  
+  // Recursive Hierarchy: Self-referencing Parent/Sub-projects
+  parentId        String?
+  parent          Project?        @relation("ProjectToSubProjects", fields: [parentId], references: [id], onDelete: Cascade)
+  subProjects     Project[]       @relation("ProjectToSubProjects")
+
+  title           String
+  description     String?         @db.Text
+  temporalHorizon TemporalHorizon @default(ACTIVE)
+  status          ProjectStatus   @default(IN_PROGRESS)
+  priority        PriorityLevel   @default(MEDIUM)
+  progress        Int             @default(0) // 0 - 100 auto-calculated or manual
+  
+  targetStartDate DateTime?
+  targetEndDate   DateTime?
+  tags            String[]        @default([])
+  pinnedLinks     Json?           // Array of { title: string, url: string, type?: string }
+  bannerUrl       String?
+  
+  tasks           Task[]
+  docs            ProjectDoc[]
+  activityLogs    ActivityLog[]
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@index([workspaceId])
+  @@index([parentId])
+  @@index([temporalHorizon])
+  @@index([status])
+}
+
+model Task {
+  id               String           @id @default(uuid())
+  projectId        String
+  project          Project          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  title            String
+  description      String?          @db.Text
+  status           TaskStatus       @default(TODO)
+  priority         PriorityLevel    @default(MEDIUM)
+  dueDate          DateTime?
+  estimatedMinutes Int?
+  actualMinutes    Int?
+  orderIndex       Int              @default(0)
+
+  subtasks         Subtask[]
+  attachments      TaskAttachment[]
+  activityLogs     ActivityLog[]
+
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  @@index([projectId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+model TaskAttachment {
+  id        String   @id @default(uuid())
+  taskId    String
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  filename  String
+  fileSize  Int
+  mimeType  String
+  url       String
+  width     Int?
+  height    Int?
+  isCover   Boolean  @default(false)
+  annotations Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([taskId])
+}
+
+model Subtask {
+  id          String   @id @default(uuid())
+  taskId      String
+  task        Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  title       String
+  isCompleted Boolean  @default(false)
+  orderIndex  Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([taskId])
+}
+
+model ProjectDoc {
+  id        String   @id @default(uuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  title     String   @default("Architecture & Specs")
+  content   String   @default("") @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([projectId])
+}
+
+model ActivityLog {
+  id        String   @id @default(uuid())
+  projectId String?
+  project   Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  taskId    String?
+  task      Task?    @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  action    String   // e.g. "TASK_COMPLETED", "PROJECT_CREATED", "STATUS_UPDATED"
+  details   Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([projectId])
+  @@index([taskId])
+  @@index([createdAt])
+}

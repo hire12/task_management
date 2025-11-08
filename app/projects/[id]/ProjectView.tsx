@@ -18,6 +18,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { ProgressRing } from "@/components/ProgressRing";
 import { KanbanBoard } from "@/components/KanbanBoard";
+import { ProjectBanner } from "@/components/ProjectBanner";
 import { ProjectDocsEditor } from "@/components/ProjectDocsEditor";
 import { ProjectCard } from "@/components/ProjectCard";
 import { NewProjectModal } from "@/components/NewProjectModal";
@@ -84,6 +85,9 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
         <CaretRight weight="bold" className="w-3 h-3" />
         <span className="text-content-primary font-medium">{project.title}</span>
       </div>
+
+      {/* Cinematic Project Banner */}
+      <ProjectBanner projectId={project.id} bannerUrl={project.bannerUrl} />
 
       {/* Main Project Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-border/70 pb-6">

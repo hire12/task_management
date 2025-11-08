@@ -15,6 +15,7 @@ export async function getTodayTasks() {
     include: {
       project: true,
       subtasks: true,
+      attachments: true,
     },
     orderBy: [
       { status: "asc" },

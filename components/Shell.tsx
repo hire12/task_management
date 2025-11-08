@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { CommandPalette } from "@/components/CommandPalette";
 import { NewProjectModal } from "@/components/NewProjectModal";
 import { NewTaskModal } from "@/components/NewTaskModal";
+import { KeyboardShortcutsHelp } from "@/components/KeyboardShortcutsHelp";
 import { Project } from "@prisma/client";
 
 interface ShellProps {
@@ -60,6 +61,8 @@ export const Shell: React.FC<ShellProps> = ({
         onClose={() => setIsNewTaskOpen(false)}
         projects={projects}
       />
+
+      <KeyboardShortcutsHelp />
     </div>
   );
 };
