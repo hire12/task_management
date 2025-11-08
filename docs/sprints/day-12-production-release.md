@@ -177,3 +177,10 @@ Print directly with the standard browser print hotkey.
 
 ---
 
+### Milestone 26: feat(ui): add clear cache and reset workspace button in settings
+**Timestamp**: `15:05:05`
+
+Handy self-serve trouble-shooting option for power users.
+
+---
+
