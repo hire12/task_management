@@ -170,3 +170,10 @@ Smooth 12px blur with dark 80% opacity veil.
 
 ---
 
+### Milestone 25: feat(ui): add keyboard shortcut Cmd+P to trigger sanitized print layout
+**Timestamp**: `14:50:48`
+
+Print directly with the standard browser print hotkey.
+
+---
+
