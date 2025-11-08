@@ -100,3 +100,10 @@ Buttery smooth cubic-bezier transitions on checklist progress.
 
 ---
 
+### Milestone 15: feat(ui): add tooltips to all sidebar navigation icons
+**Timestamp**: `12:24:58`
+
+Zero guesswork for new team members exploring the interface.
+
+---
+
