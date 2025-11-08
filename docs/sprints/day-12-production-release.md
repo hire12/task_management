@@ -16,3 +16,10 @@ Hides headers, navbars, and interactive buttons so physical paper prints look li
 
 ---
 
+### Milestone 3: feat(ui): add 1-click Download Backup button in workspace settings
+**Timestamp**: `09:29:34`
+
+Grab a full JSON archive with 1 tap.
+
+---
+
