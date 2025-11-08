@@ -44,3 +44,10 @@ Break-inside-avoid prevents cards from being cut in half by printer page breaks.
 
 ---
 
+### Milestone 7: feat(ui): style monochrome table borders for black and white office printers
+**Timestamp**: `10:27:42`
+
+Crisp high-contrast lines that look sharp on any laser printer.
+
+---
+
