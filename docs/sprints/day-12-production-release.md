@@ -9,3 +9,10 @@ Dumps projects, tasks, checklists, attachments, and docs with version stamping f
 
 ---
 
+### Milestone 2: style(print): add high contrast print stylesheet for physical sprint reviews
+**Timestamp**: `09:14:17`
+
+Hides headers, navbars, and interactive buttons so physical paper prints look like executive reports.
+
+---
+
