@@ -65,3 +65,10 @@ Exports subtask checklist counts and percentages.
 
 ---
 
+### Milestone 10: feat(backup): add SHA256 checksum in backup header to verify file integrity
+**Timestamp**: `11:11:33`
+
+Ensures file was not truncated or corrupted in transit.
+
+---
+
