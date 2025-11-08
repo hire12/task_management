@@ -128,3 +128,10 @@ Prevents malicious HTML in task titles and markdown descriptions.
 
 ---
 
+### Milestone 19: feat(ui): add custom scrollbar styles across all modal overflow panes
+**Timestamp**: `13:23:06`
+
+Slim 4px track that fades in only while scrolling.
+
+---
+
