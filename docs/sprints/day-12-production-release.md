@@ -156,3 +156,10 @@ Displays workspace metadata in a sleek minimalist footer.
 
 ---
 
+### Milestone 23: feat(ui): add subtle particle celebration when all column tasks finish
+**Timestamp**: `14:21:14`
+
+Delightful confetti blast when the sprint hits 100% completion.
+
+---
+
