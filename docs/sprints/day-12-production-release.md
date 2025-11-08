@@ -107,3 +107,10 @@ Zero guesswork for new team members exploring the interface.
 
 ---
 
+### Milestone 16: feat(ui): refine font antialiasing on macOS and Windows subpixel rendering
+**Timestamp**: `12:39:15`
+
+Pixel-perfect typography across retina and high-DPI displays.
+
+---
+
