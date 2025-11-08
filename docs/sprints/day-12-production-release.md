@@ -135,3 +135,10 @@ Slim 4px track that fades in only while scrolling.
 
 ---
 
+### Milestone 20: feat(ui): add empty state illustrations for all Kanban columns
+**Timestamp**: `13:37:23`
+
+Encouraging empty states when columns are cleared.
+
+---
+
