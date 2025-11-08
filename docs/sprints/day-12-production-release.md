@@ -163,3 +163,10 @@ Delightful confetti blast when the sprint hits 100% completion.
 
 ---
 
+### Milestone 24: feat(ui): polish modal backdrop blur to prevent visual banding on OLED displays
+**Timestamp**: `14:36:31`
+
+Smooth 12px blur with dark 80% opacity veil.
+
+---
+
