@@ -114,3 +114,10 @@ Pixel-perfect typography across retina and high-DPI displays.
 
 ---
 
+### Milestone 17: feat(ui): add smooth spring animations to card dropzone placeholders
+**Timestamp**: `12:53:32`
+
+Lively organic card snapping when dragging tasks across columns.
+
+---
+
