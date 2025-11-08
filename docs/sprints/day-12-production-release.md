@@ -58,3 +58,10 @@ Preserves visual asset URLs and cover flags across backups.
 
 ---
 
+### Milestone 9: feat(backup): include subtask completion ratios in project snapshot
+**Timestamp**: `10:56:16`
+
+Exports subtask checklist counts and percentages.
+
+---
+
