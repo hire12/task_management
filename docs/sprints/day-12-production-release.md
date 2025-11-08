@@ -219,3 +219,10 @@ PWA ready for mobile home screens and browser bookmarks.
 
 ---
 
+### Milestone 32: feat(ui): optimize CSS custom properties for instant CSS variable swaps
+**Timestamp**: `16:33:47`
+
+Zero style re-calc lag when switching themes.
+
+---
+
