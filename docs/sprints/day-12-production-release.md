@@ -191,3 +191,10 @@ Shaved 80KB from production client bundle.
 
 ---
 
+### Milestone 28: feat(ui): add system theme detection (auto switch dark/light on OS change)
+**Timestamp**: `15:34:39`
+
+Matches OS prefers-color-scheme seamlessly.
+
+---
+
