@@ -142,3 +142,10 @@ Encouraging empty states when columns are cleared.
 
 ---
 
+### Milestone 21: feat(ui): add quick jump to top button on long project boards
+**Timestamp**: `13:52:40`
+
+Floats in after 400px of vertical scroll.
+
+---
+
