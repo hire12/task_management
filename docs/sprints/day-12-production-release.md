@@ -121,3 +121,10 @@ Lively organic card snapping when dragging tasks across columns.
 
 ---
 
+### Milestone 18: feat(ui): sanitize all user input against cross-site script injections
+**Timestamp**: `13:08:49`
+
+Prevents malicious HTML in task titles and markdown descriptions.
+
+---
+
