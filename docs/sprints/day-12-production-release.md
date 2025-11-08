@@ -205,3 +205,10 @@ Full compliance with web accessibility standards.
 
 ---
 
+### Milestone 30: feat(ui): add friendly 404 page with navigation breadcrumbs back to home
+**Timestamp**: `16:03:13`
+
+Helpful not-found page with search palette shortcut.
+
+---
+
