@@ -51,3 +51,10 @@ Crisp high-contrast lines that look sharp on any laser printer.
 
 ---
 
+### Milestone 8: feat(backup): include attachment metadata and cover status in export JSON
+**Timestamp**: `10:42:59`
+
+Preserves visual asset URLs and cover flags across backups.
+
+---
+
