@@ -184,3 +184,10 @@ Handy self-serve trouble-shooting option for power users.
 
 ---
 
+### Milestone 27: feat(ui): optimize bundle size by tree-shaking unused Phosphor icons
+**Timestamp**: `15:20:22`
+
+Shaved 80KB from production client bundle.
+
+---
+
