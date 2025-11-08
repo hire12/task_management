@@ -212,3 +212,10 @@ Helpful not-found page with search palette shortcut.
 
 ---
 
+### Milestone 31: feat(ui): add favicon and Apple touch icons for home screen installation
+**Timestamp**: `16:18:30`
+
+PWA ready for mobile home screens and browser bookmarks.
+
+---
+
