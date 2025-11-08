@@ -30,3 +30,10 @@ Zero UI clutter on printed paper.
 
 ---
 
+### Milestone 5: feat(ui): render project progress summary banner on printed reports
+**Timestamp**: `09:58:08`
+
+Prints executive completion stats across the top of page 1.
+
+---
+
