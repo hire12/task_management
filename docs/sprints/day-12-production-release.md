@@ -93,3 +93,10 @@ Ensures text is crisp and legible on all OLED and LCD monitors.
 
 ---
 
+### Milestone 14: feat(ui): polish subtask progress bar animation curves
+**Timestamp**: `12:10:41`
+
+Buttery smooth cubic-bezier transitions on checklist progress.
+
+---
+
