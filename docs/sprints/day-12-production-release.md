@@ -72,3 +72,10 @@ Ensures file was not truncated or corrupted in transit.
 
 ---
 
+### Milestone 11: feat(backup): format exported date in ISO 8601 UTC timestamp format
+**Timestamp**: `11:26:50`
+
+Standard unambiguous timestamp format.
+
+---
+
