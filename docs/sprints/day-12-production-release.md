@@ -86,3 +86,10 @@ Quick 1-click browser window.print() trigger.
 
 ---
 
+### Milestone 13: feat(ui): optimize dark mode contrast ratios to meet WCAG AAA standards
+**Timestamp**: `11:55:24`
+
+Ensures text is crisp and legible on all OLED and LCD monitors.
+
+---
+
