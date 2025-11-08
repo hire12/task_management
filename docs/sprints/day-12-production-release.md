@@ -79,3 +79,10 @@ Standard unambiguous timestamp format.
 
 ---
 
+### Milestone 12: feat(ui): add visual print button in project header menu
+**Timestamp**: `11:40:07`
+
+Quick 1-click browser window.print() trigger.
+
+---
+
