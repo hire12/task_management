@@ -23,3 +23,10 @@ Grab a full JSON archive with 1 tap.
 
 ---
 
+### Milestone 4: feat(ui): hide interactive buttons and sidebars in print preview mode
+**Timestamp**: `09:43:51`
+
+Zero UI clutter on printed paper.
+
+---
+
