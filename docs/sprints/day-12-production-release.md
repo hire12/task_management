@@ -37,3 +37,10 @@ Prints executive completion stats across the top of page 1.
 
 ---
 
+### Milestone 6: feat(ui): add page break rules to prevent splitting task cards across paper
+**Timestamp**: `10:13:25`
+
+Break-inside-avoid prevents cards from being cut in half by printer page breaks.
+
+---
+
