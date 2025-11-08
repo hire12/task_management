@@ -149,3 +149,10 @@ Floats in after 400px of vertical scroll.
 
 ---
 
+### Milestone 22: feat(ui): render workspace member count and active sprint badge in footer
+**Timestamp**: `14:06:57`
+
+Displays workspace metadata in a sleek minimalist footer.
+
+---
+
