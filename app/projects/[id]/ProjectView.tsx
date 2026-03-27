@@ -12,6 +12,7 @@ import {
   Trash,
   CaretRight,
   Calendar,
+  ShareNetwork,
 } from "@phosphor-icons/react";
 import { FullProject } from "@/lib/types";
 import { Badge } from "@/components/ui/Badge";
@@ -24,6 +25,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { NewProjectModal } from "@/components/NewProjectModal";
 import { NewTaskModal } from "@/components/NewTaskModal";
 import { updateProject, deleteProject } from "@/app/actions/projects";
+import { toggleProjectPublicAction } from "@/app/actions/workspace";
+import { ShareProjectModal } from "@/components/auth/ShareProjectModal";
 import { formatDate } from "@/lib/utils";
 import { ProjectStatus, TemporalHorizon, TaskStatus } from "@prisma/client";
 
@@ -36,6 +39,7 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
   const [activeTab, setActiveTab] = useState<"kanban" | "subprojects" | "docs">("kanban");
   const [isNewSubProjectOpen, setIsNewSubProjectOpen] = useState(false);
   const [isNewTaskOpen, setIsNewTaskOpen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [defaultTaskStatus, setDefaultTaskStatus] = useState<TaskStatus>(TaskStatus.TODO);
   const [deleting, setDeleting] = useState(false);
 
@@ -60,45 +64,55 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
     setIsNewTaskOpen(true);
   };
 
-  const subProjects = project.subProjects || [];
   const tasks = project.tasks || [];
-  const doc = project.docs?.[0];
+  const completedTasks = tasks.filter((t) => t.status === "DONE").length;
+  const progressPercent = tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 0;
 
   return (
-    <div className="flex flex-col gap-6">
-      {/* Breadcrumb Navigation */}
-      <div className="flex items-center gap-1.5 text-[12.5px] text-content-placeholder">
-        <Link href="/" className="hover:text-content-primary transition-colors">
-          Projects
-        </Link>
-        {project.parent && (
-          <>
-            <CaretRight weight="bold" className="w-3 h-3" />
-            <Link
-              href={`/projects/${project.parent.id}`}
-              className="hover:text-content-primary transition-colors"
-            >
-              {project.parent.title}
-            </Link>
-          </>
-        )}
-        <CaretRight weight="bold" className="w-3 h-3" />
-        <span className="text-content-primary font-medium">{project.title}</span>
-      </div>
+    <div className="flex-1 flex flex-col min-w-0 bg-canvas overflow-y-auto">
+      {/* Banner */}
+      <ProjectBanner
+        projectId={project.id}
+        bannerUrl={project.bannerUrl}
+      />
 
-      {/* Cinematic Project Banner */}
-      <ProjectBanner projectId={project.id} bannerUrl={project.bannerUrl} />
-
-      {/* Main Project Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-border/70 pb-6">
+      {/* Main Header / Meta */}
+      <div className="px-8 pt-6 pb-4 border-b border-border/60 bg-surface/50 backdrop-blur-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-start gap-4">
-          <div className="p-3 rounded-xl bg-surface border border-border text-accent shadow-card mt-1">
-            <FolderSimple weight="duotone" className="w-7 h-7" />
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-card border border-border/80"
+            style={{ backgroundColor: `${project.color}15` }}
+          >
+            <FolderSimple
+              weight="duotone"
+              className="w-6 h-6"
+              style={{ color: project.color }}
+            />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-2.5 flex-wrap">
-              <h1 className="text-[22px] font-bold text-content-primary tracking-tight">
+            {/* Breadcrumb Hierarchy */}
+            <div className="flex items-center gap-1.5 text-[12px] text-content-placeholder">
+              <Link href="/" className="hover:text-content-primary transition-colors">
+                Workspace
+              </Link>
+              {project.parent && (
+                <>
+                  <CaretRight weight="bold" className="w-3 h-3" />
+                  <Link
+                    href={`/projects/${project.parent.id}`}
+                    className="hover:text-content-primary transition-colors"
+                  >
+                    {project.parent.title}
+                  </Link>
+                </>
+              )}
+              <CaretRight weight="bold" className="w-3 h-3" />
+              <span className="text-content-primary font-medium">{project.title}</span>
+            </div>
+
+            <div className="flex items-center gap-3 flex-wrap">
+              <h1 className="text-xl font-bold font-display text-content-primary tracking-tight">
                 {project.title}
               </h1>
 
@@ -106,13 +120,13 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
               <select
                 value={project.status}
                 onChange={(e) => handleStatusChange(e.target.value as ProjectStatus)}
-                className="rounded-md border border-border bg-surface px-2.5 py-0.5 text-[12px] font-medium text-content-primary focus:outline-none focus:border-accent cursor-pointer shadow-xs"
+                className="text-[11.5px] font-semibold px-2 py-0.5 rounded-full border border-border bg-surface text-content-primary focus:outline-none focus:border-accent cursor-pointer shadow-2xs"
               >
                 <option value="DRAFT">Draft</option>
                 <option value="QUEUED">Queued</option>
                 <option value="IN_PROGRESS">In Progress</option>
                 <option value="ON_HOLD">On Hold</option>
-                <option value="DONE">Done / Shipped</option>
+                <option value="DONE">Completed</option>
                 <option value="ARCHIVED">Archived</option>
               </select>
 
@@ -120,45 +134,53 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
               <select
                 value={project.temporalHorizon}
                 onChange={(e) => handleHorizonChange(e.target.value as TemporalHorizon)}
-                className="rounded-md border border-border bg-surface px-2.5 py-0.5 text-[12px] font-medium text-content-secondary focus:outline-none focus:border-accent cursor-pointer shadow-xs"
+                className="text-[11.5px] font-semibold px-2 py-0.5 rounded-full border border-border bg-surface text-content-secondary focus:outline-none focus:border-accent cursor-pointer shadow-2xs"
               >
-                <option value="ACTIVE">⚡ Active (Now)</option>
-                <option value="FUTURE">📅 Pipeline (Next)</option>
-                <option value="IDEA">💡 Incubator (Someday)</option>
-                <option value="SHIPPED">🏆 Shipped</option>
+                <option value="ACTIVE">⚡ Active Sprint</option>
+                <option value="FUTURE">📅 Future Quarter</option>
+                <option value="IDEA">💡 Idea / Concept</option>
+                <option value="SHIPPED">🚀 Shipped</option>
               </select>
             </div>
 
             {project.description && (
-              <p className="text-[13.5px] text-content-secondary max-w-2xl leading-relaxed">
+              <p className="text-[13px] text-content-secondary max-w-2xl leading-relaxed">
                 {project.description}
               </p>
             )}
 
-            {project.targetEndDate && (
-              <div className="flex items-center gap-2 text-[12px] text-content-placeholder mt-0.5">
-                <Calendar weight="duotone" className="w-3.5 h-3.5" />
-                <span>Target Deadline: {formatDate(project.targetEndDate)}</span>
+            {project.targetDate && (
+              <div className="flex items-center gap-1.5 text-[11.5px] text-content-placeholder mt-0.5">
+                <Calendar weight="duotone" className="w-3.5 h-3.5 text-accent" />
+                <span>Target: {formatDate(project.targetDate)}</span>
               </div>
             )}
           </div>
         </div>
 
-        {/* Header Right Actions & Progress */}
-        <div className="flex items-center gap-4 self-start md:self-auto">
-          <div className="flex items-center gap-3 bg-surface rounded-xl border border-border px-3.5 py-2 shadow-card">
+        {/* Right Controls */}
+        <div className="flex items-center gap-3 self-start md:self-auto">
+          {/* Share with Client / Guest Button */}
+          <button
+            onClick={() => setIsShareModalOpen(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-border bg-surface text-xs font-semibold text-content-primary hover:bg-surface-raised transition-colors shadow-2xs cursor-pointer"
+          >
+            <ShareNetwork weight="duotone" className="w-4 h-4 text-accent" />
+            <span>Share & Guest View</span>
+          </button>
+
+          {/* Progress Ring */}
+          <div className="flex items-center gap-2.5 bg-surface rounded-xl border border-border px-3 py-1.5 shadow-card">
             <ProgressRing
-              progress={project.progress}
-              size={32}
+              progress={progressPercent}
+              size={28}
               strokeWidth={3}
-              color={project.progress === 100 ? "var(--color-success)" : "var(--color-accent)"}
+              color={progressPercent === 100 ? "var(--color-success)" : "var(--color-accent)"}
             />
-            <div className="flex flex-col">
-              <span className="text-[11px] font-medium text-content-placeholder">
-                Rollup Health
-              </span>
-              <span className="text-[14px] font-bold text-content-primary font-mono">
-                {project.progress}% Done
+            <div className="flex flex-col leading-tight">
+              <span className="text-[10px] text-content-placeholder font-medium">Sprint</span>
+              <span className="text-xs font-bold text-content-primary font-mono">
+                {progressPercent}%
               </span>
             </div>
           </div>
@@ -167,79 +189,80 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
             onClick={handleDelete}
             disabled={deleting}
             title="Delete Project"
-            className="p-2 rounded-md border border-border bg-surface text-content-placeholder hover:text-brandDanger hover:bg-surface-muted transition-colors cursor-pointer"
+            className="p-2 rounded-xl border border-border bg-surface text-content-placeholder hover:text-danger hover:bg-danger/10 transition-colors cursor-pointer"
           >
             <Trash weight="duotone" className="w-4 h-4" />
           </button>
         </div>
       </div>
 
-      {/* Tabs & Tab Actions */}
-      <div className="flex items-center justify-between gap-4 border-b border-border/60">
-        <div className="flex items-center gap-1 -mb-px">
+      {/* View Tabs */}
+      <div className="flex items-center justify-between border-b border-border/80 px-8 bg-surface/30">
+        <div className="flex items-center gap-6">
           <button
             onClick={() => setActiveTab("kanban")}
-            className={`flex items-center gap-2 px-3.5 py-2 text-[13.5px] font-medium border-b-2 transition-colors cursor-pointer ${
+            className={`flex items-center gap-2 py-3 text-xs font-semibold border-b-2 transition-colors cursor-pointer ${
               activeTab === "kanban"
-                ? "border-accent text-content-primary font-semibold"
+                ? "border-accent text-accent"
                 : "border-transparent text-content-secondary hover:text-content-primary"
             }`}
           >
             <Kanban weight="duotone" className="w-4 h-4" />
-            <span>Tasks ({tasks.length})</span>
+            <span>Board ({tasks.length})</span>
           </button>
 
           <button
             onClick={() => setActiveTab("subprojects")}
-            className={`flex items-center gap-2 px-3.5 py-2 text-[13.5px] font-medium border-b-2 transition-colors cursor-pointer ${
+            className={`flex items-center gap-2 py-3 text-xs font-semibold border-b-2 transition-colors cursor-pointer ${
               activeTab === "subprojects"
-                ? "border-accent text-content-primary font-semibold"
+                ? "border-accent text-accent"
                 : "border-transparent text-content-secondary hover:text-content-primary"
             }`}
           >
             <TreeStructure weight="duotone" className="w-4 h-4" />
-            <span>Sub-Projects ({subProjects.length})</span>
+            <span>Sub-Projects ({project.subProjects?.length || 0})</span>
           </button>
 
           <button
             onClick={() => setActiveTab("docs")}
-            className={`flex items-center gap-2 px-3.5 py-2 text-[13.5px] font-medium border-b-2 transition-colors cursor-pointer ${
+            className={`flex items-center gap-2 py-3 text-xs font-semibold border-b-2 transition-colors cursor-pointer ${
               activeTab === "docs"
-                ? "border-accent text-content-primary font-semibold"
+                ? "border-accent text-accent"
                 : "border-transparent text-content-secondary hover:text-content-primary"
             }`}
           >
             <Article weight="duotone" className="w-4 h-4" />
-            <span>Architecture & Specs</span>
+            <span>Specs & Notes</span>
           </button>
         </div>
 
-        {/* Tab-specific action button */}
-        {activeTab === "kanban" && (
-          <Button
-            size="sm"
-            onClick={() => handleOpenNewTaskWithStatus(TaskStatus.TODO)}
-            className="gap-1 text-[12.5px]"
-          >
-            <Plus weight="bold" className="w-3 h-3" />
-            <span>Add Task</span>
-          </Button>
-        )}
+        <div className="flex items-center gap-2">
+          {activeTab === "kanban" && (
+            <Button
+              size="sm"
+              onClick={() => handleOpenNewTaskWithStatus(TaskStatus.TODO)}
+              className="gap-1.5 text-xs"
+            >
+              <Plus weight="bold" className="w-3.5 h-3.5" />
+              <span>New Task</span>
+            </Button>
+          )}
 
-        {activeTab === "subprojects" && (
-          <Button
-            size="sm"
-            onClick={() => setIsNewSubProjectOpen(true)}
-            className="gap-1 text-[12.5px]"
-          >
-            <Plus weight="bold" className="w-3 h-3" />
-            <span>New Sub-Project</span>
-          </Button>
-        )}
+          {activeTab === "subprojects" && (
+            <Button
+              size="sm"
+              onClick={() => setIsNewSubProjectOpen(true)}
+              className="gap-1.5 text-xs"
+            >
+              <Plus weight="bold" className="w-3.5 h-3.5" />
+              <span>New Sub-Project</span>
+            </Button>
+          )}
+        </div>
       </div>
 
-      {/* Tab Content */}
-      <div className="pt-2">
+      {/* Tab Panels */}
+      <div className="flex-1 p-8">
         {activeTab === "kanban" && (
           <KanbanBoard
             tasks={tasks as any}
@@ -249,31 +272,20 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
 
         {activeTab === "subprojects" && (
           <div className="flex flex-col gap-4">
-            {subProjects.length === 0 ? (
-              <div className="rounded-xl border border-dashed border-border p-10 text-center flex flex-col items-center justify-center gap-3">
-                <div className="p-3 rounded-full bg-surface-muted text-content-placeholder">
-                  <TreeStructure weight="duotone" className="w-6 h-6" />
+            {(!project.subProjects || project.subProjects.length === 0) ? (
+              <div className="p-8 text-center rounded-2xl border border-dashed border-border bg-surface/40 flex flex-col items-center gap-3">
+                <TreeStructure weight="duotone" className="w-8 h-8 text-content-placeholder" />
+                <div className="flex flex-col gap-1">
+                  <span className="text-sm font-semibold text-content-primary">No sub-projects yet</span>
+                  <span className="text-xs text-content-secondary">Break this initiative down into smaller milestones</span>
                 </div>
-                <div>
-                  <p className="text-[14px] font-medium text-content-primary">
-                    No sub-projects added yet
-                  </p>
-                  <p className="text-[12.5px] text-content-secondary mt-0.5">
-                    Break this master initiative into modular streams or subsystems.
-                  </p>
-                </div>
-                <Button
-                  size="sm"
-                  onClick={() => setIsNewSubProjectOpen(true)}
-                  className="mt-2 gap-1 text-[12.5px]"
-                >
-                  <Plus weight="bold" className="w-3 h-3" />
-                  <span>Create Sub-Project</span>
+                <Button size="sm" onClick={() => setIsNewSubProjectOpen(true)}>
+                  Create First Sub-Project
                 </Button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {subProjects.map((sub: any) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {project.subProjects.map((sub: any) => (
                   <ProjectCard key={sub.id} project={sub} />
                 ))}
               </div>
@@ -284,27 +296,38 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
         {activeTab === "docs" && (
           <ProjectDocsEditor
             projectId={project.id}
-            initialTitle={doc?.title}
-            initialContent={doc?.content}
+            initialTitle={project.docs?.[0]?.title}
+            initialContent={project.docs?.[0]?.content}
           />
         )}
       </div>
 
-      {/* Modals */}
+      {/* Sub Project Modal */}
       <NewProjectModal
         isOpen={isNewSubProjectOpen}
         onClose={() => setIsNewSubProjectOpen(false)}
         workspaceId={project.workspaceId}
         defaultParentId={project.id}
-        defaultHorizon={project.temporalHorizon}
       />
 
+      {/* Task Modal */}
       <NewTaskModal
         isOpen={isNewTaskOpen}
         onClose={() => setIsNewTaskOpen(false)}
-        projects={[{ id: project.id, title: project.title, parentId: project.parentId }]}
+        projects={[project]}
         defaultProjectId={project.id}
         defaultStatus={defaultTaskStatus}
+      />
+
+      {/* Share with Client Modal */}
+      <ShareProjectModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        projectTitle={project.title}
+        projectId={project.id}
+        isPublic={project.isPublic}
+        shareToken={project.shareToken}
+        onTogglePublic={(isPub) => toggleProjectPublicAction(project.id, isPub) as any}
       />
     </div>
   );
