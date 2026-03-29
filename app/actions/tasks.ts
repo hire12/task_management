@@ -16,6 +16,7 @@ export async function getTodayTasks() {
       project: true,
       subtasks: true,
       attachments: true,
+      assignee: true,
     },
     orderBy: [
       { status: "asc" },
@@ -33,6 +34,7 @@ export async function createTask(formData: {
   priority?: PriorityLevel;
   dueDate?: Date | string | null;
   estimatedMinutes?: number;
+  assigneeId?: string | null;
 }) {
   const task = await db.task.create({
     data: {
@@ -42,7 +44,8 @@ export async function createTask(formData: {
       status: formData.status || TaskStatus.TODO,
       priority: formData.priority || PriorityLevel.MEDIUM,
       dueDate: formData.dueDate ? new Date(formData.dueDate) : null,
-      estimatedMinutes: formData.estimatedMinutes || null,
+      duration: formData.estimatedMinutes || 0,
+      assigneeId: formData.assigneeId || null,
     },
   });
 
@@ -64,11 +67,19 @@ export async function updateTask(
     dueDate: Date | string | null;
     estimatedMinutes: number;
     actualMinutes: number;
+    assigneeId: string | null;
   }>
 ) {
   const updateData: any = { ...data };
   if (data.dueDate !== undefined) {
     updateData.dueDate = data.dueDate ? new Date(data.dueDate) : null;
+  }
+  if (data.estimatedMinutes !== undefined) {
+    updateData.duration = data.estimatedMinutes;
+    delete updateData.estimatedMinutes;
+  }
+  if (data.actualMinutes !== undefined) {
+    delete updateData.actualMinutes;
   }
 
   const task = await db.task.update({
@@ -119,34 +130,57 @@ export async function deleteTask(id: string) {
   revalidatePath(`/projects/${task.projectId}`);
   revalidatePath("/");
   revalidatePath("/today");
-  return { success: true };
 }
 
 export async function addSubtask(taskId: string, title: string) {
   const subtask = await db.subtask.create({
-    data: { taskId, title, isCompleted: false },
+    data: {
+      taskId,
+      title,
+      isDone: false,
+    },
   });
+
   const task = await db.task.findUnique({ where: { id: taskId } });
   if (task) {
+    await recalculateProjectProgress(task.projectId);
     revalidatePath(`/projects/${task.projectId}`);
-    revalidatePath("/today");
   }
+  revalidatePath("/");
+  revalidatePath("/today");
   return subtask;
 }
 
 export async function toggleSubtask(id: string) {
-  const subtask = await db.subtask.findUnique({
-    where: { id },
-    include: { task: true },
-  });
-  if (!subtask) return;
+  const subtask = await db.subtask.findUnique({ where: { id } });
+  if (!subtask) return null;
 
   const updated = await db.subtask.update({
     where: { id },
-    data: { isCompleted: !subtask.isCompleted },
+    data: { isDone: !subtask.isDone },
   });
 
-  revalidatePath(`/projects/${subtask.task.projectId}`);
+  const task = await db.task.findUnique({ where: { id: subtask.taskId } });
+  if (task) {
+    await recalculateProjectProgress(task.projectId);
+    revalidatePath(`/projects/${task.projectId}`);
+  }
+  revalidatePath("/");
   revalidatePath("/today");
   return updated;
+}
+
+export async function deleteSubtask(id: string) {
+  const subtask = await db.subtask.findUnique({ where: { id } });
+  if (!subtask) return;
+
+  await db.subtask.delete({ where: { id } });
+
+  const task = await db.task.findUnique({ where: { id: subtask.taskId } });
+  if (task) {
+    await recalculateProjectProgress(task.projectId);
+    revalidatePath(`/projects/${task.projectId}`);
+  }
+  revalidatePath("/");
+  revalidatePath("/today");
 }

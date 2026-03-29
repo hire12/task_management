@@ -18,7 +18,7 @@ export function exportTasksToCSV(tasks: FullTask[], filename = "tasks-export.csv
     t.status,
     t.priority,
     t.dueDate ? new Date(t.dueDate).toISOString().split("T")[0] : "",
-    t.estimatedMinutes || "",
+    t.duration || "",
     t.attachments?.length || 0,
     new Date(t.createdAt).toISOString(),
   ]);

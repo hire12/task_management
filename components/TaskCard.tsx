@@ -88,7 +88,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
     URGENT: "purple",
   };
 
-  const completedSubtasks = task.subtasks?.filter((s) => s.isCompleted).length || 0;
+  const completedSubtasks = task.subtasks?.filter((s) => s.isDone).length || 0;
   const totalSubtasks = task.subtasks?.length || 0;
 
   const nextStatuses: Record<TaskStatus, { status: TaskStatus; label: string }[]> = {
@@ -267,10 +267,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
               </span>
             )}
 
-            {task.estimatedMinutes && (
+            {task.duration && (
               <span className="flex items-center gap-1">
                 <Clock weight="duotone" className="w-3 h-3" />
-                <span>{task.estimatedMinutes}m</span>
+                <span>{task.duration}m</span>
               </span>
             )}
 
@@ -306,12 +306,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
                   }}
                   className="flex items-center gap-2 text-[12px] text-content-secondary hover:text-content-primary cursor-pointer"
                 >
-                  {sub.isCompleted ? (
+                  {sub.isDone ? (
                     <CheckCircle weight="fill" className="w-3.5 h-3.5 text-brandSuccess shrink-0" />
                   ) : (
                     <Circle weight="duotone" className="w-3.5 h-3.5 text-content-placeholder shrink-0" />
                   )}
-                  <span className={cn(sub.isCompleted && "line-through text-content-placeholder")}>
+                  <span className={cn(sub.isDone && "line-through text-content-placeholder")}>
                     {sub.title}
                   </span>
                 </div>

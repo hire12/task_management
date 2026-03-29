@@ -5,7 +5,7 @@ import { Modal } from "@/components/ui/Modal";
 import { Input, Textarea } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { createProject } from "@/app/actions/projects";
-import { TemporalHorizon, PriorityLevel } from "@prisma/client";
+import { TemporalHorizon } from "@prisma/client";
 
 interface NewProjectModalProps {
   isOpen: boolean;
@@ -25,9 +25,7 @@ export const NewProjectModal: React.FC<NewProjectModalProps> = ({
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [horizon, setHorizon] = useState<TemporalHorizon>(defaultHorizon);
-  const [priority, setPriority] = useState<PriorityLevel>(PriorityLevel.MEDIUM);
-  const [targetStartDate, setTargetStartDate] = useState("");
-  const [targetEndDate, setTargetEndDate] = useState("");
+  const [targetDate, setTargetDate] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,9 +40,7 @@ export const NewProjectModal: React.FC<NewProjectModalProps> = ({
         title: title.trim(),
         description: description.trim() || undefined,
         temporalHorizon: horizon,
-        priority,
-        targetStartDate: targetStartDate ? new Date(targetStartDate) : undefined,
-        targetEndDate: targetEndDate ? new Date(targetEndDate) : undefined,
+        targetDate: targetDate ? new Date(targetDate) : undefined,
       });
 
       setTitle("");
@@ -114,41 +110,12 @@ export const NewProjectModal: React.FC<NewProjectModalProps> = ({
 
           <div>
             <label className="block text-[12.5px] font-medium text-content-secondary mb-1">
-              Priority
-            </label>
-            <select
-              value={priority}
-              onChange={(e) => setPriority(e.target.value as PriorityLevel)}
-              className="w-full rounded-md border border-border bg-surface px-3 py-1.5 text-[13.5px] text-content-primary focus:outline-none focus:border-accent"
-            >
-              <option value="LOW">Low</option>
-              <option value="MEDIUM">Medium</option>
-              <option value="HIGH">High</option>
-              <option value="URGENT">Urgent</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label className="block text-[12.5px] font-medium text-content-secondary mb-1">
-              Target Start
+              Target Deadline
             </label>
             <Input
               type="date"
-              value={targetStartDate}
-              onChange={(e) => setTargetStartDate(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className="block text-[12.5px] font-medium text-content-secondary mb-1">
-              Target End / Deadline
-            </label>
-            <Input
-              type="date"
-              value={targetEndDate}
-              onChange={(e) => setTargetEndDate(e.target.value)}
+              value={targetDate}
+              onChange={(e) => setTargetDate(e.target.value)}
             />
           </div>
         </div>

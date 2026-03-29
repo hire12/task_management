@@ -212,7 +212,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
     const updated = await toggleSubtask(subtaskId);
     if (updated && currentTask.subtasks) {
       const newSubtasks = currentTask.subtasks.map((s) =>
-        s.id === subtaskId ? { ...s, isCompleted: updated.isCompleted } : s
+        s.id === subtaskId ? { ...s, isDone: updated.isDone } : s
       );
       const merged = { ...currentTask, subtasks: newSubtasks };
       setCurrentTask(merged);
@@ -300,7 +300,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
   };
 
   const totalSubtasks = currentTask.subtasks?.length || 0;
-  const completedSubtasks = currentTask.subtasks?.filter((s) => s.isCompleted).length || 0;
+  const completedSubtasks = currentTask.subtasks?.filter((s) => s.isDone).length || 0;
   const subtaskProgress = totalSubtasks > 0 ? Math.round((completedSubtasks / totalSubtasks) * 100) : 0;
 
   return (
@@ -649,12 +649,12 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
                   onClick={() => handleToggleSubtask(sub.id)}
                   className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-muted/60 transition-colors cursor-pointer text-[13px] text-content-primary"
                 >
-                  {sub.isCompleted ? (
+                  {sub.isDone ? (
                     <CheckCircle weight="fill" className="w-4 h-4 text-brandSuccess shrink-0" />
                   ) : (
                     <Circle weight="duotone" className="w-4 h-4 text-content-placeholder shrink-0" />
                   )}
-                  <span className={cn(sub.isCompleted && "line-through text-content-placeholder")}>
+                  <span className={cn(sub.isDone && "line-through text-content-placeholder")}>
                     {sub.title}
                   </span>
                 </div>
@@ -682,10 +682,10 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
                 <span>Due {formatRelativeDate(currentTask.dueDate)}</span>
               </span>
             )}
-            {currentTask.estimatedMinutes && (
+            {currentTask.duration && (
               <span className="flex items-center gap-1.5">
                 <Clock weight="duotone" className="w-3.5 h-3.5" />
-                <span>Estimate: {currentTask.estimatedMinutes}m</span>
+                <span>Estimate: {currentTask.duration}m</span>
               </span>
             )}
           </div>

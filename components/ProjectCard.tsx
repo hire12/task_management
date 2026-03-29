@@ -19,13 +19,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const totalTasks = project.tasks?.length || 0;
   const subProjectsCount = project.subProjects?.length || project._count?.subProjects || 0;
   const sparklineData = generateSparklineData(completedTasks, Math.max(5, totalTasks));
-
-  const priorityVariants: Record<string, "neutral" | "warning" | "danger" | "purple"> = {
-    LOW: "neutral",
-    MEDIUM: "warning",
-    HIGH: "danger",
-    URGENT: "purple",
-  };
+  const progressPercent = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
   const statusVariants: Record<string, "default" | "success" | "warning" | "neutral"> = {
     DRAFT: "neutral",
@@ -52,24 +46,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       )}
 
       <div className="flex flex-col gap-3">
-        {/* Top bar: Horizon / Status / Priority */}
+        {/* Top bar: Status & Progress */}
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 flex-wrap">
             <Badge variant={statusVariants[project.status] || "default"}>
               {project.status.replace("_", " ")}
             </Badge>
-            {project.priority !== "MEDIUM" && (
-              <Badge variant={priorityVariants[project.priority] || "neutral"}>
-                {project.priority}
-              </Badge>
-            )}
           </div>
 
           <ProgressRing
-            progress={project.progress}
+            progress={progressPercent}
             size={24}
             strokeWidth={2.5}
-            color={project.progress === 100 ? "var(--color-success)" : "var(--color-accent)"}
+            color={progressPercent === 100 ? "var(--color-success)" : "var(--color-accent)"}
           />
         </div>
 
@@ -101,10 +90,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </span>
             )}
 
-            {project.targetEndDate && (
+            {project.targetDate && (
               <span className="hidden sm:flex items-center gap-1">
                 <Calendar weight="duotone" className="w-3.5 h-3.5" />
-                <span>{formatDate(project.targetEndDate)}</span>
+                <span>{formatDate(project.targetDate)}</span>
               </span>
             )}
           </div>
@@ -113,7 +102,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             data={sparklineData}
             width={64}
             height={20}
-            color={project.progress === 100 ? "var(--color-success)" : "var(--color-accent)"}
+            color={progressPercent === 100 ? "var(--color-success)" : "var(--color-accent)"}
           />
         </div>
       </div>
