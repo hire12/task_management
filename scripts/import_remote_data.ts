@@ -1,46 +1,59 @@
 import { PrismaClient } from "@prisma/client";
-import * as fs from "fs";
-import * as path from "path";
+import fs from "fs";
+import path from "path";
 
 const prisma = new PrismaClient();
 
-async function main() {
-  const jsonPath = path.resolve(__dirname, "local_db_export.json");
+async function importData() {
+  const jsonPath = path.join(__dirname, "../data/remote_backup.json");
   if (!fs.existsSync(jsonPath)) {
-    throw new Error(`Payload not found at ${jsonPath}`);
+    console.log("No remote_backup.json found, skipping.");
+    return;
   }
 
-  const data = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
-  console.log("Restoring local data to production PostgreSQL database...");
+  const raw = fs.readFileSync(jsonPath, "utf-8");
+  const data = JSON.parse(raw);
 
-  // 1. Wipe remote tables cleanly
-  await prisma.activityLog.deleteMany({});
-  await prisma.projectDoc.deleteMany({});
-  await prisma.subtask.deleteMany({});
-  await prisma.task.deleteMany({});
-  await prisma.project.deleteMany({});
-  await prisma.workspace.deleteMany({});
+  console.log("Importing backup data...");
 
-  // 2. Workspaces
-  for (const w of data.workspaces) {
-    await prisma.workspace.create({
-      data: {
+  // 1. Workspaces
+  for (const w of data.workspaces || []) {
+    await prisma.workspace.upsert({
+      where: { id: w.id },
+      update: {
+        name: w.name,
+        slug: w.slug,
+        icon: w.icon || "Planet",
+        color: w.color || "#4F6B58",
+      },
+      create: {
         id: w.id,
         name: w.name,
         slug: w.slug,
-        icon: w.icon,
-        color: w.color,
+        icon: w.icon || "Planet",
+        color: w.color || "#4F6B58",
         createdAt: new Date(w.createdAt),
         updatedAt: new Date(w.updatedAt),
       },
     });
   }
 
-  // 3. Root Projects (parentId is null) - e.g. Sada, Orbit Platform 2.0, etc.
-  const rootProjects = data.projects.filter((p: any) => !p.parentId);
+  // 2. Root Projects
+  const rootProjects = (data.projects || []).filter((p: any) => !p.parentId);
   for (const p of rootProjects) {
-    await prisma.project.create({
-      data: {
+    await prisma.project.upsert({
+      where: { id: p.id },
+      update: {
+        title: p.title,
+        description: p.description,
+        temporalHorizon: p.temporalHorizon,
+        status: p.status,
+        targetDate: p.targetDate ? new Date(p.targetDate) : null,
+        color: p.color || "#388E3C",
+        icon: p.icon || "Target",
+        bannerUrl: p.bannerUrl,
+      },
+      create: {
         id: p.id,
         workspaceId: p.workspaceId,
         parentId: null,
@@ -48,23 +61,31 @@ async function main() {
         description: p.description,
         temporalHorizon: p.temporalHorizon,
         status: p.status,
-        priority: p.priority,
-        progress: p.progress,
-        targetStartDate: p.targetStartDate ? new Date(p.targetStartDate) : null,
-        targetEndDate: p.targetEndDate ? new Date(p.targetEndDate) : null,
-        tags: p.tags || [],
-        pinnedLinks: p.pinnedLinks || null,
+        targetDate: p.targetDate ? new Date(p.targetDate) : null,
+        color: p.color || "#388E3C",
+        icon: p.icon || "Target",
+        bannerUrl: p.bannerUrl,
         createdAt: new Date(p.createdAt),
         updatedAt: new Date(p.updatedAt),
       },
     });
   }
 
-  // 4. Sub-Projects (parentId is not null)
-  const childProjects = data.projects.filter((p: any) => p.parentId);
+  // 3. Sub-Projects
+  const childProjects = (data.projects || []).filter((p: any) => p.parentId);
   for (const p of childProjects) {
-    await prisma.project.create({
-      data: {
+    await prisma.project.upsert({
+      where: { id: p.id },
+      update: {
+        title: p.title,
+        description: p.description,
+        temporalHorizon: p.temporalHorizon,
+        status: p.status,
+        targetDate: p.targetDate ? new Date(p.targetDate) : null,
+        color: p.color || "#388E3C",
+        icon: p.icon || "Target",
+      },
+      create: {
         id: p.id,
         workspaceId: p.workspaceId,
         parentId: p.parentId,
@@ -72,82 +93,47 @@ async function main() {
         description: p.description,
         temporalHorizon: p.temporalHorizon,
         status: p.status,
-        priority: p.priority,
-        progress: p.progress,
-        targetStartDate: p.targetStartDate ? new Date(p.targetStartDate) : null,
-        targetEndDate: p.targetEndDate ? new Date(p.targetEndDate) : null,
-        tags: p.tags || [],
-        pinnedLinks: p.pinnedLinks || null,
+        targetDate: p.targetDate ? new Date(p.targetDate) : null,
+        color: p.color || "#388E3C",
+        icon: p.icon || "Target",
         createdAt: new Date(p.createdAt),
         updatedAt: new Date(p.updatedAt),
       },
     });
   }
 
-  // 5. Tasks (including all Sada tasks)
-  for (const t of data.tasks) {
-    await prisma.task.create({
-      data: {
+  // 4. Tasks
+  for (const t of data.tasks || []) {
+    await prisma.task.upsert({
+      where: { id: t.id },
+      update: {
+        title: t.title,
+        description: t.description,
+        status: t.status,
+        priority: t.priority,
+        dueDate: t.dueDate ? new Date(t.dueDate) : null,
+        order: t.order || 0.0,
+        duration: t.duration || 0,
+      },
+      create: {
         id: t.id,
         projectId: t.projectId,
         title: t.title,
         description: t.description,
         status: t.status,
         priority: t.priority,
-        estimatedMinutes: t.estimatedMinutes,
         dueDate: t.dueDate ? new Date(t.dueDate) : null,
-        orderIndex: t.orderIndex || 0,
+        order: t.order || 0.0,
+        duration: t.duration || 0,
         createdAt: new Date(t.createdAt),
         updatedAt: new Date(t.updatedAt),
       },
     });
   }
 
-  // 6. Subtasks
-  for (const s of data.subtasks) {
-    await prisma.subtask.create({
-      data: {
-        id: s.id,
-        taskId: s.taskId,
-        title: s.title,
-        isCompleted: s.isCompleted,
-        createdAt: new Date(s.createdAt),
-        updatedAt: new Date(s.updatedAt),
-      },
-    });
-  }
-
-  // 7. Project Docs
-  for (const d of data.projectDocs) {
-    await prisma.projectDoc.create({
-      data: {
-        id: d.id,
-        projectId: d.projectId,
-        title: d.title,
-        content: d.content,
-        createdAt: new Date(d.createdAt),
-        updatedAt: new Date(d.updatedAt),
-      },
-    });
-  }
-
-  // 8. Activity Logs
-  for (const a of data.activityLogs) {
-    await prisma.activityLog.create({
-      data: {
-        id: a.id,
-        projectId: a.projectId,
-        taskId: a.taskId,
-        action: a.action,
-        details: a.details,
-        createdAt: new Date(a.createdAt),
-      },
-    });
-  }
-
-  console.log("Successfully restored all local data to production!");
+  console.log("Import completed successfully.");
 }
 
-main()
+importData()
   .catch(console.error)
   .finally(() => prisma.$disconnect());

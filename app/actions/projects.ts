@@ -2,7 +2,7 @@
 
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
-import { TemporalHorizon, ProjectStatus, PriorityLevel } from "@prisma/client";
+import { TemporalHorizon, ProjectStatus } from "@prisma/client";
 
 export async function getWorkspaces() {
   let workspaces = await db.workspace.findMany({
@@ -41,13 +41,13 @@ export async function getProjects(workspaceId?: string, horizon?: TemporalHorizo
       },
       tasks: {
         include: { subtasks: true, attachments: true },
-        orderBy: { orderIndex: "asc" },
+        orderBy: { order: "asc" },
       },
       _count: {
         select: { tasks: true, subProjects: true },
       },
     },
-    orderBy: [{ priority: "desc" }, { updatedAt: "desc" }],
+    orderBy: { updatedAt: "desc" },
   });
 }
 
@@ -71,12 +71,12 @@ export async function getProjectById(id: string) {
       },
       tasks: {
         include: { subtasks: true, attachments: true },
-        orderBy: [{ orderIndex: "asc" }, { createdAt: "desc" }],
+        orderBy: { order: "asc" },
       },
       docs: {
         orderBy: { updatedAt: "desc" },
       },
-      activityLogs: {
+      activity: {
         take: 10,
         orderBy: { createdAt: "desc" },
       },
@@ -94,10 +94,9 @@ export async function createProject(formData: {
   description?: string;
   temporalHorizon?: TemporalHorizon;
   status?: ProjectStatus;
-  priority?: PriorityLevel;
-  targetStartDate?: Date | string | null;
-  targetEndDate?: Date | string | null;
-  tags?: string[];
+  targetDate?: Date | string | null;
+  color?: string;
+  icon?: string;
 }) {
   const project = await db.project.create({
     data: {
@@ -107,11 +106,9 @@ export async function createProject(formData: {
       description: formData.description,
       temporalHorizon: formData.temporalHorizon || TemporalHorizon.ACTIVE,
       status: formData.status || ProjectStatus.IN_PROGRESS,
-      priority: formData.priority || PriorityLevel.MEDIUM,
-      targetStartDate: formData.targetStartDate ? new Date(formData.targetStartDate) : null,
-      targetEndDate: formData.targetEndDate ? new Date(formData.targetEndDate) : null,
-      tags: formData.tags || [],
-      progress: 0,
+      targetDate: formData.targetDate ? new Date(formData.targetDate) : null,
+      color: formData.color || "#388E3C",
+      icon: formData.icon || "Target",
     },
   });
 
@@ -139,20 +136,16 @@ export async function updateProject(
     description: string;
     temporalHorizon: TemporalHorizon;
     status: ProjectStatus;
-    priority: PriorityLevel;
-    progress: number;
-    targetStartDate: Date | string | null;
-    targetEndDate: Date | string | null;
-    tags: string[];
-    pinnedLinks: any;
+    targetDate: Date | string | null;
+    color: string;
+    icon: string;
+    isPublic: boolean;
+    shareToken: string;
   }>
 ) {
   const updateData: any = { ...data };
-  if (data.targetStartDate !== undefined) {
-    updateData.targetStartDate = data.targetStartDate ? new Date(data.targetStartDate) : null;
-  }
-  if (data.targetEndDate !== undefined) {
-    updateData.targetEndDate = data.targetEndDate ? new Date(data.targetEndDate) : null;
+  if (data.targetDate !== undefined) {
+    updateData.targetDate = data.targetDate ? new Date(data.targetDate) : null;
   }
 
   const project = await db.project.update({
@@ -213,25 +206,6 @@ export async function recalculateProjectProgress(projectId: string) {
   });
 
   if (!project) return;
-
-  const directTasks = project.tasks;
-  const subProjects = project.subProjects;
-
-  let totalUnits = directTasks.length;
-  let completedUnits = directTasks.filter((t) => t.status === "DONE").length;
-
-  for (const sub of subProjects) {
-    totalUnits += sub.tasks.length || 1;
-    completedUnits += sub.tasks.filter((t) => t.status === "DONE").length;
-  }
-
-  const progress = totalUnits > 0 ? Math.round((completedUnits / totalUnits) * 100) : project.progress;
-
-  await db.project.update({
-    where: { id: projectId },
-    data: { progress },
-  });
-
   if (project.parentId) {
     await recalculateProjectProgress(project.parentId);
   }

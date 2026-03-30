@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import {
   Lightning,
   CalendarBlank,
@@ -16,6 +16,9 @@ import {
   Kanban,
 } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
+import { WorkspaceSwitcher } from "@/components/auth/WorkspaceSwitcher";
+import { getUserWorkspacesAction, createTeamWorkspaceAction } from "@/app/actions/workspace";
+import { UserWorkspace } from "@/lib/workspace";
 
 interface SidebarProps {
   onOpenNewProject: () => void;
@@ -28,12 +31,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const router = useRouter();
   const currentHorizon = searchParams.get("horizon") || "ACTIVE";
+  const currentWorkspaceId = searchParams.get("workspaceId") || undefined;
   const [isDark, setIsDark] = useState(false);
+  const [workspaces, setWorkspaces] = useState<UserWorkspace[]>([]);
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
     setIsDark(isDarkMode);
+
+    getUserWorkspacesAction().then((data) => {
+      if (data && data.length > 0) {
+        setWorkspaces(data);
+      }
+    });
   }, []);
 
   const toggleDarkMode = () => {
@@ -49,6 +61,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
     }
   };
 
+  const handleSelectWorkspace = (workspaceId: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("workspaceId", workspaceId);
+    router.push(`/?${params.toString()}`);
+  };
+
+  const handleCreateTeamSpace = async (name: string) => {
+    await createTeamWorkspaceAction(name);
+    const updated = await getUserWorkspacesAction();
+    if (updated) setWorkspaces(updated);
+    router.refresh();
+  };
+
   const navItems = [
     {
       label: "Today's Focus",
@@ -59,25 +84,25 @@ export const Sidebar: React.FC<SidebarProps> = ({
     },
     {
       label: "Active (Now)",
-      href: "/?horizon=ACTIVE",
+      href: `/?horizon=ACTIVE${currentWorkspaceId ? `&workspaceId=${currentWorkspaceId}` : ""}`,
       icon: Lightning,
       isActive: pathname === "/" && currentHorizon === "ACTIVE",
     },
     {
       label: "Pipeline (Next)",
-      href: "/?horizon=FUTURE",
+      href: `/?horizon=FUTURE${currentWorkspaceId ? `&workspaceId=${currentWorkspaceId}` : ""}`,
       icon: CalendarBlank,
       isActive: pathname === "/" && currentHorizon === "FUTURE",
     },
     {
       label: "Incubator (Someday)",
-      href: "/?horizon=IDEA",
+      href: `/?horizon=IDEA${currentWorkspaceId ? `&workspaceId=${currentWorkspaceId}` : ""}`,
       icon: Lightbulb,
       isActive: pathname === "/" && currentHorizon === "IDEA",
     },
     {
       label: "Trophy Room (Shipped)",
-      href: "/?horizon=SHIPPED",
+      href: `/?horizon=SHIPPED${currentWorkspaceId ? `&workspaceId=${currentWorkspaceId}` : ""}`,
       icon: Trophy,
       isActive: pathname === "/" && currentHorizon === "SHIPPED",
     },
@@ -85,8 +110,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside className="w-64 border-r border-border/80 bg-surface/50 backdrop-blur-sm flex flex-col justify-between p-4 shrink-0 min-h-screen select-none">
-      <div className="flex flex-col gap-6">
-        {/* Brand Wordmark & Switcher */}
+      <div className="flex flex-col gap-5">
+        {/* Brand Wordmark & Theme Switcher */}
         <div className="flex items-center justify-between px-2 pt-1">
           <Link
             href="/"
@@ -112,6 +137,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
             )}
           </button>
         </div>
+
+        {/* Workspace & Team Space Switcher */}
+        {workspaces.length > 0 && (
+          <div className="px-1">
+            <WorkspaceSwitcher
+              workspaces={workspaces}
+              activeWorkspaceId={currentWorkspaceId || workspaces[0]?.id}
+              onSelectWorkspace={handleSelectWorkspace}
+              onCreateTeamSpace={handleCreateTeamSpace}
+            />
+          </div>
+        )}
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 px-1">
@@ -173,7 +210,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Footer Info */}
       <div className="px-2 pt-4 border-t border-border/60 text-[12px] text-content-placeholder flex items-center justify-between">
         <span>Project & Future OS</span>
-        <span className="font-mono text-[11px]">v2.0</span>
+        <span className="font-mono text-[11px]">v2.5</span>
       </div>
     </aside>
   );
