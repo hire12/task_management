@@ -26,3 +26,8 @@
 - **Details**: Documented the OAuth client credentials so anyone cloning the repo knows what keys are needed.
 - **Status**: Verified & passing tests
 
+#### Commit 5/18 · `2026-04-22 11:14:07 +0300`
+- **Summary**: refactor(auth): fallback to empty string for optional social provider keys
+- **Details**: Prevents startup crashes if social keys are not populated in development.
+- **Status**: Verified & passing tests
+
