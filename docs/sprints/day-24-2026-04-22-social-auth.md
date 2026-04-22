@@ -66,3 +66,8 @@
 - **Details**: Consistent 7-day session token duration across both password and social logins.
 - **Status**: Verified & passing tests
 
+#### Commit 13/18 · `2026-04-22 15:42:21 +0300`
+- **Summary**: docs(auth): document OAuth app registration steps for Google Cloud & GitHub
+- **Details**: Wrote instructions on creating OAuth credentials in Google Cloud Console and GitHub Developer Settings.
+- **Status**: Verified & passing tests
+
