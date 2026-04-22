@@ -61,3 +61,8 @@
 - **Details**: Google and GitHub verified emails skip manual email verification checks.
 - **Status**: Verified & passing tests
 
+#### Commit 12/18 · `2026-04-22 15:08:49 +0300`
+- **Summary**: refactor(auth): set 7-day session expiration for social login sessions
+- **Details**: Consistent 7-day session token duration across both password and social logins.
+- **Status**: Verified & passing tests
+
