@@ -31,3 +31,8 @@
 - **Details**: Prevents startup crashes if social keys are not populated in development.
 - **Status**: Verified & passing tests
 
+#### Commit 6/18 · `2026-04-22 11:47:38 +0300`
+- **Summary**: feat(schema): verify Account model OAuth providerId and accountId indices
+- **Details**: Ensures sub-millisecond lookups when resolving incoming OAuth callbacks.
+- **Status**: Verified & passing tests
+
