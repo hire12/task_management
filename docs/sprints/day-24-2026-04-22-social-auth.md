@@ -21,3 +21,8 @@
 - **Details**: Mapped GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET for developer 1-click logins.
 - **Status**: Verified & passing tests
 
+#### Commit 4/18 · `2026-04-22 10:40:35 +0300`
+- **Summary**: docs(env): update .env.example with Better Auth API key and OAuth template
+- **Details**: Documented the OAuth client credentials so anyone cloning the repo knows what keys are needed.
+- **Status**: Verified & passing tests
+
