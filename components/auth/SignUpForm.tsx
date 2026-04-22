@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { signUp } from "@/lib/auth-client";
+import { signUp, signIn } from "@/lib/auth-client";
 import { Lock, EnvelopeSimple, User, Eye, EyeSlash, ArrowRight, CheckCircle } from "@phosphor-icons/react";
+import { GoogleIcon, GitHubIcon } from "./SocialIcons";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -16,6 +17,7 @@ export const SignUpForm: React.FC = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [socialLoading, setSocialLoading] = useState<"google" | "github" | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const calculatePasswordStrength = (pass: string) => {
@@ -61,6 +63,20 @@ export const SignUpForm: React.FC = () => {
     }
   };
 
+  const handleSocialSignIn = async (provider: "google" | "github") => {
+    setSocialLoading(provider);
+    setError(null);
+    try {
+      await signIn.social({
+        provider,
+        callbackURL: callbackUrl,
+      });
+    } catch (err: any) {
+      setError(err.message || `Failed to continue with ${provider}.`);
+      setSocialLoading(null);
+    }
+  };
+
   return (
     <div className="w-full max-w-md mx-auto rounded-2xl border border-border bg-surface p-8 shadow-modal flex flex-col gap-6">
       <div className="flex flex-col gap-1.5 text-center">
@@ -73,11 +89,42 @@ export const SignUpForm: React.FC = () => {
       </div>
 
       {error && (
-        <div className="rounded-xl border border-danger/30 bg-danger/10 px-4 py-3 text-xs text-danger flex items-center gap-2">
+        <div className="rounded-xl border border-danger/30 bg-danger/10 px-4 py-3 text-xs text-danger flex items-center gap-2 animate-fade-in">
           <span>⚠️</span>
           <span>{error}</span>
         </div>
       )}
+
+      {/* Social Logins */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <button
+          type="button"
+          onClick={() => handleSocialSignIn("google")}
+          disabled={Boolean(socialLoading) || loading}
+          className="flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-xl border border-border bg-surface hover:bg-surface-raised active:scale-[0.98] transition-all text-xs font-semibold text-content-primary shadow-2xs cursor-pointer disabled:opacity-60"
+        >
+          <GoogleIcon className="w-4 h-4 shrink-0" />
+          <span>{socialLoading === "google" ? "Connecting..." : "Google"}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleSocialSignIn("github")}
+          disabled={Boolean(socialLoading) || loading}
+          className="flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-xl border border-border bg-surface hover:bg-surface-raised active:scale-[0.98] transition-all text-xs font-semibold text-content-primary shadow-2xs cursor-pointer disabled:opacity-60"
+        >
+          <GitHubIcon className="w-4 h-4 shrink-0 text-content-primary" />
+          <span>{socialLoading === "github" ? "Connecting..." : "GitHub"}</span>
+        </button>
+      </div>
+
+      {/* OR Divider */}
+      <div className="relative flex items-center justify-center">
+        <div className="border-t border-border w-full" />
+        <span className="bg-surface px-3 text-[11px] font-semibold text-content-placeholder uppercase tracking-wider absolute">
+          or sign up with email
+        </span>
+      </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col gap-1.5">
@@ -108,7 +155,7 @@ export const SignUpForm: React.FC = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="alex@company.com"
+              placeholder="you@company.com"
               className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-border bg-surface-raised text-sm text-content-primary placeholder:text-content-placeholder focus:outline-none focus:border-accent shadow-2xs"
             />
           </div>
@@ -125,20 +172,24 @@ export const SignUpForm: React.FC = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
+              placeholder="Min. 8 characters"
               className="w-full pl-10 pr-11 py-2.5 rounded-xl border border-border bg-surface-raised text-sm text-content-primary placeholder:text-content-placeholder focus:outline-none focus:border-accent shadow-2xs"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3.5 text-content-placeholder hover:text-content-primary transition-colors"
+              className="absolute right-3.5 text-content-placeholder hover:text-content-primary transition-colors cursor-pointer"
             >
-              {showPassword ? <EyeSlash className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              {showPassword ? (
+                <EyeSlash className="w-4 h-4" />
+              ) : (
+                <Eye className="w-4 h-4" />
+              )}
             </button>
           </div>
 
-          {/* Password strength meter */}
-          {password.length > 0 && (
+          {/* Password Entropy Bar */}
+          {password && (
             <div className="flex items-center gap-1.5 mt-1">
               {[1, 2, 3, 4].map((step) => (
                 <div
@@ -148,39 +199,33 @@ export const SignUpForm: React.FC = () => {
                       ? strength <= 1
                         ? "bg-danger"
                         : strength <= 3
-                        ? "bg-warning"
+                        ? "bg-brandWarning"
                         : "bg-success"
                       : "bg-border"
                   }`}
                 />
               ))}
-              <span className="text-[10px] text-content-placeholder ml-1">
-                {strength <= 1 ? "Weak" : strength <= 3 ? "Good" : "Strong"}
-              </span>
             </div>
           )}
         </div>
 
         <button
           type="submit"
-          disabled={loading}
-          className="mt-2 w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-accent text-accent-fg text-sm font-semibold hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-50 shadow-card cursor-pointer"
+          disabled={loading || Boolean(socialLoading)}
+          className="w-full mt-2 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-accent text-white text-sm font-semibold hover:bg-accent-hover active:scale-[0.98] transition-all shadow-card cursor-pointer disabled:opacity-50"
         >
-          {loading ? (
-            <span className="inline-block w-4 h-4 border-2 border-accent-fg border-t-transparent rounded-full animate-spin" />
-          ) : (
-            <>
-              <span>Create Account</span>
-              <ArrowRight weight="bold" className="w-4 h-4" />
-            </>
-          )}
+          <span>{loading ? "Creating account..." : "Get Started for Free"}</span>
+          <ArrowRight weight="bold" className="w-4 h-4" />
         </button>
       </form>
 
-      <div className="pt-2 border-t border-border/80 text-center text-xs text-content-secondary">
+      <div className="pt-2 border-t border-border text-center text-xs text-content-secondary">
         Already have an account?{" "}
-        <Link href={`/auth/sign-in?callbackUrl=${encodeURIComponent(callbackUrl)}`} className="text-accent font-semibold hover:underline">
-          Sign In
+        <Link
+          href={`/auth/sign-in?callbackUrl=${encodeURIComponent(callbackUrl)}`}
+          className="font-semibold text-accent hover:underline"
+        >
+          Sign in
         </Link>
       </div>
     </div>
