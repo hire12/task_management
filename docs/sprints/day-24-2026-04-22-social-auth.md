@@ -16,3 +16,8 @@
 - **Details**: Mapped GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET into Better Auth server options.
 - **Status**: Verified & passing tests
 
+#### Commit 3/18 · `2026-04-22 10:07:03 +0300`
+- **Summary**: feat(auth): configure GitHub OAuth social provider in lib/auth.ts
+- **Details**: Mapped GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET for developer 1-click logins.
+- **Status**: Verified & passing tests
+
