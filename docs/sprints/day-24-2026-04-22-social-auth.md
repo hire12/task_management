@@ -76,3 +76,8 @@
 - **Details**: Protects against CSRF attacks during external provider authentication.
 - **Status**: Verified & passing tests
 
+#### Commit 15/18 · `2026-04-22 16:49:24 +0300`
+- **Summary**: chore(auth): add BETTER_AUTH_API_KEY comment in .env
+- **Details**: Left a clear comment explaining the role of the API key for CLI sync.
+- **Status**: Verified & passing tests
+
