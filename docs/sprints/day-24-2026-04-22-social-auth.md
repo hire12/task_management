@@ -36,3 +36,8 @@
 - **Details**: Ensures sub-millisecond lookups when resolving incoming OAuth callbacks.
 - **Status**: Verified & passing tests
 
+#### Commit 7/18 · `2026-04-22 12:21:10 +0300`
+- **Summary**: feat(auth): configure baseURL resolution for OAuth redirect URI generation
+- **Details**: Guarantees Better Auth generates correct HTTPS callback endpoints in production.
+- **Status**: Verified & passing tests
+
