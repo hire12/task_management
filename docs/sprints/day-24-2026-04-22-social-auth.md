@@ -71,3 +71,8 @@
 - **Details**: Wrote instructions on creating OAuth credentials in Google Cloud Console and GitHub Developer Settings.
 - **Status**: Verified & passing tests
 
+#### Commit 14/18 · `2026-04-22 16:15:52 +0300`
+- **Summary**: feat(auth): add security state parameter validation on OAuth dance
+- **Details**: Protects against CSRF attacks during external provider authentication.
+- **Status**: Verified & passing tests
+
