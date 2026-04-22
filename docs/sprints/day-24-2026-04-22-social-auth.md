@@ -86,3 +86,8 @@
 - **Details**: Standardized spacing and object formatting across auth configuration.
 - **Status**: Verified & passing tests
 
+#### Commit 17/18 · `2026-04-22 17:56:28 +0300`
+- **Summary**: test(auth): test Account table schema constraint compatibility
+- **Details**: Verified foreign key integrity between User and Account tables.
+- **Status**: Verified & passing tests
+
