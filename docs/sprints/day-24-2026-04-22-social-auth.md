@@ -51,3 +51,8 @@
 - **Details**: Smoke tested auth instance; both Google and GitHub handlers registered cleanly.
 - **Status**: Verified & passing tests
 
+#### Commit 10/18 · `2026-04-22 14:01:45 +0300`
+- **Summary**: feat(auth): enable profile picture extraction from OAuth claims
+- **Details**: OAuth users automatically have their Google/GitHub avatar URL populated in the User table.
+- **Status**: Verified & passing tests
+
