@@ -56,3 +56,8 @@
 - **Details**: OAuth users automatically have their Google/GitHub avatar URL populated in the User table.
 - **Status**: Verified & passing tests
 
+#### Commit 11/18 · `2026-04-22 14:35:17 +0300`
+- **Summary**: feat(auth): enable auto-verification of email for trusted OAuth providers
+- **Details**: Google and GitHub verified emails skip manual email verification checks.
+- **Status**: Verified & passing tests
+
