@@ -41,3 +41,8 @@
 - **Details**: Guarantees Better Auth generates correct HTTPS callback endpoints in production.
 - **Status**: Verified & passing tests
 
+#### Commit 8/18 · `2026-04-22 12:54:42 +0300`
+- **Summary**: style(auth): add type definitions for social provider options in auth.ts
+- **Details**: Clean TypeScript types for Google and GitHub provider configuration.
+- **Status**: Verified & passing tests
+
