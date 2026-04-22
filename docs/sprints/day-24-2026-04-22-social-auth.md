@@ -46,3 +46,8 @@
 - **Details**: Clean TypeScript types for Google and GitHub provider configuration.
 - **Status**: Verified & passing tests
 
+#### Commit 9/18 · `2026-04-22 13:28:14 +0300`
+- **Summary**: test(auth): verify Better Auth server instance initializes with socialProviders
+- **Details**: Smoke tested auth instance; both Google and GitHub handlers registered cleanly.
+- **Status**: Verified & passing tests
+
