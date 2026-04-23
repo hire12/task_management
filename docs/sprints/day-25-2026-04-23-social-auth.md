@@ -86,3 +86,8 @@
 - **Details**: Redirects user back to their project or invite link after social auth.
 - **Status**: Verified & passing tests
 
+#### Commit 17/27 · `2026-04-23 14:50:46 +0300`
+- **Summary**: style(ui): harmonize font weights and text sizes on social button labels
+- **Details**: Uses semibold text-xs matching Orbit's typography hierarchy.
+- **Status**: Verified & passing tests
+
