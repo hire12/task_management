@@ -131,3 +131,8 @@
 - **Details**: Polished 150ms border and background hover transitions.
 - **Status**: Verified & passing tests
 
+#### Commit 26/27 · `2026-04-23 18:08:04 +0300`
+- **Summary**: feat(ui): show Connecting... text replacement during OAuth redirect
+- **Details**: Immediate visual confirmation that the browser is redirecting to the provider.
+- **Status**: Verified & passing tests
+
