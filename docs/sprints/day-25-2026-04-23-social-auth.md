@@ -121,3 +121,8 @@
 - **Details**: Added developer usage notes in docs/sprints/day-25-social-auth-ui.md.
 - **Status**: Verified & passing tests
 
+#### Commit 24/27 · `2026-04-23 17:24:13 +0300`
+- **Summary**: refactor(ui): eliminate duplicate SVG definitions across auth forms
+- **Details**: Single imported component from SocialIcons.tsx.
+- **Status**: Verified & passing tests
+
