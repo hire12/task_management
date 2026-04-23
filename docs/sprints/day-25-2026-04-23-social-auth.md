@@ -56,3 +56,8 @@
 - **Details**: Displays clear alert message if provider authorization is canceled or errors.
 - **Status**: Verified & passing tests
 
+#### Commit 11/27 · `2026-04-23 12:39:13 +0300`
+- **Summary**: style(ui): style social auth buttons with subtle shadow and border
+- **Details**: Floating card aesthetic matching Orbit's modern surface tokens.
+- **Status**: Verified & passing tests
+
