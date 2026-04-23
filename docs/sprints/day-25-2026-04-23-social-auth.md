@@ -16,3 +16,8 @@
 - **Details**: 1-click Google OAuth button with hover styles and active scale feedback.
 - **Status**: Verified & passing tests
 
+#### Commit 3/27 · `2026-04-23 09:43:50 +0300`
+- **Summary**: feat(ui): add Continue with GitHub button in SignInForm.tsx
+- **Details**: Matching GitHub OAuth button with authentic styling.
+- **Status**: Verified & passing tests
+
