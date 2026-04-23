@@ -76,3 +76,8 @@
 - **Details**: Ensures clean UI reset if OAuth popup is closed prematurely.
 - **Status**: Verified & passing tests
 
+#### Commit 15/27 · `2026-04-23 14:06:55 +0300`
+- **Summary**: style(ui): add active scale 0.98 micro-animation to social buttons
+- **Details**: Satisfying tactile feedback when tapping buttons.
+- **Status**: Verified & passing tests
+
