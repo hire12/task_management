@@ -51,3 +51,8 @@
 - **Details**: Stacks nicely on mobile screens and displays side-by-side on tablet/desktop.
 - **Status**: Verified & passing tests
 
+#### Commit 10/27 · `2026-04-23 12:17:18 +0300`
+- **Summary**: feat(ui): add error banner handling for failed social authentication
+- **Details**: Displays clear alert message if provider authorization is canceled or errors.
+- **Status**: Verified & passing tests
+
