@@ -46,3 +46,8 @@
 - **Details**: Consistent design language across both auth entry points.
 - **Status**: Verified & passing tests
 
+#### Commit 9/27 · `2026-04-23 11:55:23 +0300`
+- **Summary**: style(ui): add responsive grid layout for social buttons on mobile
+- **Details**: Stacks nicely on mobile screens and displays side-by-side on tablet/desktop.
+- **Status**: Verified & passing tests
+
