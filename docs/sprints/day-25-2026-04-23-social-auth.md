@@ -106,3 +106,8 @@
 - **Details**: Icon uses currentColor so it renders crisp white in dark mode and charcoal in light mode.
 - **Status**: Verified & passing tests
 
+#### Commit 21/27 · `2026-04-23 16:18:27 +0300`
+- **Summary**: style(ui): optimize padding and touch target size for mobile screens
+- **Details**: Ensures comfortable 44px touch targets on mobile touchscreens.
+- **Status**: Verified & passing tests
+
