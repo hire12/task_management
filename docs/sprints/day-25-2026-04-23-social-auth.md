@@ -126,3 +126,8 @@
 - **Details**: Single imported component from SocialIcons.tsx.
 - **Status**: Verified & passing tests
 
+#### Commit 25/27 · `2026-04-23 17:46:09 +0300`
+- **Summary**: style(ui): add smooth transition-all on social button hover state
+- **Details**: Polished 150ms border and background hover transitions.
+- **Status**: Verified & passing tests
+
