@@ -66,3 +66,8 @@
 - **Details**: Prevents race conditions from simultaneous email and OAuth submissions.
 - **Status**: Verified & passing tests
 
+#### Commit 13/27 · `2026-04-23 13:23:04 +0300`
+- **Summary**: refactor(ui): extract social button click handler with try-catch in SignInForm
+- **Details**: Robust error capture to prevent unhandled promise rejections.
+- **Status**: Verified & passing tests
+
