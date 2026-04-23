@@ -26,3 +26,8 @@
 - **Details**: Clean visual separation between social logins and email/password inputs.
 - **Status**: Verified & passing tests
 
+#### Commit 5/27 · `2026-04-23 10:27:41 +0300`
+- **Summary**: feat(ui): add socialLoading state tracking individual provider requests
+- **Details**: Shows 'Connecting...' on the clicked provider while disabling others.
+- **Status**: Verified & passing tests
+
