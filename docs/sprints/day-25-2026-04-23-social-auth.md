@@ -101,3 +101,8 @@
 - **Details**: Verified blue, green, yellow, and red color paths render crisp at all zoom levels.
 - **Status**: Verified & passing tests
 
+#### Commit 20/27 · `2026-04-23 15:56:32 +0300`
+- **Summary**: test(ui): verify GitHub icon adapts to dark and light mode contrast
+- **Details**: Icon uses currentColor so it renders crisp white in dark mode and charcoal in light mode.
+- **Status**: Verified & passing tests
+
