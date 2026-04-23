@@ -36,3 +36,8 @@
 - **Details**: Gives new users a frictionless 1-click registration path via Google.
 - **Status**: Verified & passing tests
 
+#### Commit 7/27 · `2026-04-23 11:11:32 +0300`
+- **Summary**: feat(ui): add Continue with GitHub button in SignUpForm.tsx
+- **Details**: Allows developers to create an account directly with GitHub.
+- **Status**: Verified & passing tests
+
