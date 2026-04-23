@@ -111,3 +111,8 @@
 - **Details**: Ensures comfortable 44px touch targets on mobile touchscreens.
 - **Status**: Verified & passing tests
 
+#### Commit 22/27 · `2026-04-23 16:40:23 +0300`
+- **Summary**: feat(ui): add keyboard focus-visible ring around social buttons
+- **Details**: Accessible keyboard navigation support for tab key power users.
+- **Status**: Verified & passing tests
+
