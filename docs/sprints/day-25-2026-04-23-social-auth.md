@@ -81,3 +81,8 @@
 - **Details**: Satisfying tactile feedback when tapping buttons.
 - **Status**: Verified & passing tests
 
+#### Commit 16/27 · `2026-04-23 14:28:50 +0300`
+- **Summary**: feat(ui): preserve callbackUrl query parameter on social sign-in
+- **Details**: Redirects user back to their project or invite link after social auth.
+- **Status**: Verified & passing tests
+
