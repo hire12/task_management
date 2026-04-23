@@ -11,3 +11,8 @@
 - **Details**: Built lightweight vector components for authentic brand icons.
 - **Status**: Verified & passing tests
 
+#### Commit 2/27 · `2026-04-23 09:21:55 +0300`
+- **Summary**: feat(ui): add Continue with Google button in SignInForm.tsx
+- **Details**: 1-click Google OAuth button with hover styles and active scale feedback.
+- **Status**: Verified & passing tests
+
