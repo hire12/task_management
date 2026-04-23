@@ -61,3 +61,8 @@
 - **Details**: Floating card aesthetic matching Orbit's modern surface tokens.
 - **Status**: Verified & passing tests
 
+#### Commit 12/27 · `2026-04-23 13:01:09 +0300`
+- **Summary**: feat(ui): disable form submission buttons while social OAuth is connecting
+- **Details**: Prevents race conditions from simultaneous email and OAuth submissions.
+- **Status**: Verified & passing tests
+
