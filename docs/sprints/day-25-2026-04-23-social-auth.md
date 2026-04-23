@@ -31,3 +31,8 @@
 - **Details**: Shows 'Connecting...' on the clicked provider while disabling others.
 - **Status**: Verified & passing tests
 
+#### Commit 6/27 · `2026-04-23 10:49:36 +0300`
+- **Summary**: feat(ui): add Continue with Google button in SignUpForm.tsx
+- **Details**: Gives new users a frictionless 1-click registration path via Google.
+- **Status**: Verified & passing tests
+
