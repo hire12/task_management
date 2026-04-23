@@ -71,3 +71,8 @@
 - **Details**: Robust error capture to prevent unhandled promise rejections.
 - **Status**: Verified & passing tests
 
+#### Commit 14/27 · `2026-04-23 13:45:00 +0300`
+- **Summary**: refactor(ui): extract social button click handler with try-catch in SignUpForm
+- **Details**: Ensures clean UI reset if OAuth popup is closed prematurely.
+- **Status**: Verified & passing tests
+
