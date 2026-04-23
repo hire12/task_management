@@ -116,3 +116,8 @@
 - **Details**: Accessible keyboard navigation support for tab key power users.
 - **Status**: Verified & passing tests
 
+#### Commit 23/27 · `2026-04-23 17:02:18 +0300`
+- **Summary**: docs(ui): document SocialIcons component props and usage guidelines
+- **Details**: Added developer usage notes in docs/sprints/day-25-social-auth-ui.md.
+- **Status**: Verified & passing tests
+
