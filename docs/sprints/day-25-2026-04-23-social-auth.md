@@ -41,3 +41,8 @@
 - **Details**: Allows developers to create an account directly with GitHub.
 - **Status**: Verified & passing tests
 
+#### Commit 8/27 · `2026-04-23 11:33:27 +0300`
+- **Summary**: feat(ui): add OR divider in SignUpForm.tsx matching sign-in layout
+- **Details**: Consistent design language across both auth entry points.
+- **Status**: Verified & passing tests
+
