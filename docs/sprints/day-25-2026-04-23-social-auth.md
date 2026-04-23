@@ -21,3 +21,8 @@
 - **Details**: Matching GitHub OAuth button with authentic styling.
 - **Status**: Verified & passing tests
 
+#### Commit 4/27 · `2026-04-23 10:05:46 +0300`
+- **Summary**: feat(ui): add OR CONTINUE WITH horizontal divider in SignInForm.tsx
+- **Details**: Clean visual separation between social logins and email/password inputs.
+- **Status**: Verified & passing tests
+
