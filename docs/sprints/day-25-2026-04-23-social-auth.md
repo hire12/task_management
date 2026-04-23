@@ -91,3 +91,8 @@
 - **Details**: Uses semibold text-xs matching Orbit's typography hierarchy.
 - **Status**: Verified & passing tests
 
+#### Commit 18/27 · `2026-04-23 15:12:41 +0300`
+- **Summary**: feat(ui): add disabled opacity styling on social buttons during loading
+- **Details**: Dimmed opacity-60 when a request is in-flight.
+- **Status**: Verified & passing tests
+
