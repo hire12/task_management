@@ -146,3 +146,8 @@
 - **Details**: Full database state restoration handles social accounts cleanly.
 - **Status**: Verified & passing tests
 
+#### Commit 29/36 · `2026-04-24 16:36:00 +0300`
+- **Summary**: test(portal): verify guest client portal /p/[token] remains accessible
+- **Details**: Confirmed public portals function without interfering with social auth.
+- **Status**: Verified & passing tests
+
