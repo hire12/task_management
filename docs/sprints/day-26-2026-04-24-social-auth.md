@@ -31,3 +31,8 @@
 - **Details**: Users can log in with either Google or GitHub if both use the same email.
 - **Status**: Verified & passing tests
 
+#### Commit 6/36 · `2026-04-24 10:21:25 +0300`
+- **Summary**: refactor(workspace): verify workspace tenant isolation for OAuth users
+- **Details**: Ensures social login accounts strictly adhere to personal vs team space boundaries.
+- **Status**: Verified & passing tests
+
