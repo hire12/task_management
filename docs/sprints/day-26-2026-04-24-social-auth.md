@@ -61,3 +61,8 @@
 - **Details**: Tested OAuth session token creation and verification in PostgreSQL.
 - **Status**: Verified & passing tests
 
+#### Commit 12/36 · `2026-04-24 11:59:08 +0300`
+- **Summary**: test(oauth): verify GitHub OAuth session creation and database persistence
+- **Details**: Tested GitHub login workflow and member table associations.
+- **Status**: Verified & passing tests
+
