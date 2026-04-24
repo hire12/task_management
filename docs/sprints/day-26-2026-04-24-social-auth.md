@@ -81,3 +81,8 @@
 - **Details**: Audit trail records provider used (google/github) for login.
 - **Status**: Verified & passing tests
 
+#### Commit 16/36 · `2026-04-24 13:04:17 +0300`
+- **Summary**: feat(landing): update LandingPage with Google and GitHub 1-click sign-in callouts
+- **Details**: Highlights friction-free onboarding on the marketing landing page.
+- **Status**: Verified & passing tests
+
