@@ -131,3 +131,8 @@
 - **Details**: Official release: Better Auth API Key + Google & GitHub Social OAuth!
 - **Status**: Verified & passing tests
 
+#### Commit 26/36 · `2026-04-24 15:47:08 +0300`
+- **Summary**: style(ui): final typography and micro-spacing audit across auth views
+- **Details**: Pixel-perfect alignment on all screen resolutions.
+- **Status**: Verified & passing tests
+
