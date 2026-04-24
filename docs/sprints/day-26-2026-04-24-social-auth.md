@@ -21,3 +21,8 @@
 - **Details**: Populates user's real name into session and workspace headers.
 - **Status**: Verified & passing tests
 
+#### Commit 4/36 · `2026-04-24 09:48:51 +0300`
+- **Summary**: feat(oauth): sync profile avatar image into User table and Header component
+- **Details**: UserProfileDropdown displays user's social profile picture when available.
+- **Status**: Verified & passing tests
+
