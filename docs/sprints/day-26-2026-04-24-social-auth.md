@@ -171,3 +171,8 @@
 - **Details**: Prepares infrastructure for Google Calendar or GitHub Issues integrations.
 - **Status**: Verified & passing tests
 
+#### Commit 34/36 · `2026-04-24 17:57:25 +0300`
+- **Summary**: style(ui): optimize dark mode border contrast on social buttons
+- **Details**: Sleek contrast against dark surface backgrounds.
+- **Status**: Verified & passing tests
+
