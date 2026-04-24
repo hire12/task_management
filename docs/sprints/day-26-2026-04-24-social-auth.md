@@ -156,3 +156,8 @@
 - **Details**: Tested joining team workspace immediately after Google sign-in.
 - **Status**: Verified & passing tests
 
+#### Commit 31/36 · `2026-04-24 17:08:34 +0300`
+- **Summary**: style(ui): add tooltips explaining OAuth data privacy to users
+- **Details**: Reassures users that only basic profile info and email are requested.
+- **Status**: Verified & passing tests
+
