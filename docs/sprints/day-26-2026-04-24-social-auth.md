@@ -166,3 +166,8 @@
 - **Details**: Short-lived 10-minute expiry on OAuth state cookies for maximum security.
 - **Status**: Verified & passing tests
 
+#### Commit 33/36 · `2026-04-24 17:41:08 +0300`
+- **Summary**: feat(auth): support refreshing OAuth access tokens on background workers
+- **Details**: Prepares infrastructure for Google Calendar or GitHub Issues integrations.
+- **Status**: Verified & passing tests
+
