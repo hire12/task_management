@@ -76,3 +76,8 @@
 - **Details**: Eye-catching visual polish encouraging quick sign-ups.
 - **Status**: Verified & passing tests
 
+#### Commit 15/36 · `2026-04-24 12:48:00 +0300`
+- **Summary**: feat(oauth): log USER_SOCIAL_LOGIN event to ActivityLog table
+- **Details**: Audit trail records provider used (google/github) for login.
+- **Status**: Verified & passing tests
+
