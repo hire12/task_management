@@ -91,3 +91,8 @@
 - **Details**: Confirmed npm run build passes with exit code 0.
 - **Status**: Verified & passing tests
 
+#### Commit 18/36 · `2026-04-24 13:36:51 +0300`
+- **Summary**: refactor(code): clean up unused variables in SignInForm and SignUpForm
+- **Details**: Zero ESLint and TypeScript compilation warnings.
+- **Status**: Verified & passing tests
+
