@@ -141,3 +141,8 @@
 - **Details**: Backup JSON dumps preserve account provider metadata.
 - **Status**: Verified & passing tests
 
+#### Commit 28/36 · `2026-04-24 16:19:42 +0300`
+- **Summary**: feat(sync): restore OAuth account mappings during data import
+- **Details**: Full database state restoration handles social accounts cleanly.
+- **Status**: Verified & passing tests
+
