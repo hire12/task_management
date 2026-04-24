@@ -16,3 +16,8 @@
 - **Details**: Social users immediately get their private sandbox without extra setup.
 - **Status**: Verified & passing tests
 
+#### Commit 3/36 · `2026-04-24 09:32:34 +0300`
+- **Summary**: feat(oauth): sync user display name from Google and GitHub profiles
+- **Details**: Populates user's real name into session and workspace headers.
+- **Status**: Verified & passing tests
+
