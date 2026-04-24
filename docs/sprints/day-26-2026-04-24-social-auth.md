@@ -136,3 +136,8 @@
 - **Details**: Pixel-perfect alignment on all screen resolutions.
 - **Status**: Verified & passing tests
 
+#### Commit 27/36 · `2026-04-24 16:03:25 +0300`
+- **Summary**: feat(backup): include linked OAuth accounts in workspace backup export
+- **Details**: Backup JSON dumps preserve account provider metadata.
+- **Status**: Verified & passing tests
+
