@@ -126,3 +126,8 @@
 - **Details**: Documented social auth implementation, architecture, and verification results.
 - **Status**: Verified & passing tests
 
+#### Commit 25/36 · `2026-04-24 15:30:51 +0300`
+- **Summary**: feat(release): stamp v2.6.0-social-auth release milestone
+- **Details**: Official release: Better Auth API Key + Google & GitHub Social OAuth!
+- **Status**: Verified & passing tests
+
