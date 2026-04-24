@@ -106,3 +106,8 @@
 - **Details**: Renders friendly error when user cancels OAuth consent dialog.
 - **Status**: Verified & passing tests
 
+#### Commit 21/36 · `2026-04-24 14:25:42 +0300`
+- **Summary**: feat(security): enforce rate-limiting on OAuth callback endpoint
+- **Details**: Guards against automated replay attacks on auth endpoints.
+- **Status**: Verified & passing tests
+
