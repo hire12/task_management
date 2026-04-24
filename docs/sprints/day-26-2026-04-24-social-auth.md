@@ -51,3 +51,8 @@
 - **Details**: Graceful fallback to two-letter initials if avatar image fails to load.
 - **Status**: Verified & passing tests
 
+#### Commit 10/36 · `2026-04-24 11:26:34 +0300`
+- **Summary**: feat(invite): seamless invite acceptance when signing in via Google/GitHub
+- **Details**: Invited teammates can click 'Continue with Google' and join the team instantly.
+- **Status**: Verified & passing tests
+
