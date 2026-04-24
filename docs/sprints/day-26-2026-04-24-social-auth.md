@@ -121,3 +121,8 @@
 - **Details**: Added comprehensive setup documentation for social login credentials.
 - **Status**: Verified & passing tests
 
+#### Commit 24/36 · `2026-04-24 15:14:34 +0300`
+- **Summary**: docs(sprints): create Day 26 sprint engineering log in docs/sprints/
+- **Details**: Documented social auth implementation, architecture, and verification results.
+- **Status**: Verified & passing tests
+
