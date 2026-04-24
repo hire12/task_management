@@ -66,3 +66,8 @@
 - **Details**: Tested GitHub login workflow and member table associations.
 - **Status**: Verified & passing tests
 
+#### Commit 13/36 · `2026-04-24 12:15:25 +0300`
+- **Summary**: refactor(auth): ensure session cookieCache properly invalidates on OAuth sign out
+- **Details**: Instant cache purge on logout across all browser tabs.
+- **Status**: Verified & passing tests
+
