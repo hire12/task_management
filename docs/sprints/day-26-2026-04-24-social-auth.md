@@ -116,3 +116,8 @@
 - **Details**: Ensures forms fit without horizontal scrollbars on 320px screens.
 - **Status**: Verified & passing tests
 
+#### Commit 23/36 · `2026-04-24 14:58:17 +0300`
+- **Summary**: docs: update README.md with Google and GitHub OAuth setup guide
+- **Details**: Added comprehensive setup documentation for social login credentials.
+- **Status**: Verified & passing tests
+
