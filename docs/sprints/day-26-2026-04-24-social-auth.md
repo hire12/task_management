@@ -101,3 +101,8 @@
 - **Details**: Harmonious 24px gap with centered text divider.
 - **Status**: Verified & passing tests
 
+#### Commit 20/36 · `2026-04-24 14:09:25 +0300`
+- **Summary**: feat(oauth): add support for OAuth error query param handling on sign-in page
+- **Details**: Renders friendly error when user cancels OAuth consent dialog.
+- **Status**: Verified & passing tests
+
