@@ -111,3 +111,8 @@
 - **Details**: Guards against automated replay attacks on auth endpoints.
 - **Status**: Verified & passing tests
 
+#### Commit 22/36 · `2026-04-24 14:42:00 +0300`
+- **Summary**: style(ui): polish mobile viewport responsive padding on auth cards
+- **Details**: Ensures forms fit without horizontal scrollbars on 320px screens.
+- **Status**: Verified & passing tests
+
