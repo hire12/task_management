@@ -161,3 +161,8 @@
 - **Details**: Reassures users that only basic profile info and email are requested.
 - **Status**: Verified & passing tests
 
+#### Commit 32/36 · `2026-04-24 17:24:51 +0300`
+- **Summary**: feat(security): verify CSRF state token cookie lifetime and expiration
+- **Details**: Short-lived 10-minute expiry on OAuth state cookies for maximum security.
+- **Status**: Verified & passing tests
+
