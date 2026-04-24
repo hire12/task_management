@@ -46,3 +46,8 @@
 - **Details**: Ensures callbackURL only routes to internal paths or whitelisted origins.
 - **Status**: Verified & passing tests
 
+#### Commit 9/36 · `2026-04-24 11:10:17 +0300`
+- **Summary**: style(ui): polish UserProfileDropdown avatar rendering for social image URLs
+- **Details**: Graceful fallback to two-letter initials if avatar image fails to load.
+- **Status**: Verified & passing tests
+
