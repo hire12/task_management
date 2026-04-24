@@ -151,3 +151,8 @@
 - **Details**: Confirmed public portals function without interfering with social auth.
 - **Status**: Verified & passing tests
 
+#### Commit 30/36 · `2026-04-24 16:52:17 +0300`
+- **Summary**: test(invite): verify 1-click team join link /invite/[token] with social auth
+- **Details**: Tested joining team workspace immediately after Google sign-in.
+- **Status**: Verified & passing tests
+
