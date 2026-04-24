@@ -36,3 +36,8 @@
 - **Details**: Ensures social login accounts strictly adhere to personal vs team space boundaries.
 - **Status**: Verified & passing tests
 
+#### Commit 7/36 · `2026-04-24 10:37:42 +0300`
+- **Summary**: feat(security): enforce secure session cookie attributes on OAuth response
+- **Details**: HttpOnly, SameSite=Lax, and Secure flags applied to session cookies.
+- **Status**: Verified & passing tests
+
