@@ -41,3 +41,8 @@
 - **Details**: HttpOnly, SameSite=Lax, and Secure flags applied to session cookies.
 - **Status**: Verified & passing tests
 
+#### Commit 8/36 · `2026-04-24 10:54:00 +0300`
+- **Summary**: feat(security): sanitize OAuth redirect URLs to prevent open redirect vulnerabilities
+- **Details**: Ensures callbackURL only routes to internal paths or whitelisted origins.
+- **Status**: Verified & passing tests
+
