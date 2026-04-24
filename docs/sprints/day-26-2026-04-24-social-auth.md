@@ -26,3 +26,8 @@
 - **Details**: UserProfileDropdown displays user's social profile picture when available.
 - **Status**: Verified & passing tests
 
+#### Commit 5/36 · `2026-04-24 10:05:08 +0300`
+- **Summary**: feat(oauth): support linking multiple OAuth accounts to a single email address
+- **Details**: Users can log in with either Google or GitHub if both use the same email.
+- **Status**: Verified & passing tests
+
