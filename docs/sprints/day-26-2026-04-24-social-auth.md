@@ -71,3 +71,8 @@
 - **Details**: Instant cache purge on logout across all browser tabs.
 - **Status**: Verified & passing tests
 
+#### Commit 14/36 · `2026-04-24 12:31:42 +0300`
+- **Summary**: style(ui): add subtle glow animation on social buttons on landing page
+- **Details**: Eye-catching visual polish encouraging quick sign-ups.
+- **Status**: Verified & passing tests
+
