@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { getWorkspaces, getProjects } from "@/app/actions/projects";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
+import { getUserWorkspaces, ensurePersonalWorkspace } from "@/lib/workspace";
+import { getProjects } from "@/app/actions/projects";
 import { Shell } from "@/components/Shell";
 
 export const metadata: Metadata = {
@@ -13,9 +16,30 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const workspaces = await getWorkspaces();
-  const defaultWorkspace = workspaces[0];
-  const allProjects = await getProjects(defaultWorkspace?.id);
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  let activeWorkspaceId = "";
+  let workspaceProjects: { id: string; title: string; parentId: string | null }[] = [];
+
+  if (session?.user) {
+    let workspaces = await getUserWorkspaces(session.user.id);
+    if (workspaces.length === 0) {
+      await ensurePersonalWorkspace(session.user.id, session.user.name || "Personal");
+      workspaces = await getUserWorkspaces(session.user.id);
+    }
+    const defaultWorkspace = workspaces[0];
+    activeWorkspaceId = defaultWorkspace?.id || "";
+    if (activeWorkspaceId) {
+      const allProjects = await getProjects(activeWorkspaceId);
+      workspaceProjects = allProjects.map((p) => ({
+        id: p.id,
+        title: p.title,
+        parentId: p.parentId,
+      }));
+    }
+  }
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -36,12 +60,8 @@ export default async function RootLayout({
       </head>
       <body className="antialiased">
         <Shell
-          workspaceId={defaultWorkspace?.id || ""}
-          projects={allProjects.map((p) => ({
-            id: p.id,
-            title: p.title,
-            parentId: p.parentId,
-          }))}
+          workspaceId={activeWorkspaceId}
+          projects={workspaceProjects}
         >
           {children}
         </Shell>

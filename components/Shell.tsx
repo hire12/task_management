@@ -23,20 +23,21 @@ export const Shell: React.FC<ShellProps> = ({
   projects,
 }) => {
   const pathname = usePathname();
-  const { data: session, isPending } = useSession();
+  const { data: session } = useSession();
   const [isCommandOpen, setIsCommandOpen] = useState(false);
   const [isNewProjectOpen, setIsNewProjectOpen] = useState(false);
   const [isNewTaskOpen, setIsNewTaskOpen] = useState(false);
 
-  // If on public standalone routes, render clean container without dashboard sidebar/header
+  // Standalone public routes (auth, invite, guest preview)
   const isPublicAuthOrPortal =
     pathname.startsWith("/auth/") ||
     pathname.startsWith("/invite/") ||
     pathname.startsWith("/p/");
 
-  const isPublicLanding = pathname === "/" && !session?.user && !isPending;
+  const isPublicLanding = pathname === "/" && !session?.user;
 
-  if (isPublicAuthOrPortal || isPublicLanding) {
+  // If on public pages or unauthenticated, render direct page container without dashboard shell
+  if (isPublicAuthOrPortal || isPublicLanding || !workspaceId) {
     return (
       <div className="min-h-screen bg-page text-content-primary">
         {children}
