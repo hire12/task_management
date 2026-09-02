@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { organization } from "better-auth/plugins";
+import { dash } from "@better-auth/infra";
 import { db } from "./db";
 
 export const auth = betterAuth({
@@ -45,5 +46,6 @@ export const auth = betterAuth({
       allowUserToCreateOrganization: true,
       creatorRole: "owner",
     }),
+    dash(),
   ],
 });
