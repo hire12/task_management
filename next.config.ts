@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "2mb",
     },
   },
+  allowedDevOrigins: [
+    "carpellary-randolph-syndromic.ngrok-free.dev",
+    "*.ngrok-free.dev",
+    "*.ngrok-free.app",
+  ],
 };
 
 export default nextConfig;
