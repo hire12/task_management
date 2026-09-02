@@ -5,13 +5,19 @@ import { revalidatePath } from "next/cache";
 import { TaskStatus, PriorityLevel } from "@prisma/client";
 import { recalculateProjectProgress } from "./projects";
 
-export async function getTodayTasks() {
-  return db.task.findMany({
-    where: {
-      project: {
-        temporalHorizon: "ACTIVE",
-      },
+export async function getTodayTasks(workspaceId?: string) {
+  const where: any = {
+    project: {
+      temporalHorizon: "ACTIVE",
     },
+  };
+
+  if (workspaceId) {
+    where.project.workspaceId = workspaceId;
+  }
+
+  return db.task.findMany({
+    where,
     include: {
       project: true,
       subtasks: true,

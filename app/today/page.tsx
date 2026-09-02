@@ -1,10 +1,38 @@
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
+import { getUserWorkspaces, ensurePersonalWorkspace } from "@/lib/workspace";
 import { getTodayTasks } from "@/app/actions/tasks";
 import { TodayHUD } from "@/components/TodayHUD";
 import { D3Sparkline } from "@/components/D3Sparkline";
 import { Lightning } from "@phosphor-icons/react/dist/ssr";
 
-export default async function TodayPage() {
-  const tasks = await getTodayTasks();
+interface PageProps {
+  searchParams: Promise<{ workspaceId?: string }>;
+}
+
+export default async function TodayPage({ searchParams }: PageProps) {
+  const params = await searchParams;
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session?.user) {
+    redirect("/auth/sign-in?callbackUrl=/today");
+  }
+
+  let workspaces = await getUserWorkspaces(session.user.id);
+  if (workspaces.length === 0) {
+    await ensurePersonalWorkspace(session.user.id, session.user.name || "Personal");
+    workspaces = await getUserWorkspaces(session.user.id);
+  }
+
+  const requestedWorkspace = params.workspaceId
+    ? workspaces.find((w) => w.id === params.workspaceId)
+    : null;
+  const activeWorkspace = requestedWorkspace || workspaces[0];
+
+  const tasks = activeWorkspace ? await getTodayTasks(activeWorkspace.id) : [];
 
   const total = tasks.length;
   const completed = tasks.filter((t) => t.status === "DONE").length;
@@ -21,11 +49,16 @@ export default async function TodayPage() {
             <Lightning weight="duotone" className="w-6 h-6" />
           </div>
           <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-success/15 text-success border border-success/20">
+                {activeWorkspace?.name || "Personal Space"}
+              </span>
+            </div>
             <h1 className="text-[22px] font-semibold text-content-primary tracking-tight">
-              Today's Daily Focus HUD
+              Today&apos;s Daily Focus HUD
             </h1>
             <p className="text-[14px] text-content-secondary mt-0.5">
-              Aggregated high-leverage tasks across all active projects.
+              Aggregated high-leverage tasks across active projects in this workspace.
             </p>
           </div>
         </div>
